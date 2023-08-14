@@ -9,5 +9,5 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [require("flowbite/plugin"), require("tw-bootstrap-grid-optimizer")],
+  plugins: [require("flowbite/plugin")],
 };
