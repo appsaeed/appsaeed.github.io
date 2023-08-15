@@ -1,27 +1,17 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy local project to Github Pages
-
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+    branches:
+      - main
+  workflow_dispatch: null
 permissions:
   contents: read
   pages: write
   id-token: write
-
-# Allow one concurrent deployment
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
-
 jobs:
-  # Single deploy job since we're just deploying
   environment:
     name: github-pages
     url: ${{ steps.deployment.outputs.page_url }}
@@ -33,33 +23,27 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18
-        cache: "npm"
-
+        cache: npm
     - name: Saeed Install node_modules
       run: npm install
-
     - name: Saeed Build Page
       run: npm run build
-
     - name: Saeed Upload production-ready build files
       uses: actions/upload-artifact@v2
       with:
         name: Saeed production-files
         path: ./dist
-
   deploy:
     name: Saeed Deploy
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
-
     steps:
       - name: Saeed Download artifact
         uses: actions/download-artifact@v2
         with:
           name: Saeed production-files
           path: ./dist
-
       - name: Saeed Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
