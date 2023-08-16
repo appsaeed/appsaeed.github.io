@@ -31,9 +31,6 @@ export default {
         lg: "1200px",
         xl: "1700px",
       },
-      backgroundImage: {
-        "hero-pattern": "url('/src/assets/herobg.png')",
-      },
     },
   },
   plugins: [require("flowbite/plugin")],

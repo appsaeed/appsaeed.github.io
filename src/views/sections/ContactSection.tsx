@@ -1,4 +1,4 @@
-import { support } from "../../assets/assets";
+import assets from "../../assets";
 import Image from "../../components/Image";
 import InputwithLabel from "../../components/InputwithLabel";
 import SectionHeader from "../../components/SectionHeader";
@@ -12,7 +12,7 @@ export default function ContactSection() {
       <div class="grid grid-cols-1 sm:grid-cols-2">
         {/* secound part */}
         <div class="mx-auto">
-          <Image class="w-full h-full" url={support} />
+          <Image class="w-full h-full" url={assets.support} />
         </div>
 
         {/* form/ */}

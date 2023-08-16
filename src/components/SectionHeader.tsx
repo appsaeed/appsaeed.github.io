@@ -6,7 +6,7 @@ type SectionHeaderProps = {
 } & Divattr;
 export default function SectionHeader({ text, classs, ...props }: SectionHeaderProps) {
   return (
-    <div {...props} class={`text-4xl mb-12 text-center ${classs}`}>
+    <div {...props} class={` font-bold text-6xl mb-12 text-center ${classs}`}>
       {text}
     </div>
   );

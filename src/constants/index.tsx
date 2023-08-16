@@ -1,73 +1,28 @@
-import planet01 from "../assets/planet-01.png";
-import planet02 from "../assets/planet-02.png";
-import planet03 from "../assets/planet-03.png";
-import planet04 from "../assets/planet-04.png";
-import planet05 from "../assets/planet-05.png";
-
-import {
-  airbnb,
-  binance,
-  coinbase,
-  dropbox,
-  facebook,
-  instagram,
-  linkedin,
-  people01,
-  people02,
-  people03,
-  send,
-  shield,
-  star,
-  twitter,
-} from "../assets/assets";
+import { BsLinkedin } from "solid-icons/bs";
+import { FiFacebook, FiInstagram, FiTwitter } from "solid-icons/fi";
+import assets from "../assets";
 
 export const features = [
   {
     id: "feature-1",
-    icon: star,
+    icon: "",
     title: "Rewards",
     content:
       "The best credit cards offer some tantalizing combinations of promotions and prizes",
   },
   {
     id: "feature-2",
-    icon: shield,
+    icon: "",
     title: "100% Secured",
     content:
       "We take proactive steps make sure your information and transactions are secure.",
   },
   {
     id: "feature-3",
-    icon: send,
+    icon: "",
     title: "Balance Transfer",
     content:
       "A balance transfer credit card can save you a lot of money in interest charges.",
-  },
-];
-
-export const feedback = [
-  {
-    id: "feedback-1",
-    content:
-      "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
-    name: "Herman Jensen",
-    title: "Founder & Leader",
-    img: people01,
-  },
-  {
-    id: "feedback-2",
-    content: "Money makes your life easier. If you're lucky to have it, you're lucky.",
-    name: "Steve Mark",
-    title: "Founder & Leader",
-    img: people02,
-  },
-  {
-    id: "feedback-3",
-    content:
-      "It is usually people in the money business, finance, and international trade that are really rich.",
-    name: "Kenn Gallagher",
-    title: "Founder & Leader",
-    img: people03,
   },
 ];
 
@@ -158,68 +113,50 @@ export const footerLinks = [
 export const socialMedia = [
   {
     id: "social-media-1",
-    icon: instagram,
+    icon: <FiInstagram />,
     link: "https://www.instagram.com/",
   },
   {
     id: "social-media-2",
-    icon: facebook,
+    icon: <FiFacebook />,
     link: "https://www.facebook.com/",
   },
   {
     id: "social-media-3",
-    icon: twitter,
+    icon: <FiTwitter />,
     link: "https://www.twitter.com/",
   },
   {
     id: "social-media-4",
-    icon: linkedin,
+    icon: <BsLinkedin />,
     link: "https://www.linkedin.com/",
   },
 ];
 
-export const clients = [
-  {
-    id: "client-1",
-    logo: airbnb,
-  },
-  {
-    id: "client-2",
-    logo: binance,
-  },
-  {
-    id: "client-3",
-    logo: coinbase,
-  },
-  {
-    id: "client-4",
-    logo: dropbox,
-  },
-];
 export const exploreWorlds = [
   {
     id: "world-1",
-    imgUrl: planet01,
+    imgUrl: assets.planet01,
     title: "The Hogwarts",
   },
   {
     id: "world-2",
-    imgUrl: planet02,
+    imgUrl: assets.planet02,
     title: "The Upside Down",
   },
   {
     id: "world-3",
-    imgUrl: planet03,
+    imgUrl: assets.planet03,
     title: "Kadirojo Permai",
   },
   {
     id: "world-4",
-    imgUrl: planet04,
+    imgUrl: assets.planet04,
     title: "Paradise Island",
   },
   {
     id: "world-5",
-    imgUrl: planet05,
+    imgUrl: assets.planet05,
     title: "Hawkins Labs",
   },
 ];
@@ -246,19 +183,19 @@ export const newFeatures = [
 
 export const insights = [
   {
-    imgUrl: "/planet-06.png",
+    imgUrl: assets.planet06,
     title: "The launch of the Metaverse makes Elon musk ketar-ketir",
     subtitle:
       "Magna etiam tempor orci eu lobortis elementum nibh tellus molestie. Diam maecenas sed enim ut sem viverra alique.",
   },
   {
-    imgUrl: "/planet-07.png",
+    imgUrl: assets.planet07,
     title: "7 tips to easily master the madness of the Metaverse",
     subtitle:
       "Vitae congue eu consequat ac felis donec. Et magnis dis parturient montes nascetur ridiculus mus. Convallis tellus id interdum",
   },
   {
-    imgUrl: "/planet-08.png",
+    imgUrl: assets.planet08,
     title: "With one platform you can explore the whole world virtually",
     subtitle:
       "Quam quisque id diam vel quam elementum. Viverra nam libero justo laoreet sit amet cursus sit. Mauris in aliquam sem",
@@ -284,33 +221,6 @@ export const socials = [
   },
 ];
 
-import {
-  backend,
-  carrent,
-  creator,
-  css,
-  docker,
-  figma,
-  git,
-  html,
-  javascript,
-  jobit,
-  meta,
-  mobile,
-  mongodb,
-  nodejs,
-  reactjs,
-  redux,
-  shopify,
-  starbucks,
-  tailwind,
-  tesla,
-  threejs,
-  tripguide,
-  typescript,
-  web,
-} from "../assets";
-
 export const navLinks = [
   {
     id: "about",
@@ -326,85 +236,11 @@ export const navLinks = [
   },
 ];
 
-const services = [
-  {
-    title: "Web Developer",
-    icon: web,
-  },
-  {
-    title: "React Native Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-    title: "Content Creator",
-    icon: creator,
-  },
-];
-
-const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
-];
-
 const experiences = [
   {
     title: "React.js Developer",
     company_name: "Starbucks",
-    icon: starbucks,
+    icon: "",
     iconBg: "#383E56",
     date: "March 2020 - April 2021",
     points: [
@@ -417,7 +253,7 @@ const experiences = [
   {
     title: "React Native Developer",
     company_name: "Tesla",
-    icon: tesla,
+    icon: "",
     iconBg: "#E6DEDD",
     date: "Jan 2021 - Feb 2022",
     points: [
@@ -430,7 +266,7 @@ const experiences = [
   {
     title: "Web Developer",
     company_name: "Shopify",
-    icon: shopify,
+    icon: "",
     iconBg: "#383E56",
     date: "Jan 2022 - Jan 2023",
     points: [
@@ -443,7 +279,7 @@ const experiences = [
   {
     title: "Full stack Developer",
     company_name: "Meta",
-    icon: meta,
+    icon: "",
     iconBg: "#E6DEDD",
     date: "Jan 2023 - Present",
     points: [
@@ -501,7 +337,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
+    image: "",
     source_code_link: "https://github.com/",
   },
   {
@@ -522,7 +358,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: "",
     source_code_link: "https://github.com/",
   },
   {
@@ -543,9 +379,9 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: "",
     source_code_link: "https://github.com/",
   },
 ];
 
-export { experiences, projects, services, technologies, testimonials };
+export { experiences, projects, testimonials };

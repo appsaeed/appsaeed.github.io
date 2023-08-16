@@ -1,5 +1,5 @@
 import { Link } from "@solidjs/router";
-import moon from "../../assets/moon_1823324-d04b9ad2.png";
+import moon from "../../assets/logo.png";
 import Image from "../../components/Image";
 
 export default function BrandLogo() {
