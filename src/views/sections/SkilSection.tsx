@@ -6,9 +6,9 @@ import { skils } from "../../data/data";
 
 export default function SkilSection() {
   return (
-    <section class={`py-10 border-y-[1px] border-gray-400 dark:border-gray-500 `}>
+    <section class={`w-full py-10`}>
       <SectionHeader text="Web frameworks and programming laguages knowlage" />
-      <div class={`grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2`}>
+      <div class={`grid grid-cols-1 sm:grid-cols-2`}>
         <div class="w-full">
           <div>
             <DeveloperActivitySvg class=" max-h-[360px] mx-auto" />
@@ -40,7 +40,7 @@ type KnowlagePrps = {
 
 export function Knowlage({ name, icon, percent, link }: KnowlagePrps) {
   return (
-    <div class="flex gap-4 border-b-[1px] m-3 pb-4 border-gray-300 dark:border-gray-500">
+    <div class="flex gap-4 m-3 pb-4 ">
       <div class="flex-auto w-12">
         <a target="_blank" href={link || ""}>
           <Image

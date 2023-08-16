@@ -4,7 +4,7 @@ import SectionHeader from "../../components/SectionHeader";
 import { exploreWorlds } from "../../constants/index";
 
 const Explore = () => {
-  const [active, setActive] = createSignal(exploreWorlds[0].imgUrl);
+  const [active, setActive] = createSignal("");
 
   return (
     <section id="explore" class="py-10">

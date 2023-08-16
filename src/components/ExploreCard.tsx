@@ -1,5 +1,3 @@
-"use client";
-
 import { BsLink45deg, BsPlus, BsShare } from "solid-icons/bs";
 import { shareToSocial } from "../utils/global";
 import Image from "./Image";
@@ -20,7 +18,13 @@ const ExploreCard = ({ imgUrl, title, active, setActive }: ExploreCardProps) => 
             ? "lg:flex-[3.5] h-[60vh] sm:h-[60vh]"
             : "lg:flex-[0.5] h-[100px] sm:h-[100px]"
         }`}
-        onClick={() => setActive(imgUrl)}
+        onClick={() => {
+          if (active() == imgUrl) {
+            setActive("");
+          } else {
+            setActive(imgUrl);
+          }
+        }}
       >
         <Image
           url={imgUrl}
@@ -39,11 +43,7 @@ const ExploreCard = ({ imgUrl, title, active, setActive }: ExploreCardProps) => 
           }`}
         >
           <div class="flex justify-around">
-            <div
-              class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle"
-              data-modal-target="defaultModal"
-              data-modal-toggle="defaultModal"
-            >
+            <div class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle">
               <BsPlus class="w-full text-4xl mx-auto" />
             </div>
             <a
