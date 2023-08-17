@@ -3,10 +3,11 @@ import Image from "../../components/Image";
 import InputwithLabel from "../../components/InputwithLabel";
 import SectionHeader from "../../components/SectionHeader";
 import TextareaWithLabel from "../../components/TextareaWithLabel";
+import { HtmlAttr } from "../../types/dom";
 
-export default function ContactSection() {
+export default function ContactSection(props: HtmlAttr) {
   return (
-    <section class="w-full py-10">
+    <section {...props}>
       <SectionHeader text="Contact Me" />
 
       <div class="grid grid-cols-1 sm:grid-cols-2">

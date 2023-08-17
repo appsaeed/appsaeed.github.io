@@ -1,9 +1,11 @@
 import assets from "../../assets";
 import Image from "../../components/Image";
+import ButtonGradient from "../../components/buttons/ButtonGradient";
+import { HtmlAttr } from "../../types/dom";
 
-export default function CardBusinessSection() {
+export default function CardBusinessSection(props: HtmlAttr) {
   return (
-    <section class={"w-full py-10"}>
+    <section {...props}>
       <div class="sm:flex">
         <div class={""}>
           <h2
@@ -18,12 +20,7 @@ export default function CardBusinessSection() {
             eget mauris tortor.ç Aliquet ultrices ac, ametau.
           </p>
 
-          <button
-            type="button"
-            class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm py-2.5 text-center my-8 px-6"
-          >
-            Start now
-          </button>
+          <ButtonGradient>Start now</ButtonGradient>
         </div>
 
         <div class={""}>

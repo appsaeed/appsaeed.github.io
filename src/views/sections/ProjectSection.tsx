@@ -1,10 +1,11 @@
 import { Link } from "@solidjs/router";
 import { FiCode } from "solid-icons/fi";
 import { VsLiveShare } from "solid-icons/vs";
-import { For, JSXElement } from "solid-js";
+import { For, JSX, JSXElement } from "solid-js";
 import Image from "../../components/Image";
 import SectionDescription from "../../components/SectionDescription";
 import SectionHeader from "../../components/SectionHeader";
+import sections from "../../data/className/sections";
 
 const projects = [
   {
@@ -35,9 +36,9 @@ const projects = [
   },
 ];
 
-export default function ProjectSection() {
+export default function ProjectSection(props: JSX.HTMLAttributes<HTMLElement>) {
   return (
-    <section class="w-full mx-auto">
+    <section class={`${sections.common} ${props.class}`} {...props}>
       <SectionHeader text="Most recents projects" />
       <SectionDescription
         text="Following projects showcases my skills and experience through real-world examples of

@@ -1,15 +1,41 @@
+import { avatar } from "appmon/generate";
 import { initFlowbite } from "flowbite";
-import { onMount } from "solid-js";
+import { createEffect, createSignal, onMount } from "solid-js";
+import Image from "../../components/Image";
+import sections from "../../data/className/sections";
 import BrandLogo from "./BrandLogo";
 
 export default function Navbar() {
+  const [fixed, setFixed] = createSignal(false);
   onMount(() => {
     initFlowbite();
   });
+
+  createEffect(() => {
+    if (document.documentElement.scrollTop > 100) {
+      setFixed(true);
+    } else {
+      setFixed(false);
+    }
+    window.addEventListener("scroll", function () {
+      const offset = document.documentElement.scrollTop;
+      if (offset > 100) {
+        setFixed(true);
+      } else {
+        setFixed(false);
+      }
+    });
+  });
+
   return (
-    <>
-      <nav class="bg-white border-gray-200 dark:bg-gray-900">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <header
+      id="header"
+      class={`transition-all z-[999999] top-0 left-0 right-0 w-full bg-white border-gray-200 dark:bg-gray-900 ${
+        fixed() ? "fixed py-3" : "py-4"
+      }`}
+    >
+      <nav class={`${sections.headerfooter.common} w-full`}>
+        <div class="w-full flex flex-wrap items-center justify-between mx-auto">
           <BrandLogo />
 
           <div class="flex items-center md:order-2">
@@ -22,9 +48,9 @@ export default function Navbar() {
               data-dropdown-placement="bottom"
             >
               <span class="sr-only">Open user menu</span>
-              <img
+              <Image
                 class="w-8 h-8 rounded-full"
-                src="https://lh3.googleusercontent.com/a/AAcHTtceQzDMl3tIs76_wp0-WJS8eAO1aVxx9S2DMBqF2IgqxA=s96-c"
+                url={avatar("saeed")}
                 alt="user photo"
               />
             </button>
@@ -151,6 +177,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-    </>
+    </header>
   );
 }

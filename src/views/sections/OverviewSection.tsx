@@ -1,6 +1,9 @@
-export default function OverviewSection() {
+import { JSX } from "solid-js";
+import sections from "../../data/className/sections";
+
+export default function OverviewSection(props: JSX.HTMLAttributes<HTMLElement>) {
   return (
-    <section class="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0">
+    <section class={`${sections.common} ${props.class}`} {...props}>
       <span class="hash-span" id="about">
         &nbsp;
       </span>

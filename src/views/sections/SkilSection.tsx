@@ -3,10 +3,11 @@ import DeveloperActivitySvg from "../../components/DeveloperActivitySvg";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
 import { skils } from "../../data/data";
+import { HtmlAttr } from "../../types/dom";
 
-export default function SkilSection() {
+export default function SkilSection(props: HtmlAttr) {
   return (
-    <section class={`w-full py-10`}>
+    <section {...props}>
       <SectionHeader text="Web frameworks and programming laguages knowlage" />
       <div class={`grid grid-cols-1 sm:grid-cols-2`}>
         <div class="w-full">

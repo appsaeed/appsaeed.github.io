@@ -9,3 +9,9 @@ export type InputAttr = JSX.InputHTMLAttributes<HTMLInputElement>;
 export type CheckboxAttr = JSX.InputHTMLAttributes<HTMLInputElement>;
 
 export type TextareaAttr = JSX.TextareaHTMLAttributes<HTMLTextAreaElement>;
+
+export type ButtonAttr = JSX.ButtonHTMLAttributes<HTMLButtonElement>;
+
+export type HrAttr = JSX.HTMLAttributes<HTMLHRElement>;
+
+export type HtmlAttr = JSX.HTMLAttributes<HTMLElement>;

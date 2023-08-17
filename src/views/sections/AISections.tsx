@@ -2,6 +2,7 @@ import { FiCheck } from "solid-icons/fi";
 import assets from "../../assets";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
+import { HtmlAttr } from "../../types/dom";
 const Listitem = () => {
   return (
     <div class="flex my-6">
@@ -14,9 +15,9 @@ const Listitem = () => {
     </div>
   );
 };
-export default function AISections() {
+export default function AISections(props: HtmlAttr) {
   return (
-    <section class={`w-full py-10`}>
+    <section {...props}>
       <SectionHeader text="Artificial intelligence" />
       <div class={`grid grid-cols-1 sm:grid-cols-2`}>
         <div class={`mb-6`}>

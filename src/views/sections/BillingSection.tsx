@@ -1,10 +1,11 @@
 import assets from "../../assets";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
+import { HtmlAttr } from "../../types/dom";
 
-export default function BillingSection() {
+export default function BillingSection(props: HtmlAttr) {
   return (
-    <section class={"w-full py-10"}>
+    <section {...props}>
       <SectionHeader text="Trusted Payment gatway" />
       <div class="grid grid-cols-1 sm:grid-cols-12">
         <div class={"sm:col-span-7"}>

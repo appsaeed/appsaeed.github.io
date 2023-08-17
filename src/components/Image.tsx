@@ -11,10 +11,12 @@ export default function Image({ url, alt = "alt", ...prgs }: ImageProps) {
     <>
       <picture class="w-full h-full">
         <img
-          style={`background-size: cover;background-image:url("${demo}"); transition: all 0.7`}
+          style={`background-size: cover;background-image:url("${demo}"); transition: all 0.5;`}
           ref={(img) => {
             img.onload = () => {
-              img.style.backgroundImage = "none";
+              if (img.complete && img.naturalHeight !== 0) {
+                img.style.backgroundImage = "none";
+              }
             };
           }}
           alt={alt}

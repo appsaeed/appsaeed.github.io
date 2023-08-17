@@ -1,6 +1,9 @@
-export default function GalerySection() {
+import { JSX } from "solid-js";
+import sections from "../../data/className/sections";
+
+export default function GalerySection(props: JSX.HTMLAttributes<HTMLElement>) {
   return (
-    <section class="w-full">
+    <section class={`${sections.common} ${props.class}`} {...props}>
       <div class="section-header">
         <div class="text-3xl text-center py-8">My Portfilio</div>
       </div>
