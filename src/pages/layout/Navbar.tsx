@@ -50,7 +50,7 @@ export default function Navbar() {
               <span class="sr-only">Open user menu</span>
               <Image
                 class="w-8 h-8 rounded-full"
-                url={avatar("saeed")}
+                src={avatar("saeed")}
                 alt="user photo"
               />
             </button>

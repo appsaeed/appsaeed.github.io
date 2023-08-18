@@ -27,7 +27,7 @@ export default function FooterBrand({
       </p>
       <div class="flex justify-center my-6">
         <Link href={"/"} class="flex items-center justify-center">
-          <Image url={logo} class="w-auto h-20" alt={settings.name} />
+          <Image src={logo} class="w-auto h-20" alt={settings.name} />
         </Link>
       </div>
     </div>

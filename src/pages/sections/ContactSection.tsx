@@ -13,7 +13,7 @@ export default function ContactSection(props: HtmlAttr) {
       <div class="grid grid-cols-1 sm:grid-cols-2">
         {/* secound part */}
         <div class="mx-auto">
-          <Image class="w-full h-full" url={assets.support} />
+          <Image class="w-full h-full" src={assets.support} />
         </div>
 
         {/* form/ */}

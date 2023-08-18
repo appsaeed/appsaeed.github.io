@@ -39,7 +39,7 @@ const projects = [
 export default function ProjectSection(props: JSX.HTMLAttributes<HTMLElement>) {
   return (
     <section class={`${sections.common} ${props.class}`} {...props}>
-      <SectionHeader text="Most recents projects" />
+      <SectionHeader text="Projects" />
       <SectionDescription
         text="Following projects showcases my skills and experience through real-world examples of
       my work. Each project is briefly described with links to code repositories and live
@@ -65,7 +65,7 @@ export function ProjectCard({ title, image, description, tags }: ProjectCardProp
   return (
     <div class=" bg-zinc-800 p-4  rounded-3xl  w-full">
       <div class="relative w-full h-80">
-        <Image url={image} alt={title} class=" w-full h-full rounded-3xl" />
+        <Image src={image} alt={title} class=" w-full h-full rounded-3xl" />
         <div class="absolute inset-0 flex  m-3 gap-2 justify-end">
           <div class="w-8 h-8 p-1  rounded-full bg-gray-500 text-center items-center align-middle text-2xl hover:bg-gray-600">
             <Link href="#" target="_blank">

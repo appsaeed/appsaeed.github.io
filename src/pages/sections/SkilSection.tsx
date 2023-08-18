@@ -8,7 +8,7 @@ import { HtmlAttr } from "../../types/dom";
 export default function SkilSection(props: HtmlAttr) {
   return (
     <section {...props}>
-      <SectionHeader text="Web frameworks and programming laguages knowlage" />
+      <SectionHeader text="Web frameworks and programming Skils" />
       <div class={`grid grid-cols-1 sm:grid-cols-2`}>
         <div class="w-full">
           <div>
@@ -46,7 +46,7 @@ export function Knowlage({ name, icon, percent, link }: KnowlagePrps) {
         <a target="_blank" href={link || ""}>
           <Image
             class="w-10 h-10 p-1 hover:p-0 transition-all rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-            url={icon}
+            src={icon}
             alt="Javasript"
           />
         </a>

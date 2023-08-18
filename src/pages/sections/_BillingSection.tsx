@@ -10,7 +10,7 @@ export default function BillingSection(props: HtmlAttr) {
       <div class="grid grid-cols-1 sm:grid-cols-12">
         <div class={"sm:col-span-7"}>
           <Image
-            url={assets.billing}
+            src={assets.billing}
             alt="billing"
             class="w-[100%] h-[100%] relative z-[5]"
           />
@@ -33,12 +33,12 @@ export default function BillingSection(props: HtmlAttr) {
 
           <div class="flex justify-around gap-4 w-full mt-6">
             <Image
-              url={assets.apple_store}
+              src={assets.apple_store}
               alt="google_play"
               class="w-full h-auto object-contain cursor-pointer"
             />
             <Image
-              url={assets.googel_play}
+              src={assets.googel_play}
               alt="google_play"
               class="w-full h-auto object-contain cursor-pointer"
             />

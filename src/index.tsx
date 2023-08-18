@@ -6,7 +6,7 @@ import { initFlowbite } from "flowbite";
 import { onMount } from "solid-js";
 import "./assets/developer-activity.css";
 import "./index.css";
-import Views from "./views/Views";
+import Pages from "./pages";
 
 const Index = () => {
   // initialize components based on data attribute selectors
@@ -16,7 +16,7 @@ const Index = () => {
   return (
     <>
       <Router>
-        <Views />
+        <Pages />
       </Router>
     </>
   );

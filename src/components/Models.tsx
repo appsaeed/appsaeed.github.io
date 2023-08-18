@@ -36,7 +36,7 @@ export default function Models() {
       class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
     >
       <div class="relative w-full max-w-2xl h-[80vh]">
-        <Image class="w-full h-full" url={"/planet-01.png"} />
+        <Image class="w-full h-full" src={"/planet-01.png"} />
       </div>
     </div>
   );

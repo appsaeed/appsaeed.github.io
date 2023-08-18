@@ -16,7 +16,8 @@
     "flowbite": "^1.8.1",
     "solid-icons": "^1.0.11",
     "solid-js": "^1.7.8",
-    "sweetalert2": "^11.7.23"
+    "sweetalert2": "^11.7.23",
+    "typed.js": "^2.0.16"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

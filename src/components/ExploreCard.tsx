@@ -27,7 +27,7 @@ const ExploreCard = ({ imgUrl, title, active, setActive }: ExploreCardProps) => 
         }}
       >
         <Image
-          url={imgUrl}
+          src={imgUrl}
           alt={title}
           class="absolute w-full h-full object-cover rounded-[24px]"
         />

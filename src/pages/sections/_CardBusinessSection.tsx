@@ -24,7 +24,7 @@ export default function CardBusinessSection(props: HtmlAttr) {
         </div>
 
         <div class={""}>
-          <Image url={assets.payment_card} alt="billing" class="w-[100%] h-[100%]" />
+          <Image src={assets.payment_card} alt="billing" class="w-[100%] h-[100%]" />
         </div>
       </div>
     </section>

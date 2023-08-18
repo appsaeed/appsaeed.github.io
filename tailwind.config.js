@@ -21,7 +21,7 @@ export default {
         dimBlue: "rgba(9, 151, 124, 0.1)",
       },
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
+        poppins: ["Poppins,sans-serif", "sans-serif"],
       },
       boxShadow: {
         card: "0px 35px 120px -15px #211e35",
