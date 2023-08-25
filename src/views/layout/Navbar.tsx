@@ -1,17 +1,22 @@
 import { avatar } from "appmon/generate";
+import { getThemeStore, setThemeStore } from "appmon/storage";
 import { initFlowbite } from "flowbite";
-import { createEffect, createSignal, onMount } from "solid-js";
+import { FiMoon, FiSun } from "solid-icons/fi";
+import { For, createSignal, onMount } from "solid-js";
 import Image from "../../components/Image";
 import sections from "../../data/className/sections";
+import menusdata from "../../data/menus";
 import BrandLogo from "./BrandLogo";
 
 export default function Navbar() {
+  const umenu = "companies|ai|testimonials|manage";
+  const menus = menusdata.filter((f) => !umenu.includes(f.name));
   const [fixed, setFixed] = createSignal(false);
   onMount(() => {
     initFlowbite();
   });
 
-  createEffect(() => {
+  onMount(() => {
     if (document.documentElement.scrollTop > 100) {
       setFixed(true);
     } else {
@@ -30,13 +35,15 @@ export default function Navbar() {
   return (
     <header
       id="header"
-      class={`transition-all z-[999999] top-0 left-0 right-0 w-full bg-white border-gray-200 dark:bg-gray-900 ${
+      class={`transition-all z-[999] top-0 left-0 right-0 w-full bg-white border-gray-200 dark:bg-gray-900 ${
         fixed() ? "fixed py-3" : "py-4"
       }`}
     >
       <nav class={`${sections.headerfooter.common} w-full`}>
         <div class="w-full flex flex-wrap items-center justify-between mx-auto">
           <BrandLogo />
+
+          <SwtichTheme />
 
           <div class="flex items-center md:order-2">
             <button
@@ -131,52 +138,54 @@ export default function Navbar() {
             id="navbar-user"
           >
             <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
-                  About
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
-                  Contact
-                </a>
-              </li>
+              <For each={menus}>
+                {({ name }) => {
+                  return <MenuList name={name} />;
+                }}
+              </For>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+  );
+}
+
+type MenuListProps = {
+  index?: number;
+  name: string;
+};
+export function MenuList({ name }: MenuListProps) {
+  return (
+    <li>
+      <a
+        href={`#${name}`}
+        class={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 capitalize`}
+      >
+        {name}
+      </a>
+    </li>
+  );
+}
+
+export function SwtichTheme() {
+  const [dark, setDark] = createSignal(getThemeStore() === "dark");
+
+  const handleTheme = () => {
+    const theme = dark() ? "light" : "dark";
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.remove("light");
+    document.documentElement.classList.add(theme);
+    setThemeStore(theme);
+    setDark(!dark());
+  };
+
+  return (
+    <div
+      onClick={handleTheme}
+      class={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent cursor-pointer text-2xl`}
+    >
+      {dark() ? <FiMoon /> : <FiSun />}
+    </div>
   );
 }

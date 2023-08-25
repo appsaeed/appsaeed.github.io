@@ -1,8 +1,8 @@
 import { For } from "solid-js";
-import DeveloperActivitySvg from "../../components/DeveloperActivitySvg";
+import developerActivitySvg from "../../assets/developer-activity.svg";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
-import { skils } from "../../data/data";
+import skils from "../../data/skils";
 import { HtmlAttr } from "../../types/dom";
 
 export default function SkilSection(props: HtmlAttr) {
@@ -12,7 +12,7 @@ export default function SkilSection(props: HtmlAttr) {
       <div class={`grid grid-cols-1 sm:grid-cols-2`}>
         <div class="w-full">
           <div>
-            <DeveloperActivitySvg class=" max-h-[360px] mx-auto" />
+            <Image src={developerActivitySvg} />
           </div>
         </div>
         <div class="">

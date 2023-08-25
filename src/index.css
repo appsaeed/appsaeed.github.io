@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-  img {
-    content-visibility: auto;
-  }
   .link {
     @apply text-blue-600 hover:underline cursor-pointer;
   }
@@ -33,11 +30,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: red;
 }
-
-/* section {
-  width: 100vw;
-  height: 100vh;
-} */
 
 :root {
   --black-gradient: linear-gradient(

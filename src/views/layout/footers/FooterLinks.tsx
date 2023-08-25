@@ -1,3 +1,4 @@
+import { Link } from "@solidjs/router";
 import { For } from "solid-js";
 import sections from "../../../data/className/sections";
 import { Divattr } from "../../../types/dom";
@@ -24,9 +25,9 @@ export default function FooterLinks({
         <For each={items}>
           {({ name, link }) => (
             <li class="mb-4">
-              <a href={link} class="hover:underline capitalize">
+              <Link href={link} class="hover:underline capitalize">
                 {name}
-              </a>
+              </Link>
             </li>
           )}
         </For>

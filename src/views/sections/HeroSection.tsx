@@ -1,12 +1,13 @@
-import { createEffect, onCleanup } from "solid-js";
+import { onCleanup, onMount } from "solid-js";
 //@ts-ignore
 import Typed from "typed.js";
 import text_hero_section from "../../data/content/text_hero_section";
 import { HtmlAttr } from "../../types/dom";
+import { loadImage } from "../../utils/load";
 
 export default function (props: HtmlAttr) {
-  let typeElm: HTMLParagraphElement | ((el: HTMLParagraphElement) => void) | undefined;
-  createEffect(() => {
+  let typeElm: HTMLParagraphElement | undefined;
+  onMount(() => {
     let _typed: Typed;
     if (typeElm) {
       _typed = new Typed(typeElm, {
@@ -19,22 +20,32 @@ export default function (props: HtmlAttr) {
       });
     }
     onCleanup(() => {
-      _typed = null;
       _typed?.destroy();
+      _typed = null;
     });
   });
+
+  const imageSrc =
+    "https://images.unsplash.com/photo-1541280910158-c4e14f9c94a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1800&q=80";
+
   return (
     <section
+      ref={(hero) => {
+        loadImage(imageSrc).then(() => {
+          hero.classList.remove("bg-blurr");
+          hero.setAttribute("style", `background-image: url(${imageSrc});`);
+        });
+      }}
       {...props}
-      class={`dark:bg-[url('https://images.unsplash.com/photo-1541280910158-c4e14f9c94a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1800&q=80')] bg-cover bg-left-top px-10 bg-fixed h-screen`}
+      class={`bg-blurr bg-cover bg-left-top px-10 bg-fixed`}
     >
       <div class="w-full mx-auto text-center pt-28 pb-16">
-        <h2 class="mb-20 text-2xl font-extrabold  text-gray-900 dark:text-slate-300">
-          I'm <span class=" font-bold text-4xl">Saeed</span> Hossen
+        <h2 class="mb-20 text-4xl font-extrabold  text-gray-900 dark:text-slate-300">
+          I'm <span class=" font-bold text-6xl">Saeed</span> Hossen
         </h2>
-        <h1 class="mb-20 text-4xl font-extrabold  text-gray-900  dark:text-white h-8">
+        <h1 class="mb-20 text-4xl font-extrabold  text-gray-900  dark:text-white h-10">
           <p id="typing" ref={typeElm}>
-            {text_hero_section.typeing[0]}
+            {text_hero_section?.typeing[0]}
           </p>
         </h1>
 

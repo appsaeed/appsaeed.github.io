@@ -38,7 +38,9 @@ export default function BusinessSection(props: HtmlAttr) {
           <p class="font-light text-[16px] text-dimWhite max-w-[470px] my-5">
             {content.subDescription}
           </p>
-          <ButtonGradient>Get Starting</ButtonGradient>
+          <div class="flex gap-5">
+            <ButtonGradient>Get Starting</ButtonGradient>
+          </div>
         </div>
 
         {/* item  */}

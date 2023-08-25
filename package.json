@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@motionone/solid": "^10.16.2",
     "@solidjs/router": "^0.8.3",
     "@sweetalert2/theme-dark": "^5.0.15",
@@ -26,6 +27,7 @@
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
-    "vite-plugin-solid": "^2.7.0"
+    "vite-plugin-solid": "^2.7.0",
+    "vite-ssg": "^0.23.1"
   }
 }

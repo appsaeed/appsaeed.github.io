@@ -1,6 +1,36 @@
 import { BsLink45deg, BsPlus, BsShare } from "solid-icons/bs";
-import { shareToSocial } from "../utils/global";
-import Image from "./Image";
+import { For, createSignal } from "solid-js";
+import Image from "../../components/Image";
+import SectionHeader from "../../components/SectionHeader";
+import projects from "../../data/projects";
+import { HtmlAttr } from "../../types/dom";
+import { shareToSocial } from "../../utils/global";
+
+export default function ExploreSection(props: HtmlAttr) {
+  const [active, setActive] = createSignal("");
+
+  return (
+    <section {...props}>
+      <SectionHeader text="Explore project" />
+      <div class={`mx-auto w-full`}>
+        <div class="flex lg:flex-row flex-col min-h-[70vh] gap-5">
+          <For each={projects}>
+            {(world) => {
+              return (
+                <ExploreCard
+                  imgUrl={world.image}
+                  active={active}
+                  {...world}
+                  setActive={setActive}
+                />
+              );
+            }}
+          </For>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 type ExploreCardProps = {
   imgUrl: string;
@@ -9,7 +39,7 @@ type ExploreCardProps = {
   setActive: (id: string) => void;
 };
 
-const ExploreCard = ({ imgUrl, title, active, setActive }: ExploreCardProps) => {
+export function ExploreCard({ imgUrl, title, active, setActive }: ExploreCardProps) {
   return (
     <>
       <div
@@ -80,6 +110,4 @@ const ExploreCard = ({ imgUrl, title, active, setActive }: ExploreCardProps) => 
       </div>
     </>
   );
-};
-
-export default ExploreCard;
+}

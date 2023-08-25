@@ -1,28 +1,29 @@
-import Footer from "./layout/Footer";
-import Navbar from "./layout/Navbar";
-import AISections from "./sections/AISections";
-import BusinessSection from "./sections/BusinessSection";
-import CompaniesSection from "./sections/CompaniesSection";
-import ContactSection from "./sections/ContactSection";
-import ExploreSection from "./sections/ExploreSection";
-import HeroSection from "./sections/HeroSection";
-import ProjectSection from "./sections/ProjectSection";
-import SkilSection from "./sections/SkilSection";
-import TestimonialSection from "./sections/TestimonialSection";
+import Footer from "../views/layout/Footer";
+import Navbar from "../views/layout/Navbar";
+import AISections from "../views/sections/AISections";
+import BusinessSection from "../views/sections/BusinessSection";
+import CompaniesSection from "../views/sections/CompaniesSection";
+import ContactSection from "../views/sections/ContactSection";
+import ExploreSection from "../views/sections/ExploreSection";
+import HeroSection from "../views/sections/HeroSection";
+import ProjectSection from "../views/sections/ProjectSection";
+import SkilSection from "../views/sections/SkilSection";
+import TestimonialSection from "../views/sections/TestimonialSection";
 
 export default function Views() {
   const container = "px-4 py-20 border-light sm:px-20";
+
   return (
     <>
       <Navbar />
-      <HeroSection class={container} id="hero" />
+      <HeroSection class={container} id="home" />
       <SkilSection class={container} id="skils" />
-      <TestimonialSection class={container} />
-      <ProjectSection />
-      <ExploreSection class={container} id="explore" />
-      <ContactSection class={container} id="contact" />
-      <AISections class={container} id="ai" />
+      <ProjectSection class={container} id="project" />
       <BusinessSection class={container} id="business" />
+      <ContactSection class={container} id="contact" />
+      <TestimonialSection class={container} />
+      <ExploreSection class={container} id="explore" />
+      <AISections class={container} id="ai" />
       <CompaniesSection class={container} id="companies" />
       <Footer />
     </>
