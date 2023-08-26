@@ -1,19 +1,25 @@
 import { FiTarget } from "solid-icons/fi";
 import { For } from "solid-js";
+import Animate from "../../animation";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
 import testimonials from "../../data/testimonials";
 import { HtmlAttr } from "../../types/dom";
 
 type ItemProps = {
+  index: number;
   image: string;
   name: string;
   feedback: string;
   position: string;
 };
-function ListItem({ name, position, feedback, image }: ItemProps) {
+function ListItem({ name, position, feedback, image, index }: ItemProps) {
   return (
-    <div class="bg-slate-700 p-6 rounded-2xl w-full">
+    <Animate.div
+      duration={`1.${index}s`}
+      motion="slideInUp"
+      class="bg-slate-700 p-6 rounded-2xl w-full"
+    >
       <div class="flex justify-between gap-6 mb-6">
         <div class="w-10 h-10">
           <Image
@@ -30,7 +36,7 @@ function ListItem({ name, position, feedback, image }: ItemProps) {
       <div class="">
         <p class="text-white tracking-wider text-[16px]">{feedback}</p>
       </div>
-    </div>
+    </Animate.div>
   );
 }
 
@@ -41,9 +47,10 @@ export default function TestimonialSection(props: HtmlAttr) {
       <div class="">
         <div class="grid sm:grid-cols-3 gap-4">
           <For each={testimonials}>
-            {({ name, position, feedback, image }) => {
+            {({ name, position, feedback, image }, index) => {
               return (
                 <ListItem
+                  index={index()}
                   name={name}
                   position={position}
                   feedback={feedback}

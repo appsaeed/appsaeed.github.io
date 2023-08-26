@@ -17,3 +17,7 @@ export type HrAttr = JSX.HTMLAttributes<HTMLHRElement>;
 export type HtmlAttr = JSX.HTMLAttributes<HTMLElement>;
 
 export type SpanAttr = JSX.HTMLAttributes<HTMLSpanElement>;
+
+export type HAttr = JSX.HTMLAttributes<HTMLHeadingElement>;
+
+export type Pattr = JSX.HTMLAttributes<HTMLParagraphElement>;

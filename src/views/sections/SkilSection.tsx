@@ -1,4 +1,5 @@
 import { For } from "solid-js";
+import Animate from "../../animation";
 import developerActivitySvg from "../../assets/developer-activity.svg";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
@@ -11,14 +12,15 @@ export default function SkilSection(props: HtmlAttr) {
       <SectionHeader text="Web frameworks and programming Skils" />
       <div class={`grid grid-cols-1 sm:grid-cols-2`}>
         <div class="w-full">
-          <div>
+          <Animate.div motion="slideInLeft">
             <Image src={developerActivitySvg} />
-          </div>
+          </Animate.div>
         </div>
         <div class="">
           <For each={skils}>
-            {(skil) => (
+            {(skil, index) => (
               <Knowlage
+                index={index()}
                 name={skil.name}
                 icon={skil.image}
                 percent={skil.percent}
@@ -33,15 +35,20 @@ export default function SkilSection(props: HtmlAttr) {
 }
 
 type KnowlagePrps = {
+  index?: number;
   name: string;
   icon: string;
   percent: number;
   link?: string;
 };
 
-export function Knowlage({ name, icon, percent, link }: KnowlagePrps) {
+export function Knowlage({ name, icon, percent, link, index }: KnowlagePrps) {
   return (
-    <div class="flex gap-4 m-3 pb-4 ">
+    <Animate.div
+      duration={`1.${index}s`}
+      motion="slideInRight"
+      class="flex gap-4 m-3 pb-4 "
+    >
       <div class="flex-auto w-12">
         <a target="_blank" href={link || ""}>
           <Image
@@ -65,6 +72,6 @@ export function Knowlage({ name, icon, percent, link }: KnowlagePrps) {
           ></div>
         </div>
       </div>
-    </div>
+    </Animate.div>
   );
 }

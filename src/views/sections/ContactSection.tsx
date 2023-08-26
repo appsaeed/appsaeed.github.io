@@ -4,6 +4,7 @@ import { BsWhatsapp } from "solid-icons/bs";
 import { FiMail, FiPhone } from "solid-icons/fi";
 import { createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
+import Animate from "../../animation";
 import assets from "../../assets";
 import Image from "../../components/Image";
 import InputwithLabel from "../../components/InputwithLabel";
@@ -74,12 +75,15 @@ export default function ContactSection(props: HtmlAttr) {
 
       <div class="grid grid-cols-1 sm:grid-cols-2">
         {/* secound part */}
-        <div class="mx-auto">
+        <Animate.div motion="slideInLeft" class="mx-auto">
           <Image class="w-full h-full" src={assets.support} />
-        </div>
+        </Animate.div>
 
         {/* form/ */}
-        <div class="p-8 bg-gray-700 shadow-gray-600 rounded-2xl h-max">
+        <Animate.div
+          motion="slideInRight"
+          class="p-8 bg-gray-700 shadow-gray-600 rounded-2xl h-max"
+        >
           <p class="text-xl uppercase tracking-wider">Get in touch</p>
           <div class="my-4 text-1xl">
             <a href="mailto:appsaeed7@gmail.com" target="_blank" class="flex gap-2 my-2">
@@ -138,7 +142,7 @@ export default function ContactSection(props: HtmlAttr) {
               {loading() ? "loading..." : "Send message"}
             </button>
           </form>
-        </div>
+        </Animate.div>
       </div>
     </section>
   );

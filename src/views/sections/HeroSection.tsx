@@ -1,6 +1,7 @@
 import { onCleanup, onMount } from "solid-js";
 //@ts-ignore
 import Typed from "typed.js";
+import Animate from "../../animation";
 import text_hero_section from "../../data/content/text_hero_section";
 import { HtmlAttr } from "../../types/dom";
 import { loadImage } from "../../utils/load";
@@ -40,26 +41,36 @@ export default function (props: HtmlAttr) {
       class={`bg-blurr bg-cover bg-left-top px-10 bg-fixed`}
     >
       <div class="w-full mx-auto text-center pt-28 pb-16">
-        <h2 class="mb-20 text-4xl font-extrabold  text-gray-900 dark:text-slate-300">
+        <Animate.h1
+          motion="slideInDown"
+          class="mb-20 text-4xl font-extrabold  text-gray-900 dark:text-slate-300"
+        >
           I'm <span class=" font-bold text-6xl">Saeed</span> Hossen
-        </h2>
-        <h1 class="mb-20 text-4xl font-extrabold  text-gray-900  dark:text-white h-10">
+        </Animate.h1>
+        <Animate.h2
+          motion="slideInUp"
+          class="mb-20 text-4xl font-extrabold  text-gray-900  dark:text-white h-10"
+        >
           <p id="typing" ref={typeElm}>
             {text_hero_section?.typeing[0]}
           </p>
-        </h1>
+        </Animate.h2>
 
-        <h2 class="mb-20 text-xl  text-gray-900 dark:text-slate-300">
+        <Animate.h2
+          motion="slideInUp"
+          class="mb-20 text-xl  text-gray-900 dark:text-slate-300"
+        >
           Create your website and web application for growing your worth over online in
           world.
-        </h2>
+        </Animate.h2>
 
-        <button
+        <Animate.button
+          motion="slideInUp"
           type="button"
           class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-10 py-2 text-center mr-2 mb-2"
         >
           Get Started
-        </button>
+        </Animate.button>
       </div>
     </section>
   );

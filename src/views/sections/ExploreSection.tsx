@@ -1,5 +1,6 @@
 import { BsLink45deg, BsPlus, BsShare } from "solid-icons/bs";
 import { For, createSignal } from "solid-js";
+import Animate from "../../animation";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
 import projects from "../../data/projects";
@@ -15,9 +16,10 @@ export default function ExploreSection(props: HtmlAttr) {
       <div class={`mx-auto w-full`}>
         <div class="flex lg:flex-row flex-col min-h-[70vh] gap-5">
           <For each={projects}>
-            {(world) => {
+            {(world, index) => {
               return (
                 <ExploreCard
+                  index={index()}
                   imgUrl={world.image}
                   active={active}
                   {...world}
@@ -33,16 +35,25 @@ export default function ExploreSection(props: HtmlAttr) {
 }
 
 type ExploreCardProps = {
+  index: number;
   imgUrl: string;
   title: string;
   active: () => string;
   setActive: (id: string) => void;
 };
 
-export function ExploreCard({ imgUrl, title, active, setActive }: ExploreCardProps) {
+export function ExploreCard({
+  imgUrl,
+  title,
+  active,
+  setActive,
+  index,
+}: ExploreCardProps) {
   return (
     <>
-      <div
+      <Animate.div
+        duration={`1.${index}s`}
+        motion="swing"
         class={`relative  overflow-hidden flex items-center justify-center min-w-[170px] lg:h-[700px] transition-[all] duration-[0.7s] cursor-pointer ${
           active() === imgUrl
             ? "lg:flex-[3.5] h-[60vh] sm:h-[60vh]"
@@ -107,7 +118,7 @@ export function ExploreCard({ imgUrl, title, active, setActive }: ExploreCardPro
           </div>
           <div class=" text-2xl text-center mt-4">{title}</div>
         </div>
-      </div>
+      </Animate.div>
     </>
   );
 }

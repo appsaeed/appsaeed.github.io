@@ -2,6 +2,7 @@ import { Link } from "@solidjs/router";
 import { FiCode } from "solid-icons/fi";
 import { VsLiveShare } from "solid-icons/vs";
 import { For, JSX, JSXElement } from "solid-js";
+import Animate from "../../animation";
 import Image from "../../components/Image";
 import SectionDescription from "../../components/SectionDescription";
 import SectionHeader from "../../components/SectionHeader";
@@ -21,9 +22,10 @@ export default function ProjectSection(props: JSX.HTMLAttributes<HTMLElement>) {
 
       <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         <For each={projects}>
-          {(project) => {
+          {(project, index) => {
             return (
               <ProjectCard
+                index={index()}
                 name={project.name}
                 title={project.title}
                 image={project.image}
@@ -40,6 +42,7 @@ export default function ProjectSection(props: JSX.HTMLAttributes<HTMLElement>) {
 }
 
 interface ProjectCardProps {
+  index: number;
   title: string;
   image: string;
   description: JSXElement;
@@ -47,9 +50,20 @@ interface ProjectCardProps {
   link: string;
   name?: string;
 }
-export function ProjectCard({ title, image, description, tags, link }: ProjectCardProps) {
+export function ProjectCard({
+  title,
+  image,
+  description,
+  tags,
+  link,
+  index,
+}: ProjectCardProps) {
   return (
-    <div class=" bg-slate-900 p-4 rounded-2xl w-full transition scale-100 hover:scale-105">
+    <Animate.div
+      motion="slideInUp"
+      duration={`1.${index}s`}
+      class=" bg-slate-900 p-4 rounded-2xl w-full transition scale-100 hover:scale-105"
+    >
       <div class="relative w-full h-60">
         <Image src={image} alt={title} class=" w-full h-full rounded-2xl" />
         <div class="absolute inset-0 flex  m-3 gap-2 justify-end">
@@ -74,6 +88,6 @@ export function ProjectCard({ title, image, description, tags, link }: ProjectCa
           )}
         </For>
       </div>
-    </div>
+    </Animate.div>
   );
 }
