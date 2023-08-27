@@ -92,14 +92,14 @@ export function ExploreCard({
           <div class="flex justify-around">
             <a
               target="_blank"
-              href={`${settings.url}/${imgUrl}`}
+              href={imgUrl}
               class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle"
             >
               <BsPlus class="w-full text-4xl mx-auto" />
             </a>
             <a
               target="_blank"
-              href={`${link}`}
+              href={link}
               class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle"
               data-tollpit
             >
