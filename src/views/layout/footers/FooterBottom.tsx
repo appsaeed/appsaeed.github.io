@@ -3,7 +3,6 @@ import { For } from "solid-js";
 import settings from "../../../app/settings";
 import sections from "../../../data/className/sections";
 import social_media from "../../../data/social_media";
-import { unslash } from "../../../utils/url";
 
 export default function FooterBottom() {
   const social = Object.values(social_media);
@@ -22,13 +21,14 @@ export default function FooterBottom() {
         <div class="max-sm:my-8 flex space-x-6">
           <For each={social}>
             {({ name, link, icon: Icon }) => (
-              <Link
+              <a
+                target="_blank"
                 title={name}
-                href={`${settings.url}/${unslash(link)}`}
+                href={link}
                 class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <Icon class={"text-2xl"} />
-              </Link>
+              </a>
             )}
           </For>
         </div>
