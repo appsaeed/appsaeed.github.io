@@ -2,105 +2,57 @@
  * CSS Animation comonents  for solid js
  * @link https://sarthology.github.io/Animatopy/
  */
+import { createSignal, onCleanup, onMount } from "solid-js";
 import { ButtonAttr, Divattr, HAttr, Pattr } from "../types/dom";
+import { stringToMillisecond } from "../utils/str";
 import "./animate.min.css";
-type AnimationStyles =
-  | "bounce"
-  | "flash"
-  | "pulse"
-  | "rubberBand"
-  | "shake"
-  | "swing"
-  | "tada"
-  | "wobble"
-  | "jello"
-  | "heartBeat"
-  | "bounceIn"
-  | "bounceInDown"
-  | "bounceInLeft"
-  | "bounceInRight"
-  | "bounceInUp"
-  | "bounceOut"
-  | "bounceOutDown"
-  | "bounceOutLeft"
-  | "bounceOutRight"
-  | "bounceOutUp"
-  | "fadeIn"
-  | "fadeInDown"
-  | "fadeInDownBig"
-  | "fadeInLeft"
-  | "fadeInLeftBig"
-  | "fadeInRight"
-  | "fadeInRightBig"
-  | "fadeInUp"
-  | "fadeInUpBig"
-  | "fadeOut"
-  | "fadeOutDown"
-  | "fadeOutDownBig"
-  | "fadeOutLeft"
-  | "fadeOutLeftBig"
-  | "fadeOutRight"
-  | "fadeOutRightBig"
-  | "fadeOutUp"
-  | "fadeOutUpBig"
-  | "flip"
-  | "flipInX"
-  | "flipInY"
-  | "flipOutX"
-  | "flipOutY"
-  | "lightSpeedIn"
-  | "lightSpeedOut"
-  | "rotateIn"
-  | "rotateInDownLeft"
-  | "rotateInDownRight"
-  | "rotateInUpLeft"
-  | "rotateInUpRight"
-  | "rotateOut"
-  | "rotateOutDownLeft"
-  | "rotateOutDownRight"
-  | "rotateOutUpLeft"
-  | "rotateOutUpRight"
-  | "slideInUp"
-  | "slideInDown"
-  | "slideInLeft"
-  | "slideInRight"
-  | "slideOutUp"
-  | "slideOutDown"
-  | "slideOutLeft"
-  | "slideOutRight"
-  | "zoomIn"
-  | "zoomInDown"
-  | "zoomInLeft"
-  | "zoomInRight"
-  | "zoomInUp"
-  | "zoomOut"
-  | "zoomOutDown"
-  | "zoomOutLeft"
-  | "zoomOutRight"
-  | "zoomOutUp"
-  | "hinge"
-  | "jackInTheBox"
-  | "rollIn"
-  | "rollOut";
-type AnimateProps = {
-  motion?: AnimationStyles;
-  duration?: string;
-  infinite?: boolean;
-};
-
+import { AnimateProps } from "./type";
 type DivAnimateProps = AnimateProps & Divattr;
 export function div({
   style = "",
-
+  once = true,
   class: className = "",
   duration = "1s",
   motion = "lightSpeedIn",
   infinite = false,
   children,
+  observer: observering = {},
   ...args
 }: DivAnimateProps) {
+  let divRef: HTMLDivElement | undefined;
+  const [visible, setVisible] = createSignal(false);
+
+  onMount(() => {
+    let timer;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        setVisible(entry.isIntersecting);
+
+        if (entry.isIntersecting && once) {
+          observer.unobserve(entry.target);
+          timer = setTimeout(
+            () => {
+              setVisible(!entry.isIntersecting);
+            },
+            stringToMillisecond(duration) + 100
+          );
+        }
+      });
+    }, observering);
+
+    if (divRef) {
+      observer.observe(divRef);
+    }
+
+    onCleanup(() => {
+      observer.unobserve(divRef as Element);
+      observer.disconnect();
+      timer = null;
+    });
+  });
+
   const _infinite = infinite ? "animation-iteration-count: infinite;" : "";
-  const classes = `
+  const styles = `
           -webkit-animation-name: ${motion};
           animation-name: ${motion};
           -webkit-animation-timing-function: ease-out;
@@ -110,10 +62,18 @@ export function div({
           -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
           ${_infinite}
+          ${style}
   `;
 
+  const classes = `${motion} ${className}`;
+
   return (
-    <div {...args} style={`${classes} ${style}`} class={`${motion} ${className}`}>
+    <div
+      ref={divRef}
+      style={visible() ? styles : style}
+      class={visible() ? classes : className}
+      {...args}
+    >
       {children}
     </div>
   );

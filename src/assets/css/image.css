@@ -1,7 +1,7 @@
 .bg-blurr {
   background-image: url(../blurr.webp);
   transition: all 1s;
-  animation: pulse 3s infinite;
+  animation: ImageBlurr 3s infinite;
 }
 .image-blurr {
   background-image: url(../blurr.webp);
@@ -9,7 +9,7 @@
   background-size: cover;
   filter: blur(10px);
   transition: all 1s;
-  animation: pulse 3s infinite;
+  animation: ImageBlurr 3s infinite;
 }
 .image-blurr img {
   transition: all 1s;
@@ -24,14 +24,14 @@
   opacity: 1 !important;
 }
 
-@keyframes pulse {
+@keyframes ImageBlurr {
   0% {
-    opacity: 0.4;
-  }
-  50% {
     opacity: 0.6;
   }
+  50% {
+    opacity: 1;
+  }
   100% {
-    opacity: 0.4;
+    opacity: 0.6;
   }
 }
