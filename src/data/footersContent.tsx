@@ -5,23 +5,23 @@ export default {
     links: [
       {
         name: "Content",
-        link: "#content/",
+        link: "#content",
       },
       {
         name: "How it Works",
-        link: "#how-it-works/",
+        link: "#how-it-works",
       },
       {
         name: "Create",
-        link: "#create/",
+        link: "#create",
       },
       {
         name: "Explore",
-        link: "#explore/",
+        link: "#explore",
       },
       {
         name: "Terms & Services",
-        link: "#terms-and-services/",
+        link: "/terms-and-services",
       },
     ],
   },
@@ -30,7 +30,7 @@ export default {
     links: [
       {
         name: "Help Center",
-        link: "#help-center/",
+        link: "/help-center",
       },
       {
         name: "Partners",
@@ -38,11 +38,11 @@ export default {
       },
       {
         name: "Suggestions",
-        link: "#suggestions/",
+        link: "#suggestions",
       },
       {
         name: "Blog",
-        link: "#blog/",
+        link: "#blog",
       },
     ],
   },
@@ -70,9 +70,9 @@ export default {
   Legal: {
     title: "Legal & Licenses",
     links: [
-      { name: "Privacy Policy", link: "privacy-policy" },
-      { name: "Terms & Conditions", link: "term-and-conditions" },
-      { name: "License", link: "license" },
+      { name: "Privacy Policy", link: "/privacy-policy" },
+      { name: "Terms & Conditions", link: "/term-and-conditions" },
+      { name: "License", link: "/license" },
     ],
   },
 };

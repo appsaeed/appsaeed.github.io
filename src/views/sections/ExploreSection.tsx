@@ -1,10 +1,12 @@
 import { BsLink45deg, BsPlus, BsShare } from "solid-icons/bs";
 import { For, createSignal } from "solid-js";
-import Animate from "../../animation";
+import { createAnimate } from "../../animation/Animator";
+import settings from "../../app/settings";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
 import projects from "../../data/projects";
 import { HtmlAttr } from "../../types/dom";
+import Toast from "../../utils/Toast";
 import { shareToSocial } from "../../utils/global";
 
 export default function ExploreSection(props: HtmlAttr) {
@@ -20,9 +22,10 @@ export default function ExploreSection(props: HtmlAttr) {
               return (
                 <ExploreCard
                   index={index()}
+                  title={world.title}
                   imgUrl={world.image}
                   active={active}
-                  {...world}
+                  link={world.link}
                   setActive={setActive}
                 />
               );
@@ -38,6 +41,7 @@ type ExploreCardProps = {
   index: number;
   imgUrl: string;
   title: string;
+  link?: string;
   active: () => string;
   setActive: (id: string) => void;
 };
@@ -45,19 +49,21 @@ type ExploreCardProps = {
 export function ExploreCard({
   imgUrl,
   title,
+  link,
   active,
   setActive,
   index,
 }: ExploreCardProps) {
   return (
     <>
-      <Animate.div
-        duration={`1.${index}s`}
-        motion="swing"
-        class={`relative  overflow-hidden flex items-center justify-center min-w-[170px] lg:h-[700px] transition-[all] duration-[0.7s] cursor-pointer ${
+      <div
+        ref={(elm) => {
+          createAnimate({ element: elm, duration: `1.${index}s` });
+        }}
+        class={`relative  overflow-hidden flex items-center justify-center md:h-[700px] transition-[all] duration-[0.7s] cursor-pointer ${
           active() === imgUrl
-            ? "lg:flex-[3.5] h-[60vh] sm:h-[60vh]"
-            : "lg:flex-[0.5] h-[100px] sm:h-[100px]"
+            ? "max-sm:h-[60vh] md:flex-[3.0]"
+            : "max-sm:h-[100px] md:flex-[0.9]"
         }`}
         onClick={() => {
           if (active() == imgUrl) {
@@ -84,12 +90,16 @@ export function ExploreCard({
           }`}
         >
           <div class="flex justify-around">
-            <div class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle">
-              <BsPlus class="w-full text-4xl mx-auto" />
-            </div>
             <a
               target="_blank"
-              href={imgUrl}
+              href={`${settings.url}/${imgUrl}`}
+              class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle"
+            >
+              <BsPlus class="w-full text-4xl mx-auto" />
+            </a>
+            <a
+              target="_blank"
+              href={`${link}`}
               class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle"
               data-tollpit
             >
@@ -100,11 +110,10 @@ export function ExploreCard({
               class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle"
               onClick={() => {
                 const error = shareToSocial({
-                  title: "Appsaeed",
-                  url: imgUrl,
-                  text: "hello world",
+                  title: settings.name,
+                  url: `${link}`,
                 });
-                alert(error);
+                if (error) Toast.fire("faild: can not share", error.message, "error");
               }}
             >
               <BsShare class="w-full text-4xl mx-auto" />
@@ -118,7 +127,7 @@ export function ExploreCard({
           </div>
           <div class=" text-2xl text-center mt-4">{title}</div>
         </div>
-      </Animate.div>
+      </div>
     </>
   );
 }

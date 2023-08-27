@@ -3,203 +3,636 @@
  * @link https://sarthology.github.io/Animatopy/
  */
 import { createSignal, onCleanup, onMount } from "solid-js";
-import { ButtonAttr, Divattr, HAttr, Pattr } from "../types/dom";
+import { ButtonAttr, Divattr, HAttr, Pattr, SpanAttr } from "../types/dom";
 import { stringToMillisecond } from "../utils/str";
 import "./animate.min.css";
-import { AnimateProps } from "./type";
-type DivAnimateProps = AnimateProps & Divattr;
-export function div({
-  style = "",
+import { AnimateProps, AnimationStyles } from "./type";
+
+export function createAnimateStyle(
+  motion: AnimationStyles,
+  duration: string,
+  infinite: boolean,
+  style?: string
+) {
+  const _infinite = infinite ? "animation-iteration-count: infinite;" : "";
+  return `
+          -webkit-animation-name: ${motion};
+          animation-name: ${motion};
+          -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+          -webkit-animation-duration: ${duration};
+          animation-duration: ${duration};
+          -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+          ${_infinite} 
+          ${style}`;
+}
+
+type CreateAnimaParams = AnimateProps & {
+  element: HTMLElement | undefined | Element;
+};
+export function createAnimate({
+  element,
   once = true,
-  class: className = "",
+  duration = "1s",
+  motion = "lightSpeedIn",
+  infinite = false,
+  observer: observering = {},
+}: CreateAnimaParams) {
+  //get default style of element
+  const defaultStyle = element?.getAttribute("style") ?? "";
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, defaultStyle);
+
+  let observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && once) {
+        element?.setAttribute("style", animateStyle);
+      } else {
+        //set style default style when the element unvisible and add both styles when visible
+        element?.setAttribute(
+          "style",
+          entry.isIntersecting ? animateStyle : defaultStyle
+        );
+      }
+    });
+  }, observering);
+
+  if (element) {
+    observer.observe(element);
+  }
+}
+
+export function later(time: number, callback: () => void): NodeJS.Timeout {
+  return setTimeout(() => callback(), time);
+}
+
+export function div({
+  style,
+  once = true,
   duration = "1s",
   motion = "lightSpeedIn",
   infinite = false,
   children,
   observer: observering = {},
   ...args
-}: DivAnimateProps) {
-  let divRef: HTMLDivElement | undefined;
+}: AnimateProps & Divattr) {
   const [visible, setVisible] = createSignal(false);
 
+  let element: HTMLDivElement | undefined;
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
+
   onMount(() => {
-    let timer;
+    let timer: any | NodeJS.Timeout = null;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        setVisible(entry.isIntersecting);
-
         if (entry.isIntersecting && once) {
-          observer.unobserve(entry.target);
-          timer = setTimeout(
-            () => {
-              setVisible(!entry.isIntersecting);
-            },
-            stringToMillisecond(duration) + 100
-          );
+          //set visible
+          setVisible(true);
+
+          //clear animation
+          timer = later(stringToMillisecond(duration), () => {
+            setVisible(false);
+            observer.unobserve(element as Element);
+            observer.disconnect();
+          });
+          //end once condition
+        } else {
+          setVisible(entry.isIntersecting);
+          clearTimeout(timer);
         }
       });
     }, observering);
 
-    if (divRef) {
-      observer.observe(divRef);
-    }
+    //push eleme to IntersectionObserver
+    if (element) observer.observe(element);
 
+    //cleanup all
     onCleanup(() => {
-      observer.unobserve(divRef as Element);
+      observer.unobserve(element as Element);
       observer.disconnect();
-      timer = null;
+      clearTimeout(timer);
     });
   });
 
-  const _infinite = infinite ? "animation-iteration-count: infinite;" : "";
-  const styles = `
-          -webkit-animation-name: ${motion};
-          animation-name: ${motion};
-          -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-          -webkit-animation-duration: ${duration};
-          animation-duration: ${duration};
-          -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-          ${_infinite}
-          ${style}
-  `;
-
-  const classes = `${motion} ${className}`;
-
   return (
-    <div
-      ref={divRef}
-      style={visible() ? styles : style}
-      class={visible() ? classes : className}
-      {...args}
-    >
+    <div ref={element} style={visible() ? animateStyle : style} {...args}>
       {children}
     </div>
   );
 }
 
-type HAnimateProps = AnimateProps & HAttr;
-export function h2({
-  style = "",
-  class: className = "",
+export function h1({
+  style,
+  once = true,
   duration = "1s",
   motion = "lightSpeedIn",
   infinite = false,
   children,
+  observer: observering = {},
   ...args
-}: HAnimateProps) {
-  const _infinite = infinite ? "animation-iteration-count: infinite;" : "";
-  const classes = `
-          -webkit-animation-name: ${motion};
-          animation-name: ${motion};
-          -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-          -webkit-animation-duration: ${duration};
-          animation-duration: ${duration};
-          -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-          ${_infinite}
-  `;
+}: AnimateProps & HAttr) {
+  const [visible, setVisible] = createSignal(false);
+
+  let element: HTMLHeadingElement | undefined;
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
+
+  onMount(() => {
+    let timer: any | NodeJS.Timeout = null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && once) {
+          //set visible
+          setVisible(true);
+
+          //clear animation
+          timer = later(stringToMillisecond(duration), () => {
+            setVisible(false);
+            observer.unobserve(element as Element);
+            observer.disconnect();
+          });
+          //end once condition
+        } else {
+          setVisible(entry.isIntersecting);
+          clearTimeout(timer);
+        }
+      });
+    }, observering);
+
+    //push eleme to IntersectionObserver
+    if (element) observer.observe(element);
+
+    //cleanup all
+    onCleanup(() => {
+      observer.unobserve(element as Element);
+      observer.disconnect();
+      clearTimeout(timer);
+    });
+  });
 
   return (
-    <h2 {...args} style={`${classes} ${style}`} class={`${motion} ${className}`}>
+    <h1 ref={element} style={visible() ? animateStyle : style} {...args}>
+      {children}
+    </h1>
+  );
+}
+export function h2({
+  style,
+  once = true,
+  duration = "1s",
+  motion = "lightSpeedIn",
+  infinite = false,
+  children,
+  observer: observering = {},
+  ...args
+}: AnimateProps & HAttr) {
+  const [visible, setVisible] = createSignal(false);
+
+  let element: HTMLHeadingElement | undefined;
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
+
+  onMount(() => {
+    let timer: any | NodeJS.Timeout = null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && once) {
+          //set visible
+          setVisible(true);
+
+          //clear animation
+          timer = later(stringToMillisecond(duration), () => {
+            setVisible(false);
+            observer.unobserve(element as Element);
+            observer.disconnect();
+          });
+          //end once condition
+        } else {
+          setVisible(entry.isIntersecting);
+          clearTimeout(timer);
+        }
+      });
+    }, observering);
+
+    //push eleme to IntersectionObserver
+    if (element) observer.observe(element);
+
+    //cleanup all
+    onCleanup(() => {
+      observer.unobserve(element as Element);
+      observer.disconnect();
+      clearTimeout(timer);
+    });
+  });
+
+  return (
+    <h2 ref={element} style={visible() ? animateStyle : style} {...args}>
       {children}
     </h2>
   );
 }
 
-export function h1({
-  style = "",
-  class: className = "",
+export function h3({
+  style,
+  once = true,
   duration = "1s",
   motion = "lightSpeedIn",
   infinite = false,
   children,
+  observer: observering = {},
   ...args
-}: HAnimateProps) {
-  let dev: HTMLDivElement | undefined;
+}: AnimateProps & HAttr) {
+  const [visible, setVisible] = createSignal(false);
 
-  const _infinite = infinite ? "animation-iteration-count: infinite;" : "";
-  const classes = `
-          -webkit-animation-name: ${motion};
-          animation-name: ${motion};
-          -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-          -webkit-animation-duration: ${duration};
-          animation-duration: ${duration};
-          -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-          ${_infinite}
-  `;
+  let element: HTMLHeadingElement | undefined;
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
+
+  onMount(() => {
+    let timer: any | NodeJS.Timeout = null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && once) {
+          //set visible
+          setVisible(true);
+
+          //clear animation
+          timer = later(stringToMillisecond(duration), () => {
+            setVisible(false);
+            observer.unobserve(element as Element);
+            observer.disconnect();
+          });
+          //end once condition
+        } else {
+          setVisible(entry.isIntersecting);
+          clearTimeout(timer);
+        }
+      });
+    }, observering);
+
+    //push eleme to IntersectionObserver
+    if (element) observer.observe(element);
+
+    //cleanup all
+    onCleanup(() => {
+      observer.unobserve(element as Element);
+      observer.disconnect();
+      clearTimeout(timer);
+    });
+  });
 
   return (
-    <h1
-      {...args}
-      ref={dev}
-      style={`${classes} ${style}`}
-      class={`${motion} ${className}`}
-    >
+    <h3 ref={element} style={visible() ? animateStyle : style} {...args}>
       {children}
-    </h1>
+    </h3>
   );
 }
 
-type ButtonAnimateProps = AnimateProps & ButtonAttr;
-export function button({
-  style = "",
-  class: className = "",
+export function h4({
+  style,
+  once = true,
   duration = "1s",
   motion = "lightSpeedIn",
   infinite = false,
   children,
+  observer: observering = {},
   ...args
-}: ButtonAnimateProps) {
-  const _infinite = infinite ? "animation-iteration-count: infinite;" : "";
-  const classes = `
-          -webkit-animation-name: ${motion};
-          animation-name: ${motion};
-          -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-          -webkit-animation-duration: ${duration};
-          animation-duration: ${duration};
-          -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-          ${_infinite}
-  `;
+}: AnimateProps & HAttr) {
+  const [visible, setVisible] = createSignal(false);
+
+  let element: HTMLHeadingElement | undefined;
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
+
+  onMount(() => {
+    let timer: any | NodeJS.Timeout = null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && once) {
+          //set visible
+          setVisible(true);
+
+          //clear animation
+          timer = later(stringToMillisecond(duration), () => {
+            setVisible(false);
+            observer.unobserve(element as Element);
+            observer.disconnect();
+          });
+          //end once condition
+        } else {
+          setVisible(entry.isIntersecting);
+          clearTimeout(timer);
+        }
+      });
+    }, observering);
+
+    //push eleme to IntersectionObserver
+    if (element) observer.observe(element);
+
+    //cleanup all
+    onCleanup(() => {
+      observer.unobserve(element as Element);
+      observer.disconnect();
+      clearTimeout(timer);
+    });
+  });
 
   return (
-    <button {...args} style={`${classes} ${style}`} class={`${motion} ${className}`}>
+    <h4 ref={element} style={visible() ? animateStyle : style} {...args}>
       {children}
-    </button>
+    </h4>
   );
 }
-type PAnimateProps = AnimateProps & Pattr;
+
+export function h5({
+  style,
+  once = true,
+  duration = "1s",
+  motion = "lightSpeedIn",
+  infinite = false,
+  children,
+  observer: observering = {},
+  ...args
+}: AnimateProps & HAttr) {
+  const [visible, setVisible] = createSignal(false);
+
+  let element: HTMLHeadingElement | undefined;
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
+
+  onMount(() => {
+    let timer: any | NodeJS.Timeout = null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && once) {
+          //set visible
+          setVisible(true);
+
+          //clear animation
+          timer = later(stringToMillisecond(duration), () => {
+            setVisible(false);
+            observer.unobserve(element as Element);
+            observer.disconnect();
+          });
+          //end once condition
+        } else {
+          setVisible(entry.isIntersecting);
+          clearTimeout(timer);
+        }
+      });
+    }, observering);
+
+    //push eleme to IntersectionObserver
+    if (element) observer.observe(element);
+
+    //cleanup all
+    onCleanup(() => {
+      observer.unobserve(element as Element);
+      observer.disconnect();
+      clearTimeout(timer);
+    });
+  });
+
+  return (
+    <h5 ref={element} style={visible() ? animateStyle : style} {...args}>
+      {children}
+    </h5>
+  );
+}
+
+export function h6({
+  style,
+  once = true,
+  duration = "1s",
+  motion = "lightSpeedIn",
+  infinite = false,
+  children,
+  observer: observering = {},
+  ...args
+}: AnimateProps & HAttr) {
+  const [visible, setVisible] = createSignal(false);
+
+  let element: HTMLHeadingElement | undefined;
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
+
+  onMount(() => {
+    let timer: any | NodeJS.Timeout = null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && once) {
+          //set visible
+          setVisible(true);
+
+          //clear animation
+          timer = later(stringToMillisecond(duration), () => {
+            setVisible(false);
+            observer.unobserve(element as Element);
+            observer.disconnect();
+          });
+          //end once condition
+        } else {
+          setVisible(entry.isIntersecting);
+          clearTimeout(timer);
+        }
+      });
+    }, observering);
+
+    //push eleme to IntersectionObserver
+    if (element) observer.observe(element);
+
+    //cleanup all
+    onCleanup(() => {
+      observer.unobserve(element as Element);
+      observer.disconnect();
+      clearTimeout(timer);
+    });
+  });
+
+  return (
+    <h6 ref={element} style={visible() ? animateStyle : style} {...args}>
+      {children}
+    </h6>
+  );
+}
+
+export function span({
+  style,
+  once = true,
+  duration = "1s",
+  motion = "lightSpeedIn",
+  infinite = false,
+  children,
+  observer: observering = {},
+  ...args
+}: AnimateProps & SpanAttr) {
+  const [visible, setVisible] = createSignal(false);
+
+  let element: HTMLSpanElement | undefined;
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
+
+  onMount(() => {
+    let timer: any | NodeJS.Timeout = null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && once) {
+          //set visible
+          setVisible(true);
+
+          //clear animation
+          timer = later(stringToMillisecond(duration), () => {
+            setVisible(false);
+            observer.unobserve(element as Element);
+            observer.disconnect();
+          });
+          //end once condition
+        } else {
+          setVisible(entry.isIntersecting);
+          clearTimeout(timer);
+        }
+      });
+    }, observering);
+
+    //push eleme to IntersectionObserver
+    if (element) observer.observe(element);
+
+    //cleanup all
+    onCleanup(() => {
+      observer.unobserve(element as Element);
+      observer.disconnect();
+      clearTimeout(timer);
+    });
+  });
+
+  return (
+    <span ref={element} style={visible() ? animateStyle : style} {...args}>
+      {children}
+    </span>
+  );
+}
+
 export function p({
-  style = "",
-  class: className = "",
+  style,
+  once = true,
   duration = "1s",
   motion = "lightSpeedIn",
   infinite = false,
   children,
+  observer: observering = {},
   ...args
-}: PAnimateProps) {
-  const _infinite = infinite ? "animation-iteration-count: infinite;" : "";
-  const classes = `
-          -webkit-animation-name: ${motion};
-          animation-name: ${motion};
-          -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-          -webkit-animation-duration: ${duration};
-          animation-duration: ${duration};
-          -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-          ${_infinite}
-  `;
+}: AnimateProps & Pattr) {
+  const [visible, setVisible] = createSignal(false);
+
+  let element: HTMLParagraphElement | undefined;
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
+
+  onMount(() => {
+    let timer: any | NodeJS.Timeout = null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && once) {
+          //set visible
+          setVisible(true);
+
+          //clear animation
+          timer = later(stringToMillisecond(duration), () => {
+            setVisible(false);
+            observer.unobserve(element as Element);
+            observer.disconnect();
+          });
+          //end once condition
+        } else {
+          setVisible(entry.isIntersecting);
+          clearTimeout(timer);
+        }
+      });
+    }, observering);
+
+    //push eleme to IntersectionObserver
+    if (element) observer.observe(element);
+
+    //cleanup all
+    onCleanup(() => {
+      observer.unobserve(element as Element);
+      observer.disconnect();
+      clearTimeout(timer);
+    });
+  });
 
   return (
-    <p {...args} style={`${classes} ${style}`} class={`${motion} ${className}`}>
+    <p ref={element} style={visible() ? animateStyle : style} {...args}>
       {children}
     </p>
+  );
+}
+
+export function button({
+  style,
+  once = true,
+  duration = "1s",
+  motion = "lightSpeedIn",
+  infinite = false,
+  children,
+  observer: observering = {},
+  ...args
+}: AnimateProps & ButtonAttr) {
+  const [visible, setVisible] = createSignal(false);
+
+  let element: HTMLButtonElement | undefined;
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
+
+  onMount(() => {
+    let timer: any | NodeJS.Timeout = null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && once) {
+          //set visible
+          setVisible(true);
+
+          //clear animation
+          timer = later(stringToMillisecond(duration), () => {
+            setVisible(false);
+            observer.unobserve(element as Element);
+            observer.disconnect();
+          });
+          //end once condition
+        } else {
+          setVisible(entry.isIntersecting);
+          clearTimeout(timer);
+        }
+      });
+    }, observering);
+
+    //push eleme to IntersectionObserver
+    if (element) observer.observe(element);
+
+    //cleanup all
+    onCleanup(() => {
+      observer.unobserve(element as Element);
+      observer.disconnect();
+      clearTimeout(timer);
+    });
+  });
+
+  return (
+    <button ref={element} style={visible() ? animateStyle : style} {...args}>
+      {children}
+    </button>
   );
 }

@@ -50,9 +50,9 @@ export default function BusinessSection(props: HtmlAttr) {
           >
             {content.subDescription}
           </Animate.p>
-          <Animate.div motion="rollIn" class="flex gap-5">
+          <Animate.button motion="slideInDown" class="flex gap-5">
             <ButtonGradient>Get Starting</ButtonGradient>
-          </Animate.div>
+          </Animate.button>
         </div>
 
         {/* item  */}
