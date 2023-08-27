@@ -24,6 +24,7 @@ export function div({
 
   onMount(() => {
     let timer;
+    timer = null;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         setVisible(entry.isIntersecting);
