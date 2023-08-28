@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     port: Number(env.VITE_PORT) || 3000,
   },
-  // base: basename,
+  base: "/",
   build: {
     rollupOptions: {
       plugins: [
