@@ -9,7 +9,7 @@ const isdev = env.NODE_ENV === "development" ? true : false;
 
 console.log("check development:", isdev);
 //basepath
-const basename = isdev ? "" : env.VITE_BASENAME;
+const basename = isdev ? "" : "/appsaeed.github.io/";
 
 export default defineConfig({
   plugins: [solid()],
