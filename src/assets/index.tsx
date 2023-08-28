@@ -1,3 +1,4 @@
+import bg_hero from "./bg-hero.jpeg";
 import apple_store from "./images/apple-store.svg";
 import billing from "./images/billing.png";
 import bussness from "./images/business.svg";
@@ -16,8 +17,17 @@ import planet08 from "./images/planet-08.png";
 import planet09 from "./images/planet-09.png";
 import googel_play from "./images/play-google.svg";
 import roboto from "./images/robot.png";
+import send from "./images/send.svg";
+import shield from "./images/shield.svg";
+import start from "./images/star.svg";
 import support from "./images/support-animate.svg";
+const images = {
+  start,
+  send,
+  shield,
+};
 export default {
+  images,
   apple_store,
   googel_play,
   billing,
@@ -38,4 +48,5 @@ export default {
   planet09,
   roboto,
   support,
+  bg_hero,
 };

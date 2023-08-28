@@ -1,24 +1,26 @@
 /* @refresh reload */
+import { deviceTheme } from "appmon/detection";
+import { getThemeStore } from "appmon/storage";
 import { render } from "solid-js/web";
 
 import { Router } from "@solidjs/router";
-import { initFlowbite } from "flowbite";
-import { onMount } from "solid-js";
-import "./assets/developer-activity.css";
+import Routing from "./Router";
+import "./assets/css/image.css";
 import "./index.css";
-import Views from "./views/Views";
 
-const Index = () => {
-  // initialize components based on data attribute selectors
-  onMount(() => {
-    initFlowbite();
-  });
+if (getThemeStore()) {
+  document.documentElement.classList.remove("dark");
+  document.documentElement.classList.remove("light");
+  document.documentElement.classList.add(getThemeStore());
+} else {
+  document.documentElement.classList.add(deviceTheme());
+}
+
+export const Index = () => {
   return (
-    <>
-      <Router>
-        <Views />
-      </Router>
-    </>
+    <Router>
+      <Routing />
+    </Router>
   );
 };
 //dom selector

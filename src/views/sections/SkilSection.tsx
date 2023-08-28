@@ -1,23 +1,26 @@
 import { For } from "solid-js";
-import DeveloperActivitySvg from "../../components/DeveloperActivitySvg";
+import Animate from "../../animation";
+import developerActivitySvg from "../../assets/developer-activity.svg";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
-import { skils } from "../../data/data";
+import skils from "../../data/skils";
+import { HtmlAttr } from "../../types/dom";
 
-export default function SkilSection() {
+export default function SkilSection(props: HtmlAttr) {
   return (
-    <section class={`w-full py-10`}>
-      <SectionHeader text="Web frameworks and programming laguages knowlage" />
+    <section {...props}>
+      <SectionHeader text="Web frameworks and programming Skils" />
       <div class={`grid grid-cols-1 sm:grid-cols-2`}>
         <div class="w-full">
-          <div>
-            <DeveloperActivitySvg class=" max-h-[360px] mx-auto" />
-          </div>
+          <Animate.div motion="slideInLeft">
+            <Image src={developerActivitySvg} />
+          </Animate.div>
         </div>
         <div class="">
           <For each={skils}>
-            {(skil) => (
+            {(skil, index) => (
               <Knowlage
+                index={index()}
                 name={skil.name}
                 icon={skil.image}
                 percent={skil.percent}
@@ -32,20 +35,25 @@ export default function SkilSection() {
 }
 
 type KnowlagePrps = {
+  index?: number;
   name: string;
   icon: string;
   percent: number;
   link?: string;
 };
 
-export function Knowlage({ name, icon, percent, link }: KnowlagePrps) {
+export function Knowlage({ name, icon, percent, link, index }: KnowlagePrps) {
   return (
-    <div class="flex gap-4 m-3 pb-4 ">
+    <Animate.div
+      duration={`1.${index}s`}
+      motion="slideInRight"
+      class="flex gap-4 m-3 pb-4 "
+    >
       <div class="flex-auto w-12">
         <a target="_blank" href={link || ""}>
           <Image
             class="w-10 h-10 p-1 hover:p-0 transition-all rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-            url={icon}
+            src={icon}
             alt="Javasript"
           />
         </a>
@@ -64,6 +72,6 @@ export function Knowlage({ name, icon, percent, link }: KnowlagePrps) {
           ></div>
         </div>
       </div>
-    </div>
+    </Animate.div>
   );
 }

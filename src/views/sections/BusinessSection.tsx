@@ -1,52 +1,67 @@
-import { features } from "../../constants";
+import { For } from "solid-js";
+import Animate from "../../animation";
+import Image from "../../components/Image";
+import SectionHeader from "../../components/SectionHeader";
+import ButtonGradient from "../../components/buttons/ButtonGradient";
+import content from "../../data/content/text_business_section";
+import { HtmlAttr } from "../../types/dom";
 
-type Featureprops = { icon: string; title: string; content: string; index: number };
-
-const FeatureCard = ({ icon, title, content }: Featureprops) => (
-  <div class={`flex flex-row p-6 rounded-[20px]`}>
-    <div
-      class={`w-[64px] h-[64px] rounded-full flex justify-center items-center bg-dimBlue`}
-    >
-      <img src={icon} alt="star" class="w-[50%] h-[50%] object-contain" />
-    </div>
-    <div class="flex-1 flex flex-col ml-3">
-      <h4 class="font-poppins font-semibold text-white text-[18px] leading-[23.4px] mb-1">
-        {title}
-      </h4>
-      <p class="font-poppins font-normal text-dimWhite text-[16px] leading-[24px]">
-        {content}
-      </p>
-    </div>
-  </div>
-);
-
-export default function BusinessSection() {
+type CardProps = {
+  index: number;
+  icon: string;
+  title: string;
+  content: string;
+};
+function BusinessCard({ icon, title, content, index }: CardProps) {
   return (
-    <section id="business" class={"py-10"}>
-      <div class="grid grid-cols-1 sm:grid-cols-12">
-        <div class={"sm:col-span-5"}>
-          <h2 class={" text-4xl font-semibold dark:text-white  w-full"}>
-            You do the business, we’ll handle the money.
-          </h2>
-          <p
-            class={`font-normal text-dimWhite text-[18px] leading-[30.8px] max-w-[470px] mt-5`}
+    <Animate.div
+      motion="slideInRight"
+      duration={`1.${index}s`}
+      class="flex flex-row p-6 rounded-[20px] mb-6 feature-card"
+    >
+      <div class=" w-12 h-12 rounded-full p-3 flex justify-center items-center bg-dimBlue">
+        <Image src={icon} alt={title} class="w-full h-full object-contain" />
+      </div>
+      <div class="flex-1 flex flex-col ml-3">
+        <h4 class="font-semibold text-white text-[18px] leading-[23.4px] mb-1">
+          {title}
+        </h4>
+        <p class="font-light text-dimWhite text-[16px] leading-[24px]">{content}</p>
+      </div>
+    </Animate.div>
+  );
+}
+
+export default function BusinessSection(props: HtmlAttr) {
+  return (
+    <section {...props}>
+      <SectionHeader text={content.title} />
+      <div class="flex md:flex-row flex-col">
+        <div class="flex-1 flex  flex-col">
+          <Animate.h2
+            motion="slideInLeft"
+            class="font-semibold text-4xl dark:text-white w-full"
           >
-            With the right credit card, you can improve your financial life by building
-            credit, earning rewards and saving money. But with hundreds of credit cards on
-            the market.
-          </p>
-          <button
-            type="button"
-            class="py-2.5 px-8 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            {content.subTitle}
+          </Animate.h2>
+          <Animate.p
+            motion="slideInLeft"
+            class="font-light text-[16px] text-dimWhite max-w-[470px] my-5"
           >
-            Get start
-          </button>
+            {content.subDescription}
+          </Animate.p>
+          <Animate.button motion="slideInDown" class="flex gap-5">
+            <ButtonGradient>Get Starting</ButtonGradient>
+          </Animate.button>
         </div>
 
-        <div class={`sm:col-span-7`}>
-          {features.map((feature, index) => (
-            <FeatureCard {...feature} index={index} />
-          ))}
+        {/* item  */}
+        <div class="flex-1 flex  justify-center items-center md:ml-10 ml-0 md:mt-0 mt-10 relative flex-col">
+          <For each={content.items}>
+            {(item, index) => {
+              return <BusinessCard index={index()} {...item} />;
+            }}
+          </For>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 export default {
   darkMode: "class",
   content: [
-    "./index.html",
+    "./**/*.{html,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
     "./node_modules/flowbite/**/*.js",
   ],
@@ -19,6 +19,9 @@ export default {
         secondary: "#00f6ff",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
+      },
+      fontFamily: {
+        poppins: ["Poppins,sans-serif", "sans-serif"],
       },
       boxShadow: {
         card: "0px 35px 120px -15px #211e35",
