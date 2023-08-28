@@ -4,8 +4,6 @@ import { getThemeStore } from "appmon/storage";
 import { render } from "solid-js/web";
 
 import { Router } from "@solidjs/router";
-import { initFlowbite } from "flowbite";
-import { onMount } from "solid-js";
 import Routing from "./Router";
 import "./assets/css/image.css";
 import "./index.css";
@@ -19,10 +17,6 @@ if (getThemeStore()) {
 }
 
 export const Index = () => {
-  // initialize components based on data attribute selectors
-  onMount(() => {
-    initFlowbite();
-  });
   return (
     <Router>
       <Routing />

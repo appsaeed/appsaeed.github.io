@@ -1,3 +1,4 @@
+import bg_hero from "./bg-hero.jpeg";
 import apple_store from "./images/apple-store.svg";
 import billing from "./images/billing.png";
 import bussness from "./images/business.svg";
@@ -47,4 +48,5 @@ export default {
   planet09,
   roboto,
   support,
+  bg_hero,
 };

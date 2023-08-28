@@ -9,7 +9,7 @@ export default function License() {
       <Navbar />
       <section class={`${sections.common}`}>
         <SectionHeader text="License" />
-        <div class="mx-10 my-20 p-10 bg-slate-700 rounded-lg">
+        <div class="p-8 bg-slate-700 rounded-lg">
           MIT License
           <br />
           <br />

@@ -28,9 +28,9 @@ section {
   border-radius: 100px;
 }
 
-::-webkit-scrollbar-track:hover {
-  /* background-color: black; */
-}
+/* ::-webkit-scrollbar-track:hover {
+  background-color: black;
+} */
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: red;

@@ -11,7 +11,7 @@ export default function License() {
       <Navbar />
       <section class={`${sections.common}`}>
         <SectionHeader>Privacy Policy</SectionHeader>
-        <div class="mx-10 my-20 p-10 bg-slate-700 rounded-lg">
+        <div class="p-8 bg-slate-700 rounded-lg">
           <h1 class="text-4xl mb-4"> Privacy Policy by Saeed Hossen</h1>
           <p>
             At {settings.name}, accessible from{" "}

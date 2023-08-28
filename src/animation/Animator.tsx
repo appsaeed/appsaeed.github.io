@@ -3,7 +3,7 @@
  * @link https://sarthology.github.io/Animatopy/
  */
 import { createSignal, onCleanup, onMount } from "solid-js";
-import { ButtonAttr, Divattr, HAttr, Pattr, SpanAttr } from "../types/dom";
+import { AnchorAttr, ButtonAttr, Divattr, HAttr, Pattr, SpanAttr } from "../types/dom";
 import { stringToMillisecond } from "../utils/str";
 import "./animate.min.css";
 import { AnimateProps, AnimationStyles } from "./type";
@@ -86,24 +86,21 @@ export function div({
   const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
 
   onMount(() => {
+    //init setTimeout with null
     let timer: any | NodeJS.Timeout = null;
+
+    //create observer instance
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && once) {
-          //set visible
           setVisible(true);
-
-          //clear animation
           timer = later(stringToMillisecond(duration), () => {
             setVisible(false);
-            observer.unobserve(element as Element);
+            observer.unobserve(entry.target);
             observer.disconnect();
           });
-          //end once condition
-        } else {
-          setVisible(entry.isIntersecting);
-          clearTimeout(timer);
         }
+        if (!once) setVisible(entry.isIntersecting);
       });
     }, observering);
 
@@ -143,24 +140,21 @@ export function h1({
   const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
 
   onMount(() => {
+    //init setTimeout with null
     let timer: any | NodeJS.Timeout = null;
+
+    //create observer instance
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && once) {
-          //set visible
           setVisible(true);
-
-          //clear animation
           timer = later(stringToMillisecond(duration), () => {
             setVisible(false);
-            observer.unobserve(element as Element);
+            observer.unobserve(entry.target);
             observer.disconnect();
           });
-          //end once condition
-        } else {
-          setVisible(entry.isIntersecting);
-          clearTimeout(timer);
         }
+        if (!once) setVisible(entry.isIntersecting);
       });
     }, observering);
 
@@ -174,7 +168,6 @@ export function h1({
       clearTimeout(timer);
     });
   });
-
   return (
     <h1 ref={element} style={visible() ? animateStyle : style} {...args}>
       {children}
@@ -199,24 +192,21 @@ export function h2({
   const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
 
   onMount(() => {
+    //init setTimeout with null
     let timer: any | NodeJS.Timeout = null;
+
+    //create observer instance
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && once) {
-          //set visible
           setVisible(true);
-
-          //clear animation
           timer = later(stringToMillisecond(duration), () => {
             setVisible(false);
-            observer.unobserve(element as Element);
+            observer.unobserve(entry.target);
             observer.disconnect();
           });
-          //end once condition
-        } else {
-          setVisible(entry.isIntersecting);
-          clearTimeout(timer);
         }
+        if (!once) setVisible(entry.isIntersecting);
       });
     }, observering);
 
@@ -256,24 +246,21 @@ export function h3({
   const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
 
   onMount(() => {
+    //init setTimeout with null
     let timer: any | NodeJS.Timeout = null;
+
+    //create observer instance
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && once) {
-          //set visible
           setVisible(true);
-
-          //clear animation
           timer = later(stringToMillisecond(duration), () => {
             setVisible(false);
-            observer.unobserve(element as Element);
+            observer.unobserve(entry.target);
             observer.disconnect();
           });
-          //end once condition
-        } else {
-          setVisible(entry.isIntersecting);
-          clearTimeout(timer);
         }
+        if (!once) setVisible(entry.isIntersecting);
       });
     }, observering);
 
@@ -313,24 +300,21 @@ export function h4({
   const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
 
   onMount(() => {
+    //init setTimeout with null
     let timer: any | NodeJS.Timeout = null;
+
+    //create observer instance
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && once) {
-          //set visible
           setVisible(true);
-
-          //clear animation
           timer = later(stringToMillisecond(duration), () => {
             setVisible(false);
-            observer.unobserve(element as Element);
+            observer.unobserve(entry.target);
             observer.disconnect();
           });
-          //end once condition
-        } else {
-          setVisible(entry.isIntersecting);
-          clearTimeout(timer);
         }
+        if (!once) setVisible(entry.isIntersecting);
       });
     }, observering);
 
@@ -373,20 +357,18 @@ export function h5({
     let timer: any | NodeJS.Timeout = null;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && once) {
-          //set visible
+        if (entry.isIntersecting) {
           setVisible(true);
-
-          //clear animation
-          timer = later(stringToMillisecond(duration), () => {
-            setVisible(false);
-            observer.unobserve(element as Element);
-            observer.disconnect();
-          });
-          //end once condition
+          if (once) {
+            //clear animation
+            timer = later(stringToMillisecond(duration), () => {
+              setVisible(false);
+              observer.unobserve(element as Element);
+              observer.disconnect();
+            });
+          }
         } else {
-          setVisible(entry.isIntersecting);
-          clearTimeout(timer);
+          setVisible(false);
         }
       });
     }, observering);
@@ -427,24 +409,21 @@ export function h6({
   const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
 
   onMount(() => {
+    //init setTimeout with null
     let timer: any | NodeJS.Timeout = null;
+
+    //create observer instance
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && once) {
-          //set visible
           setVisible(true);
-
-          //clear animation
           timer = later(stringToMillisecond(duration), () => {
             setVisible(false);
-            observer.unobserve(element as Element);
+            observer.unobserve(entry.target);
             observer.disconnect();
           });
-          //end once condition
-        } else {
-          setVisible(entry.isIntersecting);
-          clearTimeout(timer);
         }
+        if (!once) setVisible(entry.isIntersecting);
       });
     }, observering);
 
@@ -484,24 +463,21 @@ export function span({
   const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
 
   onMount(() => {
+    //init setTimeout with null
     let timer: any | NodeJS.Timeout = null;
+
+    //create observer instance
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && once) {
-          //set visible
           setVisible(true);
-
-          //clear animation
           timer = later(stringToMillisecond(duration), () => {
             setVisible(false);
-            observer.unobserve(element as Element);
+            observer.unobserve(entry.target);
             observer.disconnect();
           });
-          //end once condition
-        } else {
-          setVisible(entry.isIntersecting);
-          clearTimeout(timer);
         }
+        if (!once) setVisible(entry.isIntersecting);
       });
     }, observering);
 
@@ -541,24 +517,21 @@ export function p({
   const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
 
   onMount(() => {
+    //init setTimeout with null
     let timer: any | NodeJS.Timeout = null;
+
+    //create observer instance
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && once) {
-          //set visible
           setVisible(true);
-
-          //clear animation
           timer = later(stringToMillisecond(duration), () => {
             setVisible(false);
-            observer.unobserve(element as Element);
+            observer.unobserve(entry.target);
             observer.disconnect();
           });
-          //end once condition
-        } else {
-          setVisible(entry.isIntersecting);
-          clearTimeout(timer);
         }
+        if (!once) setVisible(entry.isIntersecting);
       });
     }, observering);
 
@@ -572,7 +545,6 @@ export function p({
       clearTimeout(timer);
     });
   });
-
   return (
     <p ref={element} style={visible() ? animateStyle : style} {...args}>
       {children}
@@ -598,24 +570,21 @@ export function button({
   const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
 
   onMount(() => {
+    //init setTimeout with null
     let timer: any | NodeJS.Timeout = null;
+
+    //create observer instance
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && once) {
-          //set visible
           setVisible(true);
-
-          //clear animation
           timer = later(stringToMillisecond(duration), () => {
             setVisible(false);
-            observer.unobserve(element as Element);
+            observer.unobserve(entry.target);
             observer.disconnect();
           });
-          //end once condition
-        } else {
-          setVisible(entry.isIntersecting);
-          clearTimeout(timer);
         }
+        if (!once) setVisible(entry.isIntersecting);
       });
     }, observering);
 
@@ -634,5 +603,58 @@ export function button({
     <button ref={element} style={visible() ? animateStyle : style} {...args}>
       {children}
     </button>
+  );
+}
+export function a({
+  style,
+  once = true,
+  duration = "1s",
+  motion = "lightSpeedIn",
+  infinite = false,
+  children,
+  observer: observering = {},
+  ...args
+}: AnimateProps & AnchorAttr) {
+  const [visible, setVisible] = createSignal(false);
+
+  let element: HTMLAnchorElement | undefined;
+
+  //create inline style for anmition
+  const animateStyle = createAnimateStyle(motion, duration, infinite, style?.toString());
+
+  onMount(() => {
+    //init setTimeout with null
+    let timer: any | NodeJS.Timeout = null;
+
+    //create observer instance
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && once) {
+          setVisible(true);
+          timer = later(stringToMillisecond(duration), () => {
+            setVisible(false);
+            observer.unobserve(entry.target);
+            observer.disconnect();
+          });
+        }
+        if (!once) setVisible(entry.isIntersecting);
+      });
+    }, observering);
+
+    //push eleme to IntersectionObserver
+    if (element) observer.observe(element);
+
+    //cleanup all
+    onCleanup(() => {
+      observer.unobserve(element as Element);
+      observer.disconnect();
+      clearTimeout(timer);
+    });
+  });
+
+  return (
+    <a ref={element} style={visible() ? animateStyle : style} {...args}>
+      {children}
+    </a>
   );
 }

@@ -21,3 +21,5 @@ export type SpanAttr = JSX.HTMLAttributes<HTMLSpanElement>;
 export type HAttr = JSX.HTMLAttributes<HTMLHeadingElement>;
 
 export type Pattr = JSX.HTMLAttributes<HTMLParagraphElement>;
+
+export type AnchorAttr = JSX.AnchorHTMLAttributes<HTMLAnchorElement>;
