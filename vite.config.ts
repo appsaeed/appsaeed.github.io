@@ -9,14 +9,14 @@ const isdev = env.NODE_ENV === "development" ? true : false;
 
 console.log("check development:", isdev);
 //basepath
-const basename = isdev ? "" : "/appsaeed.github.io/";
+const basename = isdev ? "" : env.VITE_BASENAME;
 
 export default defineConfig({
   plugins: [solid()],
   server: {
     port: Number(env.VITE_PORT) || 3000,
   },
-  base: basename,
+  // base: basename,
   build: {
     rollupOptions: {
       plugins: [
