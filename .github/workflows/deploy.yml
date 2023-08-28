@@ -24,11 +24,15 @@ jobs:
       - name: Build the app
         run: npm run build
 
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-
-      - name: Deploy Complete
-        run: echo "Deployed to GitHub Pages!"
+   
