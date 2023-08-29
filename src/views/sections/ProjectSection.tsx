@@ -3,13 +3,11 @@ import { FiCode } from "solid-icons/fi";
 import { VsLiveShare } from "solid-icons/vs";
 import { For, JSX, JSXElement } from "solid-js";
 import Animate from "../../animation";
-import settings from "../../app/settings";
 import Image from "../../components/Image";
 import SectionDescription from "../../components/SectionDescription";
 import SectionHeader from "../../components/SectionHeader";
 import sections from "../../data/className/sections";
 import projects from "../../data/projects";
-import { unslash } from "../../utils/url";
 
 export default function ProjectSection(props: JSX.HTMLAttributes<HTMLElement>) {
   return (
@@ -69,7 +67,7 @@ export function ProjectCard({
         <Image src={image} alt={title} class=" w-full h-full rounded-2xl" />
         <div class="absolute inset-0 flex  m-3 gap-2 justify-end">
           <div class="w-8 h-8 p-1  rounded-full bg-gray-500 text-center items-center align-middle text-2xl hover:bg-gray-600">
-            <Link href={`${settings.url}/${unslash(link)}`} target="_blank">
+            <Link href={link} target="_blank">
               <VsLiveShare class="" />
             </Link>
           </div>

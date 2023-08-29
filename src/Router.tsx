@@ -1,5 +1,4 @@
 import { Route, Routes } from "@solidjs/router";
-import settings from "./app/settings";
 import Nopage from "./pages/404";
 import HelpCenter from "./pages/help-center";
 import Homepage from "./pages/index";
@@ -9,7 +8,7 @@ import Termandconditions from "./pages/terms-and-conditions";
 
 export default function Router() {
   return (
-    <Routes base={settings.basename}>
+    <Routes>
       <Route path="/" element={<Homepage />} />
       <Route path="/license" element={<License />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />

@@ -3,7 +3,7 @@
  * @link https://sarthology.github.io/Animatopy/
  */
 
-export type AnimationStyles =
+export type AnimationMotion =
   | "bounce"
   | "flash"
   | "pulse"
@@ -82,8 +82,8 @@ export type AnimationStyles =
   | "rollIn"
   | "rollOut";
 export type AnimateProps = {
-  motion?: AnimationStyles;
-  duration?: string;
+  motion?: AnimationMotion;
+  duration?: string | number;
   infinite?: boolean;
   once?: boolean;
   observer?: IntersectionObserverInit;

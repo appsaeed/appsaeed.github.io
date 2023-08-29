@@ -57,21 +57,10 @@ export function ExploreCard({
   return (
     <>
       <div
-        ref={(elm) => {
-          createAnimate({ element: elm, duration: `1.${index}s` });
-        }}
-        class={`relative  overflow-hidden flex items-center justify-center md:h-[700px] transition-[all] duration-[0.7s] cursor-pointer ${
-          active() === imgUrl
-            ? "max-sm:h-[60vh] md:flex-[3.0]"
-            : "max-sm:h-[100px] md:flex-[0.9]"
-        }`}
-        onClick={() => {
-          if (active() == imgUrl) {
-            setActive("");
-          } else {
-            setActive(imgUrl);
-          }
-        }}
+        ref={(elm) => createAnimate({ element: elm, duration: `1.${index}s` })}
+        class={`relative  overflow-hidden flex items-center justify-center md:h-[700px] transition-[all] duration-[0.7s] cursor-pointer max-sm:h-[100px] md:flex-[0.9]`}
+        classList={{ "max-sm:h-[60vh] md:flex-[3.0]": active() == imgUrl }}
+        onClick={() => (active() == imgUrl ? setActive("") : setActive(imgUrl))}
       >
         <Image
           src={imgUrl}
@@ -85,9 +74,8 @@ export function ExploreCard({
         )}
 
         <div
-          class={`absolute bottom-0 p-8 flex justify-start w-full flex-col h-[10rem] bg-[rgba(0,0,0,0.7)] rounded-b-[24px] transition-[all] duration-[0.7s] ${
-            active() == imgUrl ? "opacity-100" : " opacity-0"
-          }`}
+          class={`absolute bottom-0 p-8 flex justify-start w-full flex-col h-[10rem] bg-[rgba(0,0,0,0.7)] rounded-b-[24px] transition-[all] duration-[0.7s] opacity-0`}
+          classList={{ "opacity-100": active() == imgUrl }}
         >
           <div class="flex justify-around">
             <a

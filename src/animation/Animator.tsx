@@ -5,28 +5,8 @@
 import { createSignal, onCleanup, onMount } from "solid-js";
 import { AnchorAttr, ButtonAttr, Divattr, HAttr, Pattr, SpanAttr } from "../types/dom";
 import { stringToMillisecond } from "../utils/str";
-import "./animate.min.css";
-import { AnimateProps, AnimationStyles } from "./type";
-
-export function createAnimateStyle(
-  motion: AnimationStyles,
-  duration: string,
-  infinite: boolean,
-  style?: string
-) {
-  const _infinite = infinite ? "animation-iteration-count: infinite;" : "";
-  return `
-          -webkit-animation-name: ${motion};
-          animation-name: ${motion};
-          -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-          -webkit-animation-duration: ${duration};
-          animation-duration: ${duration};
-          -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-          ${_infinite} 
-          ${style}`;
-}
+import "./animate.css";
+import { AnimateProps, AnimationMotion } from "./type";
 
 type CreateAnimaParams = AnimateProps & {
   element: HTMLElement | undefined | Element;
@@ -39,6 +19,9 @@ export function createAnimate({
   infinite = false,
   observer: observering = {},
 }: CreateAnimaParams) {
+  //timer var init
+  let timer: string | number | NodeJS.Timeout | undefined;
+
   //get default style of element
   const defaultStyle = element?.getAttribute("style") ?? "";
 
@@ -48,24 +31,34 @@ export function createAnimate({
   let observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting && once) {
-        element?.setAttribute("style", animateStyle);
-      } else {
-        //set style default style when the element unvisible and add both styles when visible
-        element?.setAttribute(
+        //set inline style when section is visited
+        entry.target.setAttribute("style", animateStyle);
+
+        //clear inline style added for animation and unsuscribe observer
+        timer = later(stringToMillisecond(duration), () => {
+          entry.target.setAttribute("style", defaultStyle);
+          observer.unobserve(entry.target);
+          observer.disconnect();
+          clearTimeout(timer);
+        });
+
+        return false;
+      }
+
+      if (!once) {
+        entry.target.setAttribute(
           "style",
           entry.isIntersecting ? animateStyle : defaultStyle
         );
+        return false;
       }
     });
   }, observering);
 
-  if (element) {
-    observer.observe(element);
-  }
-}
+  //add element to observer
+  if (element) observer.observe(element);
 
-export function later(time: number, callback: () => void): NodeJS.Timeout {
-  return setTimeout(() => callback(), time);
+  return observer;
 }
 
 export function div({
@@ -657,4 +650,46 @@ export function a({
       {children}
     </a>
   );
+}
+
+/**
+ * ==================================================
+ * ==================================================
+ */
+/**
+ * Create animation inline style
+ * @param motion
+ * @param duration
+ * @param infinite
+ * @param style
+ * @returns {string}
+ */
+export function createAnimateStyle(
+  motion: AnimationMotion,
+  duration: string | number,
+  infinite: boolean,
+  style?: string
+): string {
+  const _infinite = infinite ? "animation-iteration-count: infinite;" : "";
+  return `
+          -webkit-animation-name: ${motion};
+          animation-name: ${motion};
+          -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+          -webkit-animation-duration: ${duration};
+          animation-duration: ${duration};
+          -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+          ${_infinite} 
+          ${style}`;
+}
+
+/**
+ * Use later function to setTimeout shortly
+ * @param time
+ * @param callback
+ * @returns {NodeJS.Timeout}
+ */
+export function later(time: number, callback: () => void): NodeJS.Timeout {
+  return setTimeout(() => callback(), time);
 }
