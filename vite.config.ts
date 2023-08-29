@@ -19,6 +19,11 @@ export default defineConfig({
   base: "/",
   build: {
     rollupOptions: {
+      output: {
+        entryFileNames: `[name]_[hash].js`,
+        chunkFileNames: `[name]_[hash].js`,
+        assetFileNames: `[name]_[hash].[ext]`,
+      },
       plugins: [
         {
           name: "404-html",
