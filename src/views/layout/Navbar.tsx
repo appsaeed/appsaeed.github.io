@@ -157,7 +157,7 @@ export default function Navbar() {
           </div>
           <div
             class={`items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all ${
-              isMobileMenu() ? "max-sm:opacity-100" : "max-sm:opacity-0 max-sm:h-0"
+              isMobileMenu() ? "max-sm:opacity-100" : "max-sm:opacity-0 max-sm:h-0 invisible"
             }`}
             id="navbar-user"
           >
