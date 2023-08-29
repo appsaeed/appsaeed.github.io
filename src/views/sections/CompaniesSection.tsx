@@ -1,8 +1,9 @@
 import { For } from "solid-js";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
-import content from "../../data/content/text_company_section";
+import companies from "../../data/companies";
 import { HtmlAttr } from "../../types/dom";
+
 type CompanyProps = {
   url: string;
   name?: string;
@@ -17,9 +18,9 @@ function Company({ url, name }: CompanyProps) {
 export default function CompaniesSection(props: HtmlAttr) {
   return (
     <section {...props}>
-      <SectionHeader text={content.title} />
+      <SectionHeader>Working marketplace & companies</SectionHeader>
       <div class="flex justify-center overflow-hidden">
-        <For each={content.companies}>
+        <For each={companies}>
           {(com) => {
             return <Company url={com.logo} name={com.name} />;
           }}

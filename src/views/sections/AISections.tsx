@@ -3,7 +3,13 @@ import { For } from "solid-js";
 import assets from "../../assets";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
-import text_ai_section from "../../data/content/text_ai_section";
+
+const item_list = [
+  "Artificial intelligence intregate in your website",
+  `Uses <a class="link" href="https://openai.com" target="_blank">openai</a> on your new website or exiting!`,
+  "Image generate useing ai tools and apis",
+  "Unicq Emails, blogs, contents generate useing AI",
+];
 
 import Animate from "../../animation";
 import { HtmlAttr, SpanAttr } from "../../types/dom";
@@ -22,16 +28,18 @@ const Listitem = (props: SpanAttr & { index: number }) => {
 export default function AISections(props: HtmlAttr) {
   return (
     <section id={props.id} class={`px-[0!important] mx-[0!important] ${props.class}`}>
-      <SectionHeader text={text_ai_section.title} />
+      <SectionHeader>Artificial intelligence</SectionHeader>
       <div class={`grid grid-cols-1 sm:grid-cols-2`}>
         <div class={`${props.class} border-0 mb-6 max-sm:order-2`}>
-          <Animate.h1 motion="slideInLeft" class="font-poppins dark:text-white text-3xl ">
-            {text_ai_section.subTitle}
+          <Animate.h1 motion="slideInDown" class="font-poppins dark:text-white text-2xl ">
+            The Next Generation Web Unleashing the Power of AI
           </Animate.h1>
           <Animate.p motion="slideInLeft" class={`mt-5 font-light text-base`}>
-            {text_ai_section.description}
+            I am an expert in using and implementing AI and modern technology to make
+            better and faster most likely to fit your needs. I am able to make AI tools
+            and web applications using their APIs and so on.
           </Animate.p>
-          <For each={text_ai_section.items}>
+          <For each={item_list}>
             {(item, index) => {
               return (
                 <Listitem

@@ -9,7 +9,7 @@ import { HtmlAttr } from "../../types/dom";
 export default function SkilSection(props: HtmlAttr) {
   return (
     <section {...props}>
-      <SectionHeader text="Web frameworks and programming Skils" />
+      <SectionHeader>Web frameworks & programming Skils</SectionHeader>
       <div class={`grid grid-cols-1 sm:grid-cols-2`}>
         <div class="w-full">
           <Animate.div motion="slideInLeft">

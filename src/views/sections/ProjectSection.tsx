@@ -14,14 +14,13 @@ import { unslash } from "../../utils/url";
 export default function ProjectSection(props: JSX.HTMLAttributes<HTMLElement>) {
   return (
     <section class={`${sections.common} ${props.class}`} {...props}>
-      <SectionHeader text="Projects" />
-      <SectionDescription
-        text="Following projects showcases my skills and experience through real-world examples of
-      my work. Each project is briefly described with links to code repositories and live
-      demos in it. It reflects my ability to solve complex problems, work with different
-      technologies, and manage projects effectively."
-      />
-
+      <SectionHeader>Projects</SectionHeader>
+      <SectionDescription>
+        The following projects showcase my skills and experience through real-world
+        examples of my work. Each project is briefly described with links to code
+        repositories and live demos in it. It reflects my ability to solve complex
+        problems, work with different technologies, and manage projects effectively.
+      </SectionDescription>
       <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         <For each={projects}>
           {(project, index) => {
@@ -84,7 +83,7 @@ export function ProjectCard({
         <FiCode class="mt-1" />
         <For each={tags}>
           {(tag) => (
-            <Link href="#" class=" text-blue-600 hover:underline">
+            <Link href="#" class=" text-blue-600 hover:underline lowercase">
               #{tag}
             </Link>
           )}

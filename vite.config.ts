@@ -3,25 +3,22 @@ import { resolve } from "path";
 import { defineConfig, loadEnv } from "vite";
 import solid from "vite-plugin-solid";
 
-const env = Object.assign(process.env, loadEnv("mock", process.cwd(), ""));
-
-const isdev = env.NODE_ENV === "development" ? true : false;
-
-console.log("check development:", isdev);
-//basepath
-const basename = isdev ? "" : env.VITE_BASENAME;
+let env: NodeJS.ProcessEnv & Record<string, string>;
+try {
+  env = Object.assign(process.env, loadEnv("mock", process.cwd(), ""));
+} catch (error) {}
 
 export default defineConfig({
   plugins: [solid()],
   server: {
     port: Number(env.VITE_PORT) || 3000,
   },
-  base: "/",
+  // base: "/",
   build: {
     rollupOptions: {
       output: {
         entryFileNames: `[name]_[hash].js`,
-        chunkFileNames: `[name]_[hash].js`,
+        chunkFileNames: `[name]_chunk_[hash].js`,
         assetFileNames: `[name]_[hash].[ext]`,
       },
       plugins: [

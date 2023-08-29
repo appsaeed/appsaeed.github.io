@@ -43,7 +43,7 @@ function ListItem({ name, position, feedback, image, index }: ItemProps) {
 export default function TestimonialSection(props: HtmlAttr) {
   return (
     <section {...props} class={`${props.class} `}>
-      <SectionHeader text="Testimonials" />
+      <SectionHeader>Testimonials</SectionHeader>
       <div class="">
         <div class="grid sm:grid-cols-3 gap-4">
           <For each={testimonials}>

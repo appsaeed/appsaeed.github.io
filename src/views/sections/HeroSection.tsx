@@ -3,7 +3,6 @@ import { onCleanup, onMount } from "solid-js";
 import Typed from "typed.js";
 import Animate from "../../animation";
 import assets from "../../assets";
-import text_hero_section from "../../data/content/text_hero_section";
 import { HtmlAttr } from "../../types/dom";
 import { loadImage } from "../../utils/load";
 
@@ -13,7 +12,7 @@ export default function (props: HtmlAttr) {
     let _typed: Typed;
     if (typeElm) {
       _typed = new Typed(typeElm, {
-        strings: text_hero_section.typeing,
+        strings: typingText,
         typeSpeed: 40,
         backSpeed: 40,
         backDelay: 2000,
@@ -50,7 +49,7 @@ export default function (props: HtmlAttr) {
           class="mb-20 text-4xl font-extrabold  text-gray-900  dark:text-white h-10"
         >
           <p id="typing" ref={typeElm}>
-            {text_hero_section?.typeing[0]}
+            {typingText[0]}
           </p>
         </Animate.h2>
 
@@ -74,3 +73,17 @@ export default function (props: HtmlAttr) {
     </section>
   );
 }
+
+export const typingText = [
+  "Full Stack web developer",
+  "Laravel Application",
+  "Wordpress website",
+  "Frontend Framework",
+  "Solid Js",
+  "React Js",
+  "Next  Js",
+  "Progressive Web Apps ( PWA )",
+  "Application Programming Interface ( API )",
+  "Artificial intelligence ( AI )",
+  "Database",
+];

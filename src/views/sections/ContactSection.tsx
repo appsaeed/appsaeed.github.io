@@ -71,8 +71,7 @@ export default function ContactSection(props: HtmlAttr) {
   };
   return (
     <section {...props}>
-      <SectionHeader text="Contact Me" />
-
+      <SectionHeader>Contact Me </SectionHeader>
       <div class="grid grid-cols-1 sm:grid-cols-2">
         {/* secound part */}
         <Animate.div motion="slideInLeft" class="mx-auto">

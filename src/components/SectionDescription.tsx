@@ -7,10 +7,5 @@ export default function SectionDescription({
   text?: string;
   children?: JSXElement;
 }) {
-  return (
-    <div class="w-full mx-auto text-center">
-      {text}
-      {children}
-    </div>
-  );
+  return <div class="w-full mx-auto text-center">{text ? text : children}</div>;
 }
