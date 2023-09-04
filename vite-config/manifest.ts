@@ -3,7 +3,7 @@ import "./global";
 
 const manifest: Partial<ManifestOptions> = {
   name: process.env.VITE_NAME || "app name",
-  short_name: "Appsaeed",
+  short_name: "Saeed",
   description: process.env.VITE_DESCRIPTION || "App description",
   theme_color: "#0f172a",
   background_color: "#1e293b",
