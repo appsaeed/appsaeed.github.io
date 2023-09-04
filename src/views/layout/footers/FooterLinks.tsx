@@ -1,6 +1,5 @@
 import { Link } from "@solidjs/router";
 import { For } from "solid-js";
-import settings from "../../../app/settings";
 import sections from "../../../data/className/sections";
 import { Divattr } from "../../../types/dom";
 import { unslash } from "../../../utils/url";
