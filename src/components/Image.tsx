@@ -32,12 +32,6 @@ export default function Image({ alt = "saeed image", class: ch, ...prgs }: Image
   });
 
   return (
-    <img
-      ref={images}
-      alt={alt}
-      {...prgs}
-      loading="lazy"
-      class={`image-blurr object-contain ${ch}`}
-    />
+    <img ref={images} alt={alt} {...prgs} loading="lazy" class={`image-blurr ${ch}`} />
   );
 }
