@@ -7,7 +7,7 @@ const manifest: Partial<ManifestOptions> = {
   description: process.env.VITE_DESCRIPTION || "App description",
   theme_color: "#0f172a",
   background_color: "#1e293b",
-  display: "fullscreen",
+  display: "standalone",
   scope: "./",
   start_url: "./",
   icons: [
