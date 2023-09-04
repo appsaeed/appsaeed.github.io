@@ -6,13 +6,17 @@ export type ImageProps = ImageAttr;
 export default function Image({ alt = "saeed image", class: ch, ...prgs }: ImageProps) {
   let images: HTMLImageElement | undefined;
   onMount(() => {
+    //create ovserver instance of ovserver to display the image
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        entry.target.classList.toggle("image-blurr", !entry.isIntersecting);
-        if (entry.isIntersecting) observer.unobserve(entry.target);
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("image-blurr");
+          observer.unobserve(entry.target);
+        }
       });
     });
 
+    //check if the image is url loaded
     if (images) {
       images.addEventListener("load", () => {
         if (images?.complete && images.naturalHeight) {
@@ -28,6 +32,12 @@ export default function Image({ alt = "saeed image", class: ch, ...prgs }: Image
   });
 
   return (
-    <img ref={images} alt={alt} {...prgs} loading="lazy" class={`image-blurr ${ch}`} />
+    <img
+      ref={images}
+      alt={alt}
+      {...prgs}
+      loading="lazy"
+      class={`image-blurr object-contain ${ch}`}
+    />
   );
 }

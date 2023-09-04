@@ -13,7 +13,7 @@ export default function FooterBottom() {
       >
         <div class="text-1xl text-gray-500 dark:text-gray-400">
           © {new Date().getFullYear()}{" "}
-          <Link href="https://github.com/appsaeed" class="hover:underline text-blue-600">
+          <Link href="https://github.com/appsaeed" class="link">
             {settings.name}
           </Link>{" "}
           All Rights Reserved.

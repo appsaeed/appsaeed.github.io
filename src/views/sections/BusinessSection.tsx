@@ -44,9 +44,9 @@ function BusinessCard({ icon, title, content, index }: CardProps) {
         <Image src={icon} alt={title} class="w-full h-full object-contain" />
       </div>
       <div class="flex-1 flex flex-col ml-3">
-        <h4 class="font-semibold text-white text-[18px] leading-[23.4px] mb-1">
+        <h1 class="font-semibold text-white text-[18px] leading-[23.4px] mb-1">
           {title}
-        </h4>
+        </h1>
         <p class="font-light text-dimWhite text-[16px] leading-[24px]">{content}</p>
       </div>
     </Animate.div>

@@ -3,8 +3,9 @@ import { deviceTheme } from "appmon/detection";
 import { getThemeStore } from "appmon/storage";
 import { render } from "solid-js/web";
 
-import { Router } from "@solidjs/router";
-import Routing from "./Router";
+import { Router as BrowserRouter } from "@solidjs/router";
+import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
+import Routes from "./Router";
 import "./assets/css/image.css";
 import "./index.css";
 
@@ -18,9 +19,11 @@ if (getThemeStore()) {
 
 export const Index = () => {
   return (
-    <Router>
-      <Routing />
-    </Router>
+    <BrowserRouter>
+      <QueryClientProvider client={new QueryClient()}>
+        <Routes />
+      </QueryClientProvider>
+    </BrowserRouter>
   );
 };
 //dom selector

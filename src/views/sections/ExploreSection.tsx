@@ -68,9 +68,9 @@ export function ExploreCard({
           class="absolute w-full h-full object-cover rounded-[24px]"
         />
         {active() !== imgUrl && (
-          <h3 class=" font-semibold sm:text-[26px] text-[18px] dark:text-white absolute md:rotate-[-90deg] md:text-ellipsis md:whitespace-nowrap">
+          <h1 class=" font-semibold sm:text-[26px] text-[18px] dark:text-white absolute md:rotate-[-90deg] md:text-ellipsis md:whitespace-nowrap">
             {title}
-          </h3>
+          </h1>
         )}
 
         <div
@@ -83,7 +83,7 @@ export function ExploreCard({
               href={imgUrl}
               class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle"
             >
-              <BsPlus class="w-full text-4xl mx-auto" />
+              <BsPlus role="img" aria-label={title} class="w-full text-4xl mx-auto" />
             </a>
             <a
               target="_blank"
@@ -91,7 +91,11 @@ export function ExploreCard({
               class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle"
               data-tollpit
             >
-              <BsLink45deg class="w-full text-4xl mx-auto" />
+              <BsLink45deg
+                role="img"
+                aria-label={title}
+                class="w-full text-4xl mx-auto"
+              />
             </a>
 
             <div
@@ -104,14 +108,8 @@ export function ExploreCard({
                 if (error) Toast.fire("faild: can not share", error.message, "error");
               }}
             >
-              <BsShare class="w-full text-4xl mx-auto" />
+              <BsShare role="img" aria-label={title} class="w-full text-4xl mx-auto" />
             </div>
-            {/* <div class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle sm:hidden md:block">
-          <FiGithub class="w-full text-4xl mx-auto" />
-        </div>
-        <div class="w-10 h-10 p-1 rounded-full hover:ring-2 ring-gray-300 dark:ring-gray-500 text-center items-center align-middle sm:hidden md:block">
-          <BsHeadphones class="w-full text-4xl mx-auto" />
-        </div> */}
           </div>
           <div class=" text-2xl text-center mt-4">{title}</div>
         </div>

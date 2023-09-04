@@ -68,7 +68,13 @@ export function ProjectCard({
         <div class="absolute inset-0 flex  m-3 gap-2 justify-end">
           <div class="w-8 h-8 p-1  rounded-full bg-gray-500 text-center items-center align-middle text-2xl hover:bg-gray-600">
             <Link href={link} target="_blank">
-              <VsLiveShare class="" />
+              <VsLiveShare
+                role="img"
+                aria-label={title}
+                style={{
+                  overflow: "hidden",
+                }}
+              />
             </Link>
           </div>
         </div>
@@ -81,7 +87,7 @@ export function ProjectCard({
         <FiCode class="mt-1" />
         <For each={tags}>
           {(tag) => (
-            <Link href="#" class=" text-blue-600 hover:underline lowercase">
+            <Link href="#" class="link lowercase">
               #{tag}
             </Link>
           )}

@@ -14,6 +14,27 @@ type ItemProps = {
   position: string;
 };
 function ListItem({ name, position, feedback, image, index }: ItemProps) {
+  // onMount(() => {
+  //   var myHeaders = new Headers();
+  //   myHeaders.append(
+  //     "Cookie",
+  //     "__cfruid=cf58a60b5b4db5898ebbb7f78a8f64c516c92f2d-1693748287; logged_out_currency=USD; u_guid=1693747745000-096ab3d225d80970249c912e93ac609fd6f1bf60; visited_fiverr=true; _fiverr_session_key=dba0e75a9a0994a32e04bc65a915080a; _pxhd=IYO9Jf5Lr2qVtfom1dj6nVdFt4UtuqztJV0TYXX/0QxRSK5AZir4oPJQDbwES7uKEMD/fPRfTRuZ/FsEOoq7lQ==:Bt4gbTV6qqAwfuQdKNveK7gaGZVzqjOVsNL4E0vtWrdDb4QkfrBOJmFwwG3gtg6cW4J75zsqENoLWud91Wp55AiM55fDU8XXpTJFgOm/OeM="
+  //   );
+
+  //   var requestOptions = {
+  //     method: "GET",
+  //     headers: myHeaders,
+  //     // redirect: "follow",
+  //   };
+
+  //   fetch(
+  //     "https://www.fiverr.com/reviews/user_page/fetch_user_reviews/101612053?user_id=101612053",
+  //     requestOptions
+  //   )
+  //     .then((response) => response.text())
+  //     .then((result) => console.log(result))
+  //     .catch((error) => console.log("error", error));
+  // });
   return (
     <Animate.div
       duration={`1.${index}s`}
