@@ -1,0 +1,151 @@
+{
+  "index.css": {
+    "file": "index_0df0c0a7.css",
+    "src": "index.css"
+  },
+  "index.html": {
+    "assets": [
+      "bg-hero_0ba10949.jpeg",
+      "apple-store_994d47a8.svg",
+      "billing_fd47dad8.png",
+      "business_37b8212e.svg",
+      "globe_d7adf010.png",
+      "gluxy-cover_30167500.png",
+      "herobg_ecbfddc8.png",
+      "payment-card_af071def.png",
+      "play-google_3035153f.svg",
+      "robot_352cd501.png",
+      "send_454b3199.svg",
+      "shield_6d9e87e5.svg",
+      "star_b8bf87ea.svg",
+      "support-animate_762603b2.svg",
+      "asc_919972ef.png",
+      "ftools_fa79fd13.png",
+      "harvardedit_36ffbc20.png",
+      "oxfordeditor_8662abce.png",
+      "static-home_1db70e2b.png",
+      "the247openhouse_cda052ce.png",
+      "developer-activity_8545d1a3.svg",
+      "javascript_59cf4c89.jpg",
+      "laravel_dac4a53f.jpg",
+      "php_f9139dae.png",
+      "reactjs_966214a8.png",
+      "solidjs_123b04bc.svg",
+      "blurr_99397f12.webp"
+    ],
+    "css": [
+      "index_0df0c0a7.css"
+    ],
+    "file": "index_cb1ae038.js",
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "src/assets/bg-hero.jpeg": {
+    "file": "bg-hero_0ba10949.jpeg",
+    "src": "src/assets/bg-hero.jpeg"
+  },
+  "src/assets/blurr.webp": {
+    "file": "blurr_99397f12.webp",
+    "src": "src/assets/blurr.webp"
+  },
+  "src/assets/developer-activity.svg": {
+    "file": "developer-activity_8545d1a3.svg",
+    "src": "src/assets/developer-activity.svg"
+  },
+  "src/assets/devworks/javascript.jpg": {
+    "file": "javascript_59cf4c89.jpg",
+    "src": "src/assets/devworks/javascript.jpg"
+  },
+  "src/assets/devworks/laravel.jpg": {
+    "file": "laravel_dac4a53f.jpg",
+    "src": "src/assets/devworks/laravel.jpg"
+  },
+  "src/assets/devworks/php.png": {
+    "file": "php_f9139dae.png",
+    "src": "src/assets/devworks/php.png"
+  },
+  "src/assets/devworks/reactjs.png": {
+    "file": "reactjs_966214a8.png",
+    "src": "src/assets/devworks/reactjs.png"
+  },
+  "src/assets/devworks/solidjs.svg": {
+    "file": "solidjs_123b04bc.svg",
+    "src": "src/assets/devworks/solidjs.svg"
+  },
+  "src/assets/images/apple-store.svg": {
+    "file": "apple-store_994d47a8.svg",
+    "src": "src/assets/images/apple-store.svg"
+  },
+  "src/assets/images/billing.png": {
+    "file": "billing_fd47dad8.png",
+    "src": "src/assets/images/billing.png"
+  },
+  "src/assets/images/business.svg": {
+    "file": "business_37b8212e.svg",
+    "src": "src/assets/images/business.svg"
+  },
+  "src/assets/images/globe.png": {
+    "file": "globe_d7adf010.png",
+    "src": "src/assets/images/globe.png"
+  },
+  "src/assets/images/gluxy-cover.png": {
+    "file": "gluxy-cover_30167500.png",
+    "src": "src/assets/images/gluxy-cover.png"
+  },
+  "src/assets/images/herobg.png": {
+    "file": "herobg_ecbfddc8.png",
+    "src": "src/assets/images/herobg.png"
+  },
+  "src/assets/images/payment-card.png": {
+    "file": "payment-card_af071def.png",
+    "src": "src/assets/images/payment-card.png"
+  },
+  "src/assets/images/play-google.svg": {
+    "file": "play-google_3035153f.svg",
+    "src": "src/assets/images/play-google.svg"
+  },
+  "src/assets/images/robot.png": {
+    "file": "robot_352cd501.png",
+    "src": "src/assets/images/robot.png"
+  },
+  "src/assets/images/send.svg": {
+    "file": "send_454b3199.svg",
+    "src": "src/assets/images/send.svg"
+  },
+  "src/assets/images/shield.svg": {
+    "file": "shield_6d9e87e5.svg",
+    "src": "src/assets/images/shield.svg"
+  },
+  "src/assets/images/star.svg": {
+    "file": "star_b8bf87ea.svg",
+    "src": "src/assets/images/star.svg"
+  },
+  "src/assets/images/support-animate.svg": {
+    "file": "support-animate_762603b2.svg",
+    "src": "src/assets/images/support-animate.svg"
+  },
+  "src/assets/projects/asc.png": {
+    "file": "asc_919972ef.png",
+    "src": "src/assets/projects/asc.png"
+  },
+  "src/assets/projects/ftools.png": {
+    "file": "ftools_fa79fd13.png",
+    "src": "src/assets/projects/ftools.png"
+  },
+  "src/assets/projects/harvardedit.png": {
+    "file": "harvardedit_36ffbc20.png",
+    "src": "src/assets/projects/harvardedit.png"
+  },
+  "src/assets/projects/oxfordeditor.png": {
+    "file": "oxfordeditor_8662abce.png",
+    "src": "src/assets/projects/oxfordeditor.png"
+  },
+  "src/assets/projects/static-home.png": {
+    "file": "static-home_1db70e2b.png",
+    "src": "src/assets/projects/static-home.png"
+  },
+  "src/assets/projects/the247openhouse.png": {
+    "file": "the247openhouse_cda052ce.png",
+    "src": "src/assets/projects/the247openhouse.png"
+  }
+}
