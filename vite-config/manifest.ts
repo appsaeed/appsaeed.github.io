@@ -1,6 +1,5 @@
 import { ManifestOptions } from "vite-plugin-pwa";
 import "./global";
-
 const manifest: Partial<ManifestOptions> = {
   name: process.env.VITE_NAME || "app name",
   short_name: "Appsaeed",
