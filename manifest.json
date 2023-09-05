@@ -1,6 +1,6 @@
 {
   "index.css": {
-    "file": "index-e7a48933.css",
+    "file": "index-4106f5d1.css",
     "src": "index.css"
   },
   "index.html": {
@@ -34,9 +34,9 @@
       "blurr-99397f12.webp"
     ],
     "css": [
-      "index-e7a48933.css"
+      "index-4106f5d1.css"
     ],
-    "file": "index-f9714c6a.js",
+    "file": "index-e20fed71.js",
     "isEntry": true,
     "src": "index.html"
   },
