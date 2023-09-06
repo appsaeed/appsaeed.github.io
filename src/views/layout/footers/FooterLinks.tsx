@@ -28,7 +28,7 @@ export default function FooterLinks({
           {({ name, link }) => (
             <li class="mb-4">
               <Link
-                href={`${settings.url}/${unslash(link)}`}
+                href={link}
                 class="hover:underline capitalize"
               >
                 {name}
