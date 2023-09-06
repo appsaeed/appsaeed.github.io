@@ -8,8 +8,17 @@ const plugins: PluginOption[] = [
   solid(),
   VitePWA({
     manifest: manifest,
-    manifestFilename: "appsaeed.webmanifest",
+    buildBase: "./",
     registerType: "autoUpdate",
+    workbox: {
+      cacheId: "saeed_cache",
+      runtimeCaching: [
+        {
+          urlPattern: /\/(asc|ftools|static|iptv-view)\/.*/g,
+          handler: "NetworkOnly",
+        },
+      ],
+    },
   }),
 ];
 

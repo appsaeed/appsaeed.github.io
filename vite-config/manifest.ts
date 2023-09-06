@@ -59,31 +59,6 @@ const manifest: ManifestOptions = {
       purpose: "maskable any",
     },
   ],
-  file_handlers: [],
-  id: "",
-  orientation: "any",
-  display_override: [],
-  dir: "ltr",
-  lang: "",
-  publicPath: "",
-  related_applications: [],
-  prefer_related_applications: false,
-  protocol_handlers: [],
-  shortcuts: [],
-  screenshots: [],
-  categories: [],
-  iarc_rating_id: "",
-  share_target: {
-    action: "",
-    method: "",
-    enctype: "",
-    params: {
-      title: "",
-      text: "",
-      url: "",
-      files: undefined,
-    },
-  },
 };
 
 export default manifest;
