@@ -1,9 +1,9 @@
+import { readFile, writeFile } from "fs/promises";
+import { resolve } from "path";
 import { BuildOptions } from "vite";
-import copyBunlde from "./copyBunlde";
 import "./global";
-
 const build: BuildOptions = {
-  manifest: true,
+  // manifest: "manifest.json",
   minify: true,
   chunkSizeWarningLimit: 3000,
   assetsDir: "",
@@ -13,7 +13,20 @@ const build: BuildOptions = {
       // entryFileNames: `[name]_[hash].js`,
       // assetFileNames: `[name]_[hash].[ext]`,
     },
-    plugins: [copyBunlde({ name: "404.html", path: "index.html" })],
+    plugins: [
+      {
+        name: "404.html",
+        async writeBundle(options) {
+          try {
+            const content = await readFile(resolve(options.dir, "index.html"), "utf-8");
+            console.log(resolve(options.dir, "index.html"));
+            await writeFile(resolve(options.dir, "404.html"), content);
+          } catch (error) {
+            throw new Error(error);
+          }
+        },
+      },
+    ],
   },
 };
 

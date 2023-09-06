@@ -1,6 +1,6 @@
-import { ManifestOptions } from "vite-plugin-pwa";
 import "./global";
-const manifest: Partial<ManifestOptions> = {
+import type { ManifestOptions } from "./pwa/type";
+const manifest: ManifestOptions = {
   name: process.env.VITE_NAME || "app name",
   short_name: "Appsaeed",
   description: process.env.VITE_DESCRIPTION || "App description",
@@ -59,6 +59,31 @@ const manifest: Partial<ManifestOptions> = {
       purpose: "maskable any",
     },
   ],
+  file_handlers: [],
+  id: "",
+  orientation: "any",
+  display_override: [],
+  dir: "ltr",
+  lang: "",
+  publicPath: "",
+  related_applications: [],
+  prefer_related_applications: false,
+  protocol_handlers: [],
+  shortcuts: [],
+  screenshots: [],
+  categories: [],
+  iarc_rating_id: "",
+  share_target: {
+    action: "",
+    method: "",
+    enctype: "",
+    params: {
+      title: "",
+      text: "",
+      url: "",
+      files: undefined,
+    },
+  },
 };
 
 export default manifest;
