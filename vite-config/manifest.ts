@@ -6,7 +6,7 @@ const manifest: ManifestOptions = {
   description: process.env.VITE_DESCRIPTION || "App description",
   theme_color: "#0f172a",
   background_color: "#1e293b",
-  display: "standalone",
+  display: "fullscreen",
   scope: "./",
   start_url: "./",
   icons: [
