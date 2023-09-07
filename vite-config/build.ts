@@ -3,7 +3,7 @@ import { resolve } from "path";
 import { BuildOptions } from "vite";
 import "./global";
 const build: BuildOptions = {
-  // manifest: "manifest.json",
+  manifest: true,
   minify: true,
   chunkSizeWarningLimit: 3000,
   assetsDir: "",
@@ -19,7 +19,6 @@ const build: BuildOptions = {
         async writeBundle(options) {
           try {
             const content = await readFile(resolve(options.dir, "index.html"), "utf-8");
-            console.log(resolve(options.dir, "index.html"));
             await writeFile(resolve(options.dir, "404.html"), content);
           } catch (error) {
             throw new Error(error);

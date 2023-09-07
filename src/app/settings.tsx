@@ -1,6 +1,7 @@
+import { getThemeStore } from "appmon/storage";
 import { unslash } from "appmon/url";
-const env__dev = import.meta.env.DEV ? true : false;
-const basename = env__dev ? "" : import.meta.env.VITE_BASENAME;
+
+const basename = import.meta.env.VITE_BASENAME || "";
 export default {
   name: "Appsaeed",
   mode: import.meta.env.BASE_URL,
@@ -8,4 +9,21 @@ export default {
   basename,
   baseURL: import.meta.env.BASE_URL,
   url: unslash(`${location.protocol}//${location.host}/${basename}`),
+  theme: {
+    mode: getThemeStore(),
+    color: getThemeStore() === "dark" ? "#e2e8f0" : "#0f172a",
+    background: getThemeStore() === "dark" ? "#1e293b" : "#e2e8f0",
+    dark: {
+      color: "#e2e8f0",
+      background: "#1e293b",
+    },
+    light: {
+      color: "#0f172a",
+      background: "#e2e8f0",
+    },
+    allClass:
+      "bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-200",
+    baClass: "bg-slate-200 dark:bg-slate-800",
+    textClass: "text-slate-900 dark:text-slate-200",
+  },
 };

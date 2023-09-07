@@ -8,15 +8,15 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "view": "vite preview",
     "test": "vitest"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@solidjs/router": "^0.8.3",
     "@sweetalert2/theme-dark": "^5.0.15",
-    "@tanstack/solid-query": "^4.33.0",
-    "appmon": "^1.0.16",
-    "axios": "^1.5.0",
+    "@tanstack/solid-query": "^4.35.0",
+    "appmon": "^1.0.27",
     "solid-icons": "^1.0.11",
     "solid-js": "^1.7.8",
     "sweetalert2": "^11.7.23",
@@ -33,8 +33,6 @@
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
-    "vite-plugin-html": "^3.2.0",
-    "vite-plugin-pwa": "^0.16.4",
     "vite-plugin-solid": "^2.7.0"
   }
 }

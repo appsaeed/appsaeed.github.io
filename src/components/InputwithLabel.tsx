@@ -9,14 +9,14 @@ type InputwithLabelProps = {
 } & InputProps;
 
 export default function InputwithLabel(props: InputwithLabelProps) {
-  const { label, mainClass, labelProps } = props;
+  const { label, mainClass, labelProps, type = "text" } = props;
   const makefor = toSeoUrl(label);
   return (
     <div class={mainClass}>
       <InputLabel for={makefor} {...labelProps}>
         {label}
       </InputLabel>
-      <Input id={makefor} {...props} />
+      <Input id={makefor} type={type} {...props} />
     </div>
   );
 }

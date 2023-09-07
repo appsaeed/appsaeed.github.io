@@ -1,83 +1,72 @@
-import { FiTarget } from "solid-icons/fi";
-import { For } from "solid-js";
+import { FiShoppingBag, FiTarget } from "solid-icons/fi";
+import { For, createSignal, onMount } from "solid-js";
 import Animate from "../../animation";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
-import testimonials from "../../data/testimonials";
+
+import { avatar } from "appmon/generate";
+import { Review, testimonials } from "../../data/testimonials";
 import { HtmlAttr } from "../../types/dom";
 
-type ItemProps = {
-  index: number;
-  image: string;
-  name: string;
-  feedback: string;
-  position: string;
-};
-function ListItem({ name, position, feedback, image, index }: ItemProps) {
-  // onMount(() => {
-  //   var myHeaders = new Headers();
-  //   myHeaders.append(
-  //     "Cookie",
-  //     "__cfruid=cf58a60b5b4db5898ebbb7f78a8f64c516c92f2d-1693748287; logged_out_currency=USD; u_guid=1693747745000-096ab3d225d80970249c912e93ac609fd6f1bf60; visited_fiverr=true; _fiverr_session_key=dba0e75a9a0994a32e04bc65a915080a; _pxhd=IYO9Jf5Lr2qVtfom1dj6nVdFt4UtuqztJV0TYXX/0QxRSK5AZir4oPJQDbwES7uKEMD/fPRfTRuZ/FsEOoq7lQ==:Bt4gbTV6qqAwfuQdKNveK7gaGZVzqjOVsNL4E0vtWrdDb4QkfrBOJmFwwG3gtg6cW4J75zsqENoLWud91Wp55AiM55fDU8XXpTJFgOm/OeM="
-  //   );
-
-  //   var requestOptions = {
-  //     method: "GET",
-  //     headers: myHeaders,
-  //     // redirect: "follow",
-  //   };
-
-  //   fetch(
-  //     "https://www.fiverr.com/reviews/user_page/fetch_user_reviews/101612053?user_id=101612053",
-  //     requestOptions
-  //   )
-  //     .then((response) => response.text())
-  //     .then((result) => console.log(result))
-  //     .catch((error) => console.log("error", error));
-  // });
+type ItemProps = Review & { index: number };
+function ListItem({
+  comment,
+  user_image_url,
+  index,
+  reviewer_country,
+  username,
+  gig_slug,
+}: ItemProps) {
   return (
     <Animate.div
       duration={`1.${index}s`}
       motion="slideInUp"
-      class="bg-slate-700 p-6 rounded-2xl w-full"
+      class="dark:bg-slate-700 shadow-2xl bg-slate-100  p-6 rounded-2xl w-full"
     >
       <div class="flex justify-between gap-6 mb-6">
-        <div class="w-10 h-10">
+        <div class="w-8 h-8">
           <Image
-            src={image}
+            src={user_image_url ? user_image_url : avatar(username.slice(0, 2))}
             alt="feedback_by-Sara Lee"
-            class="w-10 h-10 rounded-full object-cover"
+            class="w-8 h-8 rounded-full object-cover"
           />
         </div>
-        <div class="link">@{name}</div>
-        <div class="flex">
-          <FiTarget class="text-xl mr-1" /> {position}
+        <a
+          href={`https://www.fiverr.com/appsaeed/${gig_slug}`}
+          class="flex link gap-1"
+          target="_blank"
+        >
+          <FiShoppingBag class="text-xl" /> package
+        </a>
+        <div class="flex gap-1">
+          <FiTarget class="text-xl" /> {reviewer_country}
         </div>
       </div>
       <div class="">
-        <p class="text-white tracking-wider text-[16px]">{feedback}</p>
+        <p
+          class="dark:text-white tracking-wider text-[16px] overflow-hidden text-ellipsis line-clamp-2 cursor-pointer"
+          onclick={(e) => e.target.classList.toggle("line-clamp-2")}
+        >
+          {comment}
+        </p>
       </div>
     </Animate.div>
   );
 }
 
 export default function TestimonialSection(props: HtmlAttr) {
+  const [reviews, setReviews] = createSignal<Review[]>(testimonials);
+  onMount(() => {
+    setReviews(reviews().filter((_v, i) => i < 6));
+  });
   return (
     <section {...props} class={`${props.class} `}>
       <SectionHeader>Testimonials</SectionHeader>
       <div class="">
         <div class="grid sm:grid-cols-3 gap-4">
-          <For each={testimonials}>
-            {({ name, position, feedback, image }, index) => {
-              return (
-                <ListItem
-                  index={index()}
-                  name={name}
-                  position={position}
-                  feedback={feedback}
-                  image={image}
-                />
-              );
+          <For each={reviews()}>
+            {(review, index) => {
+              return <ListItem index={index()} {...review} />;
             }}
           </For>
         </div>

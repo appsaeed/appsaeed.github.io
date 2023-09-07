@@ -50,12 +50,7 @@ export default function Navbar() {
   });
 
   return (
-    <header
-      id="header"
-      class={`transition-all z-[999] top-0 left-0 right-0 w-full bg-white border-gray-200 dark:bg-gray-900 ${
-        fixed() ? "fixed py-3" : "py-4"
-      }`}
-    >
+    <header id="header" class={`transition-all z-[999] top-0 left-0 right-0 w-full bg-slate-200 dark:bg-slate-800 shadow-2xl  fixed ${fixed() ? "fixeds py-3" : "py-4"}`}>
       <nav class={`${sections.headerfooter.common} w-full`}>
         <div class="w-full flex flex-wrap items-center justify-between mx-auto">
           <BrandLogo />
@@ -69,59 +64,34 @@ export default function Navbar() {
               // onfocusout={() => setDropdown(false)}
             >
               {/* <span class="sr-only">Open user menu</span> */}
-              <Image
-                class="w-8 h-8 rounded-full max-sm:hidden"
-                src={avatar("saeed")}
-                alt="user photo"
-                onclick={() => setDropdown(!dropdown())}
-              />
+              <Image class="w-8 h-8 rounded-full max-sm:hidden" src={avatar("saeed")} alt="user photo" onclick={() => setDropdown(!dropdown())} />
               <div
                 class={`z-50  md:ml-6 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 transition-all duration-100 absolute right-0 top-full opacity-0
               `}
-                style={
-                  dropdown()
-                    ? "opacity:1; visibility: visible; transform: translate(0px);"
-                    : "opacity:0; visibility: hidden;  transform: translate(60px, 0px)"
-                }
+                style={dropdown() ? "opacity:1; visibility: visible; transform: translate(0px);" : "opacity:0; visibility: hidden;  transform: translate(60px, 0px)"}
               >
                 <div class="px-4 py-3">
-                  <span class="block text-sm text-gray-900 dark:text-white">
-                    {user.name}
-                  </span>
-                  <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                    {user.email}{" "}
-                  </span>
+                  <span class="block text-sm text-gray-900 dark:text-white">{user.name}</span>
+                  <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{user.email} </span>
                 </div>
                 <ul class="py-2" aria-labelledby="user-menu-button">
                   <li>
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                       Dashboard
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                       Settings
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                       Earnings
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                       Sign out
                     </a>
                   </li>
@@ -129,39 +99,15 @@ export default function Navbar() {
               </div>
             </div>
 
-            <button
-              data-collapse-toggle="navbar-user"
-              type="button"
-              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-user"
-              aria-expanded="false"
-              onclick={() => setMobileMenu(!isMobileMenu())}
-            >
+            <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false" onclick={() => setMobileMenu(!isMobileMenu())} onBlur={() => setMobileMenu(false)}>
               <span class="sr-only">Open main menu</span>
-              <svg
-                class="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 17 14"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 1h15M1 7h15M1 13h15"
-                />
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
               </svg>
             </button>
           </div>
-          <div
-            class={`items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all ${
-              isMobileMenu() ? "max-sm:opacity-100" : "max-sm:opacity-0 max-sm:h-0"
-            }`}
-            id="navbar-user"
-          >
-            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <div class={`items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all ${isMobileMenu() ? "max-sm:opacity-100 max-sm:visible" : "max-sm:opacity-0 max-sm:h-0 max-sm:invisible"}`} id="navbar-user">
+            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  max-md:bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 max-md:dark:bg-gray-900 max-sm:dark:border-gray-700">
               <For each={menus}>
                 {({ name }) => {
                   return <MenuList name={name} />;
@@ -182,10 +128,7 @@ type MenuListProps = {
 export function MenuList({ name }: MenuListProps) {
   return (
     <li>
-      <a
-        href={`#${name}`}
-        class={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 capitalize`}
-      >
+      <a href={`#${name}`} class={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 capitalize`}>
         {name}
       </a>
     </li>
@@ -205,10 +148,7 @@ export function SwtichTheme() {
   };
 
   return (
-    <div
-      onClick={handleTheme}
-      class={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent cursor-pointer text-2xl`}
-    >
+    <div onClick={handleTheme} class={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent cursor-pointer text-2xl`}>
       {dark() ? <FiMoon /> : <FiSun />}
     </div>
   );

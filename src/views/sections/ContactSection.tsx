@@ -81,14 +81,22 @@ export default function ContactSection(props: HtmlAttr) {
         {/* form/ */}
         <Animate.div
           motion="slideInRight"
-          class="p-8 bg-gray-700 shadow-gray-600 rounded-2xl h-max"
+          class="p-8 dark:bg-gray-700 bg-slate-100 shadow-2xl rounded-2xl h-max"
         >
           <p class="text-xl uppercase tracking-wider">Get in touch</p>
           <div class="my-4 text-1xl">
-            <a href="mailto:appsaeed7@gmail.com" target="_blank" class="flex gap-2 my-2">
+            <a
+              href="mailto:appsaeed7@gmail.com"
+              target="_blank"
+              class="flex gap-2 my-2"
+            >
               <FiMail class="mt-1" /> <span>appsaeed7@gmail.com</span>
             </a>
-            <a href="tel:+8801780861887" target="_blank" class="flex gap-2 my-2">
+            <a
+              href="tel:+8801780861887"
+              target="_blank"
+              class="flex gap-2 my-2"
+            >
               <FiPhone class="mt-1" /> <span>+8801780861887</span>
             </a>
             <a
@@ -99,11 +107,13 @@ export default function ContactSection(props: HtmlAttr) {
               <BsWhatsapp class="mt-1 text-white" /> <span>+8801780861887</span>
             </a>
           </div>
-          <form class="mt-10 flex flex-col gap-4" onSubmit={(e) => formHandler(e)}>
+          <form
+            class="mt-10 flex flex-col gap-4"
+            onSubmit={(e) => formHandler(e)}
+          >
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <InputwithLabel
                 name="name"
-                type="text"
                 label="Your name"
                 placeholder="What's your name"
                 value={form.name}
@@ -117,14 +127,14 @@ export default function ContactSection(props: HtmlAttr) {
                 value={form.email}
                 oninput={(e) => setData("email", e.target.value)}
               />
+              <InputwithLabel
+                name="subject"
+                label="Your subject"
+                placeholder="Tell us a resone"
+                value={form.subject}
+                oninput={(e) => setData("subject", e.target.value)}
+              />
             </div>
-            <InputwithLabel
-              name="subject"
-              label="Your Subject"
-              placeholder="Tel us a resone"
-              value={form.subject}
-              oninput={(e) => setData("subject", e.target.value)}
-            />
 
             <TextareaWithLabel
               label="Your messsage"

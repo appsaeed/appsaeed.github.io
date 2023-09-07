@@ -1,3 +1,4 @@
+import { getThemeStore } from "appmon/storage";
 import Swal from "sweetalert2";
 
 const Toast = Swal.mixin({
@@ -8,10 +9,13 @@ const Toast = Swal.mixin({
   timer: 10000,
   timerProgressBar: true,
   customClass: "z-[99999]",
+  progressSteps: [""],
   didOpen: (toast) => {
     toast.addEventListener("mouseenter", Swal.stopTimer);
     toast.addEventListener("mouseleave", Swal.resumeTimer);
   },
+  background: getThemeStore() === "dark" ? "#1e293b" : "#ffffff",
+  color: getThemeStore() === "dark" ? "#ffffff" : "#1e293b",
 });
 
 export default Toast;

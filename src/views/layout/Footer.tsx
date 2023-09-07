@@ -18,7 +18,7 @@ function FooterMiddler() {
 
 export default function Footer() {
   return (
-    <footer id="footer" class="dark:bg-gray-800">
+    <footer id="footer" class="dark:bg-gray-800 bg-slate-50">
       <div class="mx-auto w-full py-6">
         <FooterMiddler />
         <HRSeparator />

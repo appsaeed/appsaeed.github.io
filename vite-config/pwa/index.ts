@@ -19,7 +19,6 @@ interface PWAConfig {
 }
 
 export default function pwa(config: PWAConfig): PluginOption {
-  const { manifest, manifestFilename } = config;
   return {
     name: "pwa",
     async writeBundle(outputOptions, bundle: Record<string, any>) {
@@ -82,11 +81,7 @@ export async function addServiceWorkerToHtml(options: Options, config: PWAConfig
   }
 }
 
-export async function createServiceWorker(
-  options: Options,
-  config: PWAConfig,
-  bundle: BundleData
-) {
+export async function createServiceWorker(options: Options, config: PWAConfig, bundle: BundleData) {
   try {
     const { dir } = options;
     const { swFilename = SWJS_FILENAME } = config;
@@ -99,7 +94,6 @@ export async function createServiceWorker(
       }
     }
 
-    await writeFile(resolve(dir, "assets.json"), JSON.stringify(bundle));
     //read
     const swSource = await readFile(resolve(__dirname, "sw.js"), "utf-8");
     const content = swSource.replace(/"add_cache_list"/g, JSON.stringify(assetsList));

@@ -1,5 +1,4 @@
 import { Link } from "@solidjs/router";
-import { FiCode } from "solid-icons/fi";
 import { VsLiveShare } from "solid-icons/vs";
 import { For, JSX, JSXElement } from "solid-js";
 import Animate from "../../animation";
@@ -14,10 +13,11 @@ export default function ProjectSection(props: JSX.HTMLAttributes<HTMLElement>) {
     <section class={`${sections.common} ${props.class}`} {...props}>
       <SectionHeader>Projects</SectionHeader>
       <SectionDescription>
-        The following projects showcase my skills and experience through real-world
-        examples of my work. Each project is briefly described with links to code
-        repositories and live demos in it. It reflects my ability to solve complex
-        problems, work with different technologies, and manage projects effectively.
+        The following projects showcase my skills and experience through
+        real-world examples of my work. Each project is briefly described with
+        links to code repositories and live demos in it. It reflects my ability
+        to solve complex problems, work with different technologies, and manage
+        projects effectively.
       </SectionDescription>
       <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         <For each={projects}>
@@ -83,14 +83,9 @@ export function ProjectCard({
         <h3 class="text-white font-bold text-2xl">{title}</h3>
         <p class="my-2 text-sm font-light text-slate-300">{description}</p>
       </div>
-      <div class="mt-4 flex gap-2">
-        <FiCode class="mt-1" />
+      <div class="mt-4">
         <For each={tags}>
-          {(tag) => (
-            <Link href="#" class="link lowercase">
-              #{tag}
-            </Link>
-          )}
+          {(tag) => <a class="link lowercase m-1">#{tag}</a>}
         </For>
       </div>
     </Animate.div>
