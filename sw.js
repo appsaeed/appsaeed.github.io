@@ -1,1 +1,112 @@
-if(!self.define){let e,i={};const n=(n,c)=>(n=new URL(n+".js",c).href,i[n]||new Promise((i=>{if("document"in self){const e=document.createElement("script");e.src=n,e.onload=i,document.head.appendChild(e)}else e=n,importScripts(n),i()})).then((()=>{let e=i[n];if(!e)throw new Error(`Module ${n} didn’t register its module`);return e})));self.define=(c,r)=>{const o=e||("document"in self?document.currentScript.src:"")||location.href;if(i[o])return;let s={};const d=e=>n(e,o),f={module:{uri:o},exports:s,require:d};i[o]=Promise.all(c.map((e=>f[e]||d(e)))).then((e=>(r(...e),s)))}}define(["./workbox-d664b21b"],(function(e){"use strict";e.setCacheNameDetails({prefix:"saeed_cache"}),self.skipWaiting(),e.clientsClaim(),e.precacheAndRoute([{url:"404.html",revision:"df7bdb1e52418cee1d2eb78b579cc9ac"},{url:"index-488994b1.css",revision:null},{url:"index-64972526.js",revision:null},{url:"index.html",revision:"df7bdb1e52418cee1d2eb78b579cc9ac"},{url:"registerSW.js",revision:"0c51d2f38853d7ef3d2db4a37319a147"},{url:"icon-72x72.png",revision:"a926f1eedc15a34ec4874d05d19e75eb"},{url:"icon-96x96.png",revision:"131a3cf95bc2258e9c00bf96a5d80431"},{url:"icon-128x128.png",revision:"ebc8f37588a864300bacf62a6af279f9"},{url:"icon-144x144.png",revision:"c26edad140faf76151e9b66231119298"},{url:"icon-152x152.png",revision:"7b4440e82d42b71d172e1d6b8cc6ce48"},{url:"icon-192x192.png",revision:"a0dfff6f1ff3a99148c1c4c481448c30"},{url:"icon-384x384.png",revision:"5a8b7d62cfc213eb1882dba05681a3bb"},{url:"icon-512x512.png",revision:"f09b4b2791766dbe2ba6deff2f97aa69"},{url:"manifest.webmanifest",revision:"9eb3ebea1f904aee790c2431b82d6e17"}],{}),e.cleanupOutdatedCaches(),e.registerRoute(new e.NavigationRoute(e.createHandlerBoundToURL("index.html"))),e.registerRoute(/\/(asc|ftools|static|iptv-view)\/.*/g,new e.NetworkOnly,"GET")}));
+"use strict";
+
+/**
+ * Service Worker of PWA
+ * To learn more and add one to your website, visit - https://PWA.com
+ */
+
+const cacheName = "pwa-chace";
+const offlinePage = self.location.protocol + "//" + self.location.host + "/";
+const filesToCache = ["blurr-99397f12.webp","developer-activity-8545d1a3.svg","bg-hero-0ba10949.jpeg","apple-store-994d47a8.svg","billing-fd47dad8.png","business-37b8212e.svg","payment-card-af071def.png","play-google-3035153f.svg","send-454b3199.svg","shield-6d9e87e5.svg","star-b8bf87ea.svg","support-animate-762603b2.svg","ftools-fa79fd13.png","herobg-ecbfddc8.png","harvardedit-36ffbc20.png","globe-d7adf010.png","oxfordeditor-8662abce.png","robot-352cd501.png","asc-919972ef.png","the247openhouse-cda052ce.png","static-home-1db70e2b.png","javascript-59cf4c89.jpg","laravel-dac4a53f.jpg","php-f9139dae.png","reactjs-966214a8.png","solidjs-123b04bc.svg","gluxy-cover-30167500.png","index-cacd1937.css","index.html","manifest.json"];
+const neverCacheUrls = [/\/asc/, /\/ftools/, /manifest.webmanifest /];
+
+// Install
+self.addEventListener("install", function (e) {
+  console.log("PWA service worker installation");
+  e.waitUntil(
+    setTimeout(() => {
+      addEventListener("message", (event) => {
+        caches.open(cacheName).then(function (cache) {
+          console.log("PWA service worker caching dependencies");
+          event.data.map(async function (url) {
+            try {
+              return await cache.add(url);
+            } catch (reason) {}
+          });
+        });
+      });
+    }, 1000)
+  );
+});
+
+//Activate and deleted old cached
+self.addEventListener("activate", function (e) {
+  console.log("PWA service worker activation");
+  e.waitUntil(
+    caches.keys().then(function (keyList) {
+      return Promise.all(
+        keyList.map(function (key) {
+          if (key !== cacheName) {
+            console.log("PWA old cache removed", key);
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
+  return self.clients.claim();
+});
+
+// Fetch
+self.addEventListener("fetch", function (e) {
+  // Return if the current request url is in the never cache list
+  if (!neverCacheUrls.every(checkNeverCacheList, e.request.url)) {
+    console.log("PWA: Current request is excluded from cache.");
+    return;
+  }
+
+  // Return if request url protocal isn't http or https
+  if (!e.request.url.match(/^(http|https):\/\//i)) return;
+
+  // Return if request url is from an external domain.
+  if (new URL(e.request.url).origin !== location.origin) return;
+  // For POST requests, do not use the cache. Serve offline page if offline.
+  if (e.request.method !== "GET") {
+    e.respondWith(
+      fetch(e.request).catch(async function () {
+        const res = await caches.match(e.request);
+        return res;
+      })
+    );
+    return;
+  }
+
+  // Revving strategy
+  if (e.request.mode === "navigate" && navigator.onLine) {
+    e.respondWith(
+      fetch(e.request).then(async function (response) {
+        const cache = await caches.open(cacheName);
+        cache.put(e.request, response.clone());
+        return response;
+      })
+    );
+    return;
+  }
+
+  e.respondWith(
+    caches
+      .match(e.request)
+      .then(function (response) {
+        return (
+          response ||
+          fetch(e.request).then(async function (response) {
+            const cache = await caches.open(cacheName);
+            cache.put(e.request, response.clone());
+            return response;
+          })
+        );
+      })
+      .catch(async function () {
+        const res = await caches.match(e.request);
+        return res;
+      })
+  );
+});
+
+// Check if current url is in the neverCacheUrls list
+function checkNeverCacheList(url) {
+  if (this.match(url)) {
+    return false;
+  }
+  return true;
+}
