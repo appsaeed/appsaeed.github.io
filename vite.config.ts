@@ -6,7 +6,7 @@ import AddPlugins from "./vite-config/plugins";
 export default defineConfig({
   plugins: AddPlugins,
   server: {
-    port: Number(process.env.sss) || 31000,
+    port: Number(process.env.VITE_PORT) || 31000,
   },
   build: buildconfing,
   preview: {
