@@ -39,6 +39,5 @@ export const Index = () => {
   );
 };
 //dom selector
-// const maindom = document.body;
-const maindom = document.querySelector('#index') as HTMLElement;
+const maindom = document.body;
 render(() => <Index />, maindom);
