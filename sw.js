@@ -7,7 +7,7 @@
 
 const cacheName = "pwa-chace";
 const offlinePage = self.location.protocol + "//" + self.location.host + "/";
-const filesToCache = ["blurr-99397f12.webp","developer-activity-8545d1a3.svg","bg-hero-0ba10949.jpeg","apple-store-994d47a8.svg","business-37b8212e.svg","billing-fd47dad8.png","globe-d7adf010.png","herobg-ecbfddc8.png","payment-card-af071def.png","play-google-3035153f.svg","send-454b3199.svg","shield-6d9e87e5.svg","star-b8bf87ea.svg","support-animate-762603b2.svg","gluxy-cover-30167500.png","robot-352cd501.png","ftools-fa79fd13.png","harvardedit-36ffbc20.png","asc-919972ef.png","oxfordeditor-8662abce.png","static-home-1db70e2b.png","the247openhouse-cda052ce.png","javascript-59cf4c89.jpg","laravel-dac4a53f.jpg","php-f9139dae.png","reactjs-966214a8.png","solidjs-123b04bc.svg","index-cacd1937.css","index.html","manifest.json"];
+const filesToCache = ["blurr-99397f12.webp","developer-activity-8545d1a3.svg","bg-hero-0ba10949.jpeg","apple-store-994d47a8.svg","billing-fd47dad8.png","business-37b8212e.svg","payment-card-af071def.png","play-google-3035153f.svg","send-454b3199.svg","shield-6d9e87e5.svg","star-b8bf87ea.svg","support-animate-762603b2.svg","ftools-fa79fd13.png","herobg-ecbfddc8.png","harvardedit-36ffbc20.png","globe-d7adf010.png","robot-352cd501.png","oxfordeditor-8662abce.png","asc-919972ef.png","static-home-1db70e2b.png","the247openhouse-cda052ce.png","javascript-59cf4c89.jpg","laravel-dac4a53f.jpg","php-f9139dae.png","reactjs-966214a8.png","solidjs-123b04bc.svg","gluxy-cover-30167500.png","index-cacd1937.css","index.html","manifest.json"];
 const neverCacheUrls = [/\/asc/, /\/ftools/, /manifest.webmanifest /];
 
 // Install
