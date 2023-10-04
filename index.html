@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,18 +36,16 @@
   <div id="index"></div>
   <!-- Messenger Chat plugin Code -->
   <div id="fb-root"></div>
-
   <!-- Your Chat plugin code -->
   <div id="fb-customer-chat" class="fb-customerchat">
   </div>
-
   <script>
     var chatbox = document.getElementById('fb-customer-chat');
     chatbox.setAttribute("page_id", "102783358643262");
     chatbox.setAttribute("attribution", "biz_inbox");
   </script>
 
-  <!-- Your SDK code -->
+  <!-- Your SDK code here -->
   <script>
     window.fbAsyncInit = function () {
       FB.init({
