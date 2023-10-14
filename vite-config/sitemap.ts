@@ -32,7 +32,7 @@ export default function sitemap(options?: SitemapOptions) {
             <loc>${adslash(baseUrl)}${unslash(route)}</loc>
             <lastmod>${formattedDate}</lastmod>
             <changefreq>daily</changefreq>
-            <priority>Medium Priority</priority>
+            <priority>0.8</priority>
         </url>`;
     });
 
@@ -44,7 +44,7 @@ export default function sitemap(options?: SitemapOptions) {
             <loc>${baseUrl}</loc>
             <lastmod>${formattedDate}</lastmod>
             <changefreq>daily</changefreq>
-            <priority>High Priority</priority>
+            <priority>1.0</priority>
         </url>
         ${sitemapEntries.join('')}
     </urlset>
