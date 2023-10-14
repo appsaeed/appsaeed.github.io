@@ -7,5 +7,5 @@ export default function SiteMap(){
 
 const locations = ["/license" ,"/privacy-policy",'/term-and-conditions','/help-center'];
 
-return sitemap( {  dynamicRoutes: locations , hostname: location.host   });
+return sitemap( {  dynamicRoutes: locations , hostname: 'appsaeed.github.io'    });
 }
