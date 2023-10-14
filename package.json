@@ -23,6 +23,7 @@
     "typed.js": "^2.0.16"
   },
   "devDependencies": {
+    "date-fns": "^2.30.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/ejs": "^3.1.2",
     "@types/html-minifier-terser": "^7.0.0",
@@ -33,7 +34,6 @@
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
-    "vite-plugin-sitemap": "^0.4.2",
     "vite-plugin-solid": "^2.7.0"
   }
 }
