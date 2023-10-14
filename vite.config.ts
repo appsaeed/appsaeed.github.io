@@ -3,6 +3,7 @@ import buildconfing from "./vite-config/build";
 import "./vite-config/global";
 import AddPlugins from "./vite-config/plugins";
 
+
 export default defineConfig({
   plugins: AddPlugins,
   server: {
