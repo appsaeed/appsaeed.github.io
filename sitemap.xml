@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"><url><loc>http://localhost/404</loc><lastmod>2023-10-14T19:43:23.968Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url><url><loc>http://localhost/googlebcece6635494ce8b</loc><lastmod>2023-10-14T19:43:23.968Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url><url><loc>http://localhost/</loc><lastmod>2023-10-14T19:43:23.968Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url><url><loc>http://localhost/license</loc><lastmod>2023-10-14T19:43:23.968Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url><url><loc>http://localhost/privacy-policy</loc><lastmod>2023-10-14T19:43:23.968Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url><url><loc>http://localhost/term-and-conditions</loc><lastmod>2023-10-14T19:43:23.968Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url><url><loc>http://localhost/help-center</loc><lastmod>2023-10-14T19:43:23.968Z</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+        <url>
+            <loc>https://appsaeed.github.io</loc>
+            <lastmod>2023-10-14T21:05:17Z</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>High Priority</priority>
+        </url>
+        <url>
+            <loc>https://appsaeed.github.io/license</loc>
+            <lastmod>2023-10-14T21:05:17Z</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>Medium Priority</priority>
+        </url><url>
+            <loc>https://appsaeed.github.io/privacy-policy</loc>
+            <lastmod>2023-10-14T21:05:17Z</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>Medium Priority</priority>
+        </url><url>
+            <loc>https://appsaeed.github.io/term-and-conditions</loc>
+            <lastmod>2023-10-14T21:05:17Z</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>Medium Priority</priority>
+        </url><url>
+            <loc>https://appsaeed.github.io/help-center</loc>
+            <lastmod>2023-10-14T21:05:17Z</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>Medium Priority</priority>
+        </url>
+    </urlset>
+    
