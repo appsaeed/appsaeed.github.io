@@ -1,4 +1,4 @@
-import { FiShoppingBag, FiTarget } from "solid-icons/fi";
+import { FiMapPin, FiShoppingBag } from "solid-icons/fi";
 import { For, createSignal, onMount } from "solid-js";
 import Animate from "../../animation";
 import Image from "../../components/Image";
@@ -16,6 +16,7 @@ function ListItem({
   reviewer_country,
   username,
   gig_slug,
+  ...params
 }: ItemProps) {
   return (
     <Animate.div
@@ -27,19 +28,20 @@ function ListItem({
         <div class="w-8 h-8">
           <Image
             src={user_image_url ? user_image_url : avatar(username.slice(0, 2))}
-            alt="feedback_by-Sara Lee"
+            alt={`Feedback by ${username}`}
             class="w-8 h-8 rounded-full object-cover"
           />
         </div>
         <a
-          href={`https://www.fiverr.com/appsaeed/${gig_slug}`}
+          // href={`https://www.fiverr.com/appsaeed/${gig_slug}`}
+          href={`mailto:appsaeed@gmail.com?subject=Send me the Package -  ${params.gig_id}`}
           class="flex link gap-1"
           target="_blank"
         >
           <FiShoppingBag class="text-xl" /> package
         </a>
         <div class="flex gap-1">
-          <FiTarget class="text-xl" /> {reviewer_country}
+          <FiMapPin class="text-xl" />{reviewer_country}
         </div>
       </div>
       <div class="">

@@ -47,8 +47,8 @@ export default function (props: HtmlAttr) {
           </p>
         </Animate.h2>
 
-        <Animate.h2 motion="slideInUp" class="mb-20 text-xl text-slate-300">
-          Create your website and web application for growing your worth over online in world.
+        <Animate.h2 motion="slideInUp" class="mb-20 text-base text-slate-300">
+          I'm a Web Application Developer with a good expertise for JavaScript, Laravel, React.js, Solid.js, Headless Technology, and everything related to APIs. I also specialize in TailwindCSS, and WordPress, including themes, plugins, and Rest APIs. Currently, I'm open to work and employment opportunities
         </Animate.h2>
 
         <Animate.a href="#contact" motion="slideInUp" type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-10 py-2 text-center mr-2 mb-2">
@@ -59,4 +59,4 @@ export default function (props: HtmlAttr) {
   );
 }
 
-export const typingText = ["Full Stack web developer", "Laravel Application", "Wordpress website", "Frontend Framework", "Solid Js", "React Js", "Next  Js", "Progressive Web Apps ( PWA )", "Application Programming Interface ( API )", "Artificial intelligence ( AI )", "Database"];
+export const typingText = ["Full Stack web developer", "Laravel Application", "Wordpress Website", "Frontend Framework", "Solid Js", "React Js", "Next  Js", "Progressive Web App ( PWA )", "Application Programming Interface ( API )", "Artificial intelligence ( AI )", "Database"];

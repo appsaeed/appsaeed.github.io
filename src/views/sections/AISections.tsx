@@ -5,10 +5,10 @@ import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
 
 const item_list = [
-  "Artificial intelligence intregate in your website",
-  `Uses <a class="link" href="https://openai.com" target="_blank">openai</a> on your new website or exiting!`,
-  "Image generate useing ai tools and apis",
-  "Unicq Emails, blogs, contents generate useing AI",
+  "Artificial intelligence intregate into your website",
+  `Uses OpenAI on your new website or exiting!`,
+  "Image and video generate useing AI tools and APIs",
+  "Emails, Templates, blogs, contents generate useing AI",
 ];
 
 import Animate from "../../animation";

@@ -1,18 +1,19 @@
+import { Link } from "@solidjs/router";
 import { avatar } from "appmon/generate";
 import { getThemeStore, setThemeStore } from "appmon/storage";
+import { adslash } from "appmon/url";
 import { FiMoon, FiSun } from "solid-icons/fi";
 import { For, createSignal, onCleanup, onMount } from "solid-js";
+import settings from "../../app/settings";
 import Image from "../../components/Image";
 import sections from "../../data/className/sections";
-import menusdata from "../../data/menus";
+import menus from "../../data/menus";
 import user from "../../data/user";
 import BrandLogo from "./BrandLogo";
 
 export default function Navbar() {
   const [isMobileMenu, setMobileMenu] = createSignal(false);
   const [dropdown, setDropdown] = createSignal(false);
-  const umenu = "companies|ai|testimonials|manage";
-  const menus = menusdata.filter((f) => !umenu.includes(f.name));
   const [fixed, setFixed] = createSignal(false);
   onMount(() => {
     if (document.documentElement.scrollTop > 100) {
@@ -61,7 +62,7 @@ export default function Navbar() {
             <div
               class=" relative cursor-pointer mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
 
-              // onfocusout={() => setDropdown(false)}
+            // onfocusout={() => setDropdown(false)}
             >
               {/* <span class="sr-only">Open user menu</span> */}
               <Image class="w-8 h-8 rounded-full max-sm:hidden" src={avatar("saeed")} alt="user photo" onclick={() => setDropdown(!dropdown())} />
@@ -128,9 +129,9 @@ type MenuListProps = {
 export function MenuList({ name }: MenuListProps) {
   return (
     <li>
-      <a href={`#${name}`} class={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 capitalize`}>
+      <Link href={adslash(settings.baseURL) + `#${name}`} class={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 capitalize`}>
         {name}
-      </a>
+      </Link>
     </li>
   );
 }

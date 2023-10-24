@@ -3,7 +3,7 @@ import { ImageAttr } from "../types/dom";
 
 export type ImageProps = ImageAttr;
 
-export default function Image({ alt = "saeed image", class: ch, ...prgs }: ImageProps) {
+export default function Image({ alt = "saeed image", class: ch = '', ...prgs }: ImageProps) {
   let images: HTMLImageElement | undefined;
   onMount(() => {
     //create ovserver instance of ovserver to display the image

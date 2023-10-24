@@ -79,7 +79,7 @@ export function ProjectCard({
           </div>
         </div>
       </div>
-      <div class="mt-5">
+      <div class="mt-5 cursor-pointer">
         <h3 class="text-white font-bold text-2xl">{title}</h3>
         <p class="my-2 text-sm font-light text-slate-300">{description}</p>
       </div>

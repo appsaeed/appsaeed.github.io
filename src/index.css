@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ */
+.transition-opacity {
+  transition-property: opacity;
+  transition-duration: 300ms;
+}
+
+.translate-y-0 {
+  transform: translateY(0);
+}
+
+.translate-y-4 {
+  transform: translateY(1rem);
+}
+
+
 body,
 section {
   overflow-x: hidden;

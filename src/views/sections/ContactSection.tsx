@@ -1,7 +1,7 @@
 import emailjs from "@emailjs/browser";
 import { isMail } from "appmon/validation";
 import { BsWhatsapp } from "solid-icons/bs";
-import { FiMail, FiPhone } from "solid-icons/fi";
+import { FiPhone } from "solid-icons/fi";
 import { createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
 import Animate from "../../animation";
@@ -90,21 +90,22 @@ export default function ContactSection(props: HtmlAttr) {
               target="_blank"
               class="flex gap-2 my-2"
             >
-              <FiMail class="mt-1" /> <span>appsaeed7@gmail.com</span>
+              {/* <FiMail class="mt-1 text-[#ff2e00]" /> <span>appsaeed7@gmail.com</span> */}
+              <Image height={'20px'} width={'20px'} src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico" alt="" srcset="" /> <span>appsaeed7@gmail.com</span>
             </a>
             <a
               href="tel:+8801780861887"
               target="_blank"
-              class="flex gap-2 my-2"
+              class="flex gap-2 my-2 text-[]"
             >
-              <FiPhone class="mt-1" /> <span>+8801780861887</span>
+              <FiPhone class="mt-1 text-[green]" /> <span>+8801780861887</span>
             </a>
             <a
               href="https://wa.me/+8801780861887"
               target="_blank"
               class="flex gap-2 my-2"
             >
-              <BsWhatsapp class="mt-1 text-white" /> <span>+8801780861887</span>
+              <BsWhatsapp class="mt-1 text-[#25d366]" /> <span>+8801780861887</span>
             </a>
           </div>
           <form

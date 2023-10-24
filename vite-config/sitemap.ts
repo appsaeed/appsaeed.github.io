@@ -46,6 +46,12 @@ export default function sitemap(options?: SitemapOptions) {
             <changefreq>daily</changefreq>
             <priority>1.0</priority>
         </url>
+        <url>
+            <loc>${adslash(baseUrl)}</loc>
+            <lastmod>${formattedDate}</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>0.9</priority>
+        </url>
         ${sitemapEntries.join('')}
     </urlset>
     `;
@@ -54,7 +60,7 @@ export default function sitemap(options?: SitemapOptions) {
 
         name: 'sitemap',
 
-        async writeBundle(options) {
+        async writeBundle(options: { dir: string; }) {
             try {
                 await writeFile(resolve(options.dir, filename), sitemapXML);
             } catch (error) {

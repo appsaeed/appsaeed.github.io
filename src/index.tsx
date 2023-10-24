@@ -10,6 +10,7 @@ import Routes from "./Router";
 import settings from "./app/settings";
 import "./assets/css/image.css";
 import "./index.css";
+import FBMessengers from "./plugins/FBMessenger";
 
 if (!getThemeStore()) setThemeStore(deviceTheme());
 
@@ -34,6 +35,7 @@ export const Index = () => {
     <BrowserRouter>
       <QueryClientProvider client={new QueryClient()}>
         <Routes />
+        <FBMessengers page_id="102783358643262" />
       </QueryClientProvider>
     </BrowserRouter>
   );
