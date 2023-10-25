@@ -7,7 +7,7 @@ type GalleryModalProps = {
     images: Array<{ url: string, alt?: string }>;
 }
 
-function GalleryModal({ images, selectedImageIndex, closeModal, isOpen }: GalleryModalProps) {
+function GalleryModal({ images, selectedImageIndex, closeModal }: GalleryModalProps) {
     const [currentImageIndex, setCurrentImageIndex] = createSignal(selectedImageIndex);
 
     const prevImage = () => {

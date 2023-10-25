@@ -1,9 +1,3 @@
-
-type ModelProps = {
-  open?: boolean,
-  close?: boolean,
-  images?: Array<{ url: string }>
-}
 export default function GalleryModal() {
   return (
     <>

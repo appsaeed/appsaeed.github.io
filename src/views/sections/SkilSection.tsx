@@ -21,10 +21,7 @@ export default function SkilSection(props: HtmlAttr) {
             {(skil, index) => (
               <Knowlage
                 index={index()}
-                name={skil.name}
-                icon={skil.image}
-                percent={skil.percent}
-                link={skil.link}
+                {...skil}
               />
             )}
           </For>
@@ -37,12 +34,12 @@ export default function SkilSection(props: HtmlAttr) {
 type KnowlagePrps = {
   index?: number;
   name: string;
-  icon: string;
+  image: string;
   percent: number;
   link?: string;
 };
 
-export function Knowlage({ name, icon, percent, index }: KnowlagePrps) {
+export function Knowlage({ name, image: icon, percent, index }: KnowlagePrps) {
   let element: HTMLDivElement | undefined;
   const [count, setCount] = createSignal(0);
   onMount(() => {

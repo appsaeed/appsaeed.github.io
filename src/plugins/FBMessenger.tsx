@@ -1,4 +1,4 @@
-import { onMount } from "solid-js";
+import { onCleanup, onMount } from "solid-js";
 
 type Props = {
     xfbml?: boolean,
@@ -12,9 +12,16 @@ export default function FBMessengers(props: Props) {
     const { className = 'fb-customer-chat', attribution = 'biz_inbox', page_id, xfbml = true, version = 'v18.0' } = props;
 
     onMount(() => {
-        // const s = document.createElement('script');
-        // s.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        // s.async = true;
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        document.body.appendChild(script);
+
+        onCleanup(() => {
+            document.removeChild(script);
+        })
+
 
         //@ts-ignore
         window.fbAsyncInit = function () {
@@ -24,6 +31,8 @@ export default function FBMessengers(props: Props) {
                 version
             });
         };
+
+
     })
 
     return (
@@ -32,7 +41,6 @@ export default function FBMessengers(props: Props) {
                 e.setAttribute('attribution', attribution);
                 e.setAttribute('page_id', page_id)
             }} class={className}  >FBMessenger</div>
-            <script src="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js" async></script>
         </>
     )
 }
