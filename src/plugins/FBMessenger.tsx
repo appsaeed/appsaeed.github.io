@@ -37,7 +37,8 @@ export default function FBMessengers(props: Props) {
 
     return (
         <>
-            <div ref={(e) => {
+            <div id="fb-root"></div>
+            <div id="fb-customer-chat" ref={(e) => {
                 e.setAttribute('attribution', attribution);
                 e.setAttribute('page_id', page_id)
             }} class={className}  >FBMessenger</div>
