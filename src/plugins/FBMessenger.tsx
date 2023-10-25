@@ -6,10 +6,11 @@ type Props = {
     page_id: string,
     attribution?: string,
     className?: string,
+    id?: string,
 }
 
 export default function FBMessengers(props: Props) {
-    const { xfbml = true, version = 'v18.0' } = props;
+    const { xfbml = true, version = 'v18.0', page_id = '', attribution = 'biz_inbox', id = 'fb-customer-chat', className = '' } = props;
 
     onMount(() => {
 
@@ -39,9 +40,9 @@ export default function FBMessengers(props: Props) {
         <>
             <div id="fb-root"></div>
             <div ref={(elm) => {
-                elm.setAttribute('page_id', '102783358643262');
-                elm.setAttribute('attribution', 'biz_inbox')
-            }} id="fb-customer-chat" class="fb-customerchat">
+                elm.setAttribute('page_id', page_id);
+                elm.setAttribute('attribution', attribution)
+            }} id={id} class={className}>
             </div>
         </>
     )

@@ -1,4 +1,5 @@
 import { loadImage } from "appmon/load";
+import { FiDownload } from "solid-icons/fi";
 import { onCleanup, onMount } from "solid-js";
 //@ts-ignore
 import Typed from "typed.js";
@@ -51,8 +52,8 @@ export default function (props: HtmlAttr) {
           I'm a Web Application Developer with a good expertise for JavaScript, Laravel, React.js, Solid.js, Headless Technology, and everything related to APIs. I also specialize in TailwindCSS, and WordPress, including themes, plugins, and Rest APIs. Currently, I'm open to work and employment opportunities
         </Animate.h2>
 
-        <Animate.a href="#contact" motion="slideInUp" type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-10 py-2 text-center mr-2 mb-2">
-          Get Started
+        <Animate.a href="/saeed-cv.pdf" download={'Saeed CV for web development job'} motion="slideInUp" type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-10 py-2 text-center mr-2 mb-2" >
+          <FiDownload style={{ display: 'inline' }} />  Download CV
         </Animate.a>
       </div>
     </section>
