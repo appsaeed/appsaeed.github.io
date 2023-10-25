@@ -7,7 +7,7 @@
 
 const cacheName = "pwa-chace";
 const offlinePage = self.location.protocol + "//" + self.location.host + "/";
-const filesToCache = ["blurr-99397f12.webp","developer-activity-8545d1a3.svg","bg-hero-0ba10949.jpeg","apple-store-994d47a8.svg","billing-fd47dad8.png","business-37b8212e.svg","payment-card-af071def.png","play-google-3035153f.svg","send-454b3199.svg","shield-6d9e87e5.svg","star-b8bf87ea.svg","support-animate-762603b2.svg","ftools-fa79fd13.png","herobg-ecbfddc8.png","harvardedit-36ffbc20.png","oxfordeditor-8662abce.png","robot-352cd501.png","globe-d7adf010.png","asc-919972ef.png","static-home-1db70e2b.png","the247openhouse-cda052ce.png","gluxy-cover-30167500.png","index-6c84413d.css","index.html","manifest.json"];
+const filesToCache = ["blurr-99397f12.webp","developer-activity-8545d1a3.svg","bg-hero-0ba10949.jpeg","apple-store-994d47a8.svg","billing-fd47dad8.png","business-37b8212e.svg","payment-card-af071def.png","play-google-3035153f.svg","send-454b3199.svg","shield-6d9e87e5.svg","star-b8bf87ea.svg","support-animate-762603b2.svg","ftools-fa79fd13.png","herobg-ecbfddc8.png","harvardedit-36ffbc20.png","oxfordeditor-8662abce.png","globe-d7adf010.png","robot-352cd501.png","asc-919972ef.png","static-home-1db70e2b.png","the247openhouse-cda052ce.png","gluxy-cover-30167500.png","index-6c84413d.css","index.html","manifest.json"];
 const neverCacheUrls = [/\/asc/, /\/ftools/, /manifest.webmanifest /];
 
 // Install
