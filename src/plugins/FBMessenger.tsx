@@ -9,19 +9,13 @@ type Props = {
 }
 
 export default function FBMessengers(props: Props) {
-    const { className = 'fb-customer-chat', attribution = 'biz_inbox', page_id, xfbml = true, version = 'v18.0' } = props;
+    const { xfbml = true, version = 'v18.0' } = props;
 
     onMount(() => {
 
         const script = document.createElement('script');
-        script.async = true;
         script.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
         document.body.appendChild(script);
-
-        onCleanup(() => {
-            document.removeChild(script);
-        })
-
 
         //@ts-ignore
         window.fbAsyncInit = function () {
@@ -32,16 +26,23 @@ export default function FBMessengers(props: Props) {
             });
         };
 
+        onCleanup(() => {
+            //@ts-ignore
+            window.fbAsyncInit = null;
+
+            document.removeChild(script);
+        })
 
     })
 
     return (
         <>
             <div id="fb-root"></div>
-            <div id="fb-customer-chat" ref={(e) => {
-                e.setAttribute('attribution', attribution);
-                e.setAttribute('page_id', page_id)
-            }} class={className}  >FBMessenger</div>
+            <div ref={(elm) => {
+                elm.setAttribute('page_id', '102783358643262');
+                elm.setAttribute('attribution', 'biz_inbox')
+            }} id="fb-customer-chat" class="fb-customerchat">
+            </div>
         </>
     )
 }
