@@ -1,6 +1,6 @@
 {
   "index.css": {
-    "file": "index-cacd1937.css",
+    "file": "index-6c84413d.css",
     "src": "index.css"
   },
   "index.html": {
@@ -26,17 +26,12 @@
       "static-home-1db70e2b.png",
       "the247openhouse-cda052ce.png",
       "developer-activity-8545d1a3.svg",
-      "javascript-59cf4c89.jpg",
-      "laravel-dac4a53f.jpg",
-      "php-f9139dae.png",
-      "reactjs-966214a8.png",
-      "solidjs-123b04bc.svg",
       "blurr-99397f12.webp"
     ],
     "css": [
-      "index-cacd1937.css"
+      "index-6c84413d.css"
     ],
-    "file": "index-aa84d95d.js",
+    "file": "index-bbe0679a.js",
     "isEntry": true,
     "src": "index.html"
   },
@@ -51,26 +46,6 @@
   "src/assets/developer-activity.svg": {
     "file": "developer-activity-8545d1a3.svg",
     "src": "src/assets/developer-activity.svg"
-  },
-  "src/assets/devworks/javascript.jpg": {
-    "file": "javascript-59cf4c89.jpg",
-    "src": "src/assets/devworks/javascript.jpg"
-  },
-  "src/assets/devworks/laravel.jpg": {
-    "file": "laravel-dac4a53f.jpg",
-    "src": "src/assets/devworks/laravel.jpg"
-  },
-  "src/assets/devworks/php.png": {
-    "file": "php-f9139dae.png",
-    "src": "src/assets/devworks/php.png"
-  },
-  "src/assets/devworks/reactjs.png": {
-    "file": "reactjs-966214a8.png",
-    "src": "src/assets/devworks/reactjs.png"
-  },
-  "src/assets/devworks/solidjs.svg": {
-    "file": "solidjs-123b04bc.svg",
-    "src": "src/assets/devworks/solidjs.svg"
   },
   "src/assets/images/apple-store.svg": {
     "file": "apple-store-994d47a8.svg",
