@@ -15,13 +15,13 @@ jobs:
       
     - name: Read content from file
       id: read_file
-      uses: actions/github-script@v6
+      uses: actions/github-script@v4
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const response = await github.repos.getContent({
             owner: 'appsaeed',
-            repo: 'appsaeed.github.io',
+            repo: 'appsaeed',
             path: 'README.md', // Specify the path to your README.md file
           });
           const content = Buffer.from(response.data.content, 'base64').toString();
