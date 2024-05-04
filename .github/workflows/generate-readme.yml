@@ -7,12 +7,7 @@ on:
 
 jobs:
   generate_readme:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Print current directory
-      run: pwd
-      
+    runs-on: ubuntu-latest      
     - name: Checkout code
       uses: actions/checkout@v2
       
@@ -33,9 +28,7 @@ jobs:
     
     - name: Generate README
       run: |
-        echo "# My Project" > README.md
         echo "${{ steps.read_file.outputs.file_content }}" >> README.md
-        echo "Last updated: $(date)" >> README.md
         
     - name: Commit and push changes
       run: |
