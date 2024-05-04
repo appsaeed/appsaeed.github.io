@@ -1,9 +1,7 @@
 import { Link } from "@solidjs/router";
-import { avatar } from "appmon/generate";
-import { getThemeStore, setThemeStore } from "appmon/storage";
-import { adslash } from "appmon/url";
 import { FiMoon, FiSun } from "solid-icons/fi";
 import { For, createSignal, onCleanup, onMount } from "solid-js";
+import { addSlash, avatar, getThemeStore, setThemeStore } from "utilies";
 import settings from "../../app/settings";
 import Image from "../../components/Image";
 import sections from "../../data/className/sections";
@@ -129,7 +127,7 @@ type MenuListProps = {
 export function MenuList({ name }: MenuListProps) {
   return (
     <li>
-      <Link href={adslash(settings.baseURL) + `#${name}`} class={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 capitalize`}>
+      <Link href={addSlash(settings.baseURL) + `#${name}`} class={`block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 capitalize`}>
         {name}
       </Link>
     </li>

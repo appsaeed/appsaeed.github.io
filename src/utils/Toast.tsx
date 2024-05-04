@@ -1,5 +1,5 @@
-import { getThemeStore } from "appmon/storage";
 import Swal from "sweetalert2";
+import { getThemeStore } from "utilies";
 
 const Toast = Swal.mixin({
   toast: true,

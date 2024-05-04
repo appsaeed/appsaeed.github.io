@@ -1,14 +1,14 @@
-import { getThemeStore } from "appmon/storage";
-import { unslash } from "appmon/url";
+import { getThemeStore, unSlash } from "utilies";
 
-const basename = import.meta.env.VITE_BASENAME || "";
+
+const basename = unSlash(import.meta.env.VITE_BASENAME) || "";
 export default {
   name: "Appsaeed",
   mode: import.meta.env.BASE_URL,
   dev: import.meta.env.DEV,
   basename,
   baseURL: import.meta.env.BASE_URL,
-  url: unslash(`${location.protocol}//${location.host}/${basename}`),
+  url: unSlash(`${location.protocol}//${location.host}/${basename}`),
   theme: {
     mode: getThemeStore(),
     color: getThemeStore() === "dark" ? "#e2e8f0" : "#0f172a",

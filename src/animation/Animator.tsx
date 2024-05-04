@@ -2,8 +2,8 @@
  * CSS Animation comonents  for solid js
  * @link https://sarthology.github.io/Animatopy/
  */
-import { stringToMillisecond } from "appmon/str";
 import { createSignal, onCleanup, onMount } from "solid-js";
+import { cssToMillisecond } from "utilies";
 import { AnchorAttr, ButtonAttr, Divattr, HAttr, Pattr, SpanAttr } from "../types/dom";
 import "./animate.css";
 import { AnimateProps, AnimationMotion } from "./type";
@@ -28,7 +28,7 @@ export function createAnimate({ element, once = true, duration = "1s", motion = 
                 entry.target.setAttribute("style", animateStyle);
 
                 //clear inline style added for animation and unsuscribe observer
-                timer = later(stringToMillisecond(duration), () => {
+                timer = later(cssToMillisecond(duration), () => {
                     entry.target.setAttribute("style", defaultStyle);
                     observer.unobserve(entry.target);
                     observer.disconnect();
@@ -68,7 +68,7 @@ export function div({ style, once = true, duration = "1s", motion = "lightSpeedI
             entries.forEach((entry) => {
                 if (entry.isIntersecting && once) {
                     setVisible(true);
-                    timer = later(stringToMillisecond(duration), () => {
+                    timer = later(cssToMillisecond(duration), () => {
                         setVisible(false);
                         observer.unobserve(entry.target);
                         observer.disconnect();
@@ -113,7 +113,7 @@ export function h1({ style, once = true, duration = "1s", motion = "lightSpeedIn
             entries.forEach((entry) => {
                 if (entry.isIntersecting && once) {
                     setVisible(true);
-                    timer = later(stringToMillisecond(duration), () => {
+                    timer = later(cssToMillisecond(duration), () => {
                         setVisible(false);
                         observer.unobserve(entry.target);
                         observer.disconnect();
@@ -156,7 +156,7 @@ export function h2({ style, once = true, duration = "1s", motion = "lightSpeedIn
             entries.forEach((entry) => {
                 if (entry.isIntersecting && once) {
                     setVisible(true);
-                    timer = later(stringToMillisecond(duration), () => {
+                    timer = later(cssToMillisecond(duration), () => {
                         setVisible(false);
                         observer.unobserve(entry.target);
                         observer.disconnect();
@@ -201,7 +201,7 @@ export function h3({ style, once = true, duration = "1s", motion = "lightSpeedIn
             entries.forEach((entry) => {
                 if (entry.isIntersecting && once) {
                     setVisible(true);
-                    timer = later(stringToMillisecond(duration), () => {
+                    timer = later(cssToMillisecond(duration), () => {
                         setVisible(false);
                         observer.unobserve(entry.target);
                         observer.disconnect();
@@ -246,7 +246,7 @@ export function h4({ style, once = true, duration = "1s", motion = "lightSpeedIn
             entries.forEach((entry) => {
                 if (entry.isIntersecting && once) {
                     setVisible(true);
-                    timer = later(stringToMillisecond(duration), () => {
+                    timer = later(cssToMillisecond(duration), () => {
                         setVisible(false);
                         observer.unobserve(entry.target);
                         observer.disconnect();
@@ -290,7 +290,7 @@ export function h5({ style, once = true, duration = "1s", motion = "lightSpeedIn
                     setVisible(true);
                     if (once) {
                         //clear animation
-                        timer = later(stringToMillisecond(duration), () => {
+                        timer = later(cssToMillisecond(duration), () => {
                             setVisible(false);
                             observer.unobserve(element as Element);
                             observer.disconnect();
@@ -337,7 +337,7 @@ export function h6({ style, once = true, duration = "1s", motion = "lightSpeedIn
             entries.forEach((entry) => {
                 if (entry.isIntersecting && once) {
                     setVisible(true);
-                    timer = later(stringToMillisecond(duration), () => {
+                    timer = later(cssToMillisecond(duration), () => {
                         setVisible(false);
                         observer.unobserve(entry.target);
                         observer.disconnect();
@@ -382,7 +382,7 @@ export function span({ style, once = true, duration = "1s", motion = "lightSpeed
             entries.forEach((entry) => {
                 if (entry.isIntersecting && once) {
                     setVisible(true);
-                    timer = later(stringToMillisecond(duration), () => {
+                    timer = later(cssToMillisecond(duration), () => {
                         setVisible(false);
                         observer.unobserve(entry.target);
                         observer.disconnect();
@@ -427,7 +427,7 @@ export function p({ style, once = true, duration = "1s", motion = "lightSpeedIn"
             entries.forEach((entry) => {
                 if (entry.isIntersecting && once) {
                     setVisible(true);
-                    timer = later(stringToMillisecond(duration), () => {
+                    timer = later(cssToMillisecond(duration), () => {
                         setVisible(false);
                         observer.unobserve(entry.target);
                         observer.disconnect();
@@ -471,7 +471,7 @@ export function button({ style, once = true, duration = "1s", motion = "lightSpe
             entries.forEach((entry) => {
                 if (entry.isIntersecting && once) {
                     setVisible(true);
-                    timer = later(stringToMillisecond(duration), () => {
+                    timer = later(cssToMillisecond(duration), () => {
                         setVisible(false);
                         observer.unobserve(entry.target);
                         observer.disconnect();
@@ -515,7 +515,7 @@ export function a({ style, once = true, duration = "1s", motion = "lightSpeedIn"
             entries.forEach((entry) => {
                 if (entry.isIntersecting && once) {
                     setVisible(true);
-                    timer = later(stringToMillisecond(duration), () => {
+                    timer = later(cssToMillisecond(duration), () => {
                         setVisible(false);
                         observer.unobserve(entry.target);
                         observer.disconnect();

@@ -14,9 +14,9 @@ export default [
     logo: "https://static.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico",
     link: "https://bd.linkedin.com/in/appsaeed",
   },
-  // {
-  //   name: "Toptal",
-  //   logo: "https://assets.toptal.io/images?url=https%3A%2F%2Fwww.toptal.com%2Ftoptal-logo.png",
-  //   link: "",
-  // },
+  {
+    name: "Toptal",
+    logo: "https://assets.toptal.io/images?url=https%3A%2F%2Fwww.toptal.com%2Ftoptal-logo.png",
+    link: "",
+  },
 ];

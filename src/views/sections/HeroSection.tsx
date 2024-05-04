@@ -1,8 +1,7 @@
-import { loadImage } from "appmon/load";
 import { FiDownload } from "solid-icons/fi";
 //@ts-ignore
 import { onCleanup, onMount } from "solid-js";
-import { random } from "utilies";
+import { loadImage, random } from "utilies";
 import Animate from "../../animation";
 import { createAnimateStyle } from "../../animation/Animator";
 import { AnimationMotion } from "../../animation/type";

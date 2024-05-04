@@ -1,6 +1,7 @@
-import { shareToSocial } from "appmon/utils";
+
 import { BsLink45deg, BsPlus, BsShare } from "solid-icons/bs";
 import { For, createSignal } from "solid-js";
+import { shareToSocial } from "utilies";
 import { createAnimate } from "../../animation/Animator";
 import settings from "../../app/settings";
 import Image from "../../components/Image";

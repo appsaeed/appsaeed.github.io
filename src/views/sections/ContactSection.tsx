@@ -1,9 +1,9 @@
 import emailjs from "@emailjs/browser";
-import { isMail } from "appmon/validation";
 import { BsWhatsapp } from "solid-icons/bs";
 import { FiPhone } from "solid-icons/fi";
 import { createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
+import { isMail } from "utilies";
 import Animate from "../../animation";
 import assets from "../../assets";
 import Image from "../../components/Image";

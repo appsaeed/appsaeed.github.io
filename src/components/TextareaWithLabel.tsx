@@ -1,4 +1,5 @@
-import { toSeoUrl } from "appmon/url";
+
+import { toSeoUrl } from "utilies";
 import { TextareaAttr } from "../types/dom";
 import InputLabel from "./InputLabel";
 import Textarea from "./Textarea";

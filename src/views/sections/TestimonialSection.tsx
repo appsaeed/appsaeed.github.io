@@ -4,7 +4,7 @@ import Animate from "../../animation";
 import Image from "../../components/Image";
 import SectionHeader from "../../components/SectionHeader";
 
-import { avatar } from "appmon/generate";
+import { avatar } from "utilies";
 import { Review, testimonials } from "../../data/testimonials";
 import { HtmlAttr } from "../../types/dom";
 
