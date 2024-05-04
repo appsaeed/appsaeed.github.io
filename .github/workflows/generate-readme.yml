@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Print current directory
+      run: pwd
+      
     - name: Checkout code
       uses: actions/checkout@v2
       
@@ -21,7 +24,7 @@ jobs:
         script: |
           const response = await github.repos.getContent({
             owner: 'appsaeed',
-            repo: 'appsaeed',
+            repo: 'appsaeed.github.io',
             path: 'README.md', // Specify the path to your README.md file
           });
           const content = Buffer.from(response.data.content, 'base64').toString();
