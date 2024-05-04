@@ -31,7 +31,7 @@ export default function AISections(props: HtmlAttr) {
       <SectionHeader>Artificial intelligence</SectionHeader>
       <div class={`grid grid-cols-1 sm:grid-cols-2`}>
         <div class={`${props.class} border-0 mb-6 max-sm:order-2`}>
-          <Animate.h1 motion="slideInDown" class="font-poppins dark:text-white text-2xl ">
+          <Animate.h1 motion="slideInDown" class="dark:text-white text-2xl ">
             The Next Generation Web Unleashing the Power of AI
           </Animate.h1>
           <Animate.p motion="slideInLeft" class={`mt-5 font-light text-base`}>

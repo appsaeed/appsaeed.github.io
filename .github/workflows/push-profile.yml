@@ -3,7 +3,7 @@ name: Push main profile repo
 on:
   push:
     branches:
-      - main  # or any other branch you want to trigger on
+      - appsaeed  # or any other branch you want to trigger on
 
 jobs:
   push_changes:

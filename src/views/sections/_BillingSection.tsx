@@ -19,13 +19,13 @@ export default function BillingSection(props: HtmlAttr) {
         <div class={"sm:col-span-5"}>
           <h2
             class={
-              "font-poppins font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full"
+              "font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full"
             }
           >
             Easily control your <br class="sm:block hidden" /> billing & invoicing
           </h2>
           <p
-            class={`font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px] max-w-[470px] mt-5`}
+            class={`font-normal text-dimWhite text-[18px] leading-[30.8px] max-w-[470px] mt-5`}
           >
             Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean
             neque. Fusce ipsum orci rhoncus aliporttitor integer platea placerat.

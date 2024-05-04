@@ -80,7 +80,8 @@ export type AnimationMotion =
   | "hinge"
   | "jackInTheBox"
   | "rollIn"
-  | "rollOut";
+  | "rollOut"
+  | "rollInOut";
 export type AnimateProps = {
   motion?: AnimationMotion;
   duration?: string | number;

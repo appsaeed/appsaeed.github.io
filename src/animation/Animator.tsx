@@ -555,7 +555,7 @@ export function a({ style, once = true, duration = "1s", motion = "lightSpeedIn"
  * @param style
  * @returns {string}
  */
-export function createAnimateStyle(motion: AnimationMotion, duration: string | number, infinite: boolean, style?: string): string {
+export function createAnimateStyle(motion: AnimationMotion, duration: string | number = '1s', infinite: boolean = false, style: string = ''): string {
     const _infinite = infinite ? "animation-iteration-count: infinite;" : "";
     return `
           -webkit-animation-name: ${motion};
@@ -566,7 +566,8 @@ export function createAnimateStyle(motion: AnimationMotion, duration: string | n
           animation-duration: ${duration};
           -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-          ${_infinite} 
+          ${_infinite}
+           
           ${style}`;
 }
 

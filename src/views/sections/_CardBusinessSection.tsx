@@ -9,12 +9,12 @@ export default function CardBusinessSection(props: HtmlAttr) {
       <div class="sm:flex">
         <div class={""}>
           <h2
-            class={`font-poppins font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full`}
+            class={`font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full`}
           >
             Find a better card deal in few easy steps.
           </h2>
           <p
-            class={`font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px] max-w-[470px] mt-5`}
+            class={`font-normal text-dimWhite text-[18px] leading-[30.8px] max-w-[470px] mt-5`}
           >
             Arcu tortor, purus in mattis at sed integer faucibus. Aliquet quis aliquet
             eget mauris tortor.ç Aliquet ultrices ac, ametau.
