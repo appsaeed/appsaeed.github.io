@@ -11,11 +11,11 @@ jobs:
 
     steps:      
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       
     - name: Read content from file
       id: read_file
-      uses: actions/github-script@v4
+      uses: actions/github-script@v6
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
