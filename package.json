@@ -8,8 +8,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "view": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "readme": "node vite-config/readme.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",

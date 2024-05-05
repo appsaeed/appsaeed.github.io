@@ -23,7 +23,6 @@ export default function (props: HtmlAttr) {
         "shake",
         "swing",
         "tada",
-        "wobble",
         "jello",
         "heartBeat",
         "bounceInDown",
@@ -40,32 +39,17 @@ export default function (props: HtmlAttr) {
         "fadeInLeft",
         "fadeInRight",
         "fadeInUp",
-        "fadeInUpBig",
         "fadeOut",
         "fadeOutDown",
-        "fadeOutDownBig",
         "fadeOutLeft",
-        "fadeOutLeftBig",
         "fadeOutRight",
-        "fadeOutRightBig",
         "fadeOutUp",
         "fadeOutUpBig",
-        "flip",
         "flipInX",
         "flipOutX",
         "flipOutY",
         "lightSpeedIn",
         "lightSpeedOut",
-        "rotateIn",
-        "rotateInDownLeft",
-        "rotateInDownRight",
-        "rotateInUpLeft",
-        "rotateInUpRight",
-        "rotateOut",
-        "rotateOutDownLeft",
-        "rotateOutDownRight",
-        "rotateOutUpLeft",
-        "rotateOutUpRight",
         "slideInUp",
         "slideInDown",
         "slideInLeft",
@@ -118,7 +102,7 @@ export default function (props: HtmlAttr) {
       const interval = setInterval(() => {
         const animateElm = document.querySelector('[data-animate="true"]');
         slideHide(animateElm)
-        slideShow(animates[random(0, animates.length)], animateElm?.nextElementSibling || children[0])
+        slideShow(animates[random(0, animateName.length)], animateElm?.nextElementSibling || children[0])
       }, timer)
 
       onCleanup(() => {
@@ -136,32 +120,12 @@ export default function (props: HtmlAttr) {
         });
       }}
       {...props}
-      class={`bg-blurr bg-cover bg-left-top px-10 bg-fixed`}
+      class={`bg-blurr bg-cover bg-left-top px-10 bg-fixed overflow-hidden max-w-fit`}
     >
       <div class="w-full mx-auto text-center pt-28 pb-16">
         <Animate.h1 class="mb-20 text-3xl font-extrabold   text-slate-300">
           I'm <span class=" font-bold text-6xl">Saeed</span> Hossen
         </Animate.h1>
-        <div ref={slides} class="relative w-full mb-28 text-4xl font-extrabold  text-white h-10">
-          <p>
-            Full-Stack web development
-          </p>
-          <p >
-            Laravel Application
-          </p>
-          <p>
-            Frontend Framework
-          </p>
-          <p>
-            TailwindCSS | RectJS
-          </p>
-          <p >
-            Artificial intelligence
-          </p>
-          <p >
-            Datebase & Rest API
-          </p>
-        </div>
 
         <Animate.h2 motion="slideInUp" class="mb-20 text-3xl">
           Full-stack developer with expertise in JavaScript, Laravel, ReactJS, AI, and TailwindCSS. Building modern web applications with a focus on APIs. <b>Open to new opportunities!</b>
@@ -170,9 +134,29 @@ export default function (props: HtmlAttr) {
         <Animate.a href="/saeed-cv.pdf" download={'Saeed CV for web development job'} motion="slideInUp" type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-10 py-2 text-center mr-2 mb-2" >
           <FiDownload style={{ display: 'inline' }} />  Download CV
         </Animate.a>
+
+        <div ref={slides} class="relative w-full mb-20 text-4xl font-extrabold  text-white h-10">
+          <p class="absolute top-full left-0 right-0">
+            Full-Stack web development
+          </p>
+          <p class="absolute top-full left-0 right-0">
+            Laravel Application
+          </p>
+          <p class="absolute top-full left-0 right-0">
+            Frontend Framework
+          </p >
+          <p class="absolute top-full left-0 right-0">
+            TailwindCSS | RectJS
+          </p>
+          <p class="absolute top-full left-0 right-0">
+            Artificial intelligence
+          </p>
+          <p class="absolute top-full left-0 right-0" >
+            Datebase & Rest API
+          </p>
+        </div>
+
       </div>
     </section>
   );
 }
-
-export const typingText = ["Full Stack web developer", "Laravel Application", "Wordpress Website", "Frontend Framework", "Solid Js", "React Js", "Next  Js", "Progressive Web App ( PWA )", "Application Programming Interface ( API )", "Artificial intelligence ( AI )", "Database"];
