@@ -9,6 +9,7 @@ export default [
   {
     name: "ASC",
     title: "AI Sources Creation",
+    category: 'client projects',
     image: asc,
     description: `Revolutionize Content Creation with Our Web-Based AI Tool - Powered by WordPress, ReactJS, and TypeScript Introducing our cutting-edge web-based AI tool, seamlessly integrated into the WordPress backend and brought to life with the dynamic UI design of ReactJS and TypeScript on the frontend. This powerhouse tool empowers users to effortlessly generate email content, craft engaging blogs, and create captivating articles, among many other possibilities`,
     tags: ["Wordpress", "API", "React Js", "Typescript"],
@@ -61,4 +62,4 @@ export default [
     link: "https://oxfordeditors.com",
     github_link: "https://github.com/appsaeed",
   },
-];
+] as const;

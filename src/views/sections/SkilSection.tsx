@@ -31,17 +31,12 @@ export default function SkilSection(props: HtmlAttr) {
   );
 }
 
-type KnowlagePrps = {
-  index?: number;
-  name: string;
-  image: string;
-  percent: number;
-  link?: string;
-};
+type KnowlagePrps = typeof skils[number] & { index: number };
 
-export function Knowlage({ name, image: icon, percent, index }: KnowlagePrps) {
+export function Knowlage({ name_with, image: icon, percent, index }: KnowlagePrps) {
   let element: HTMLDivElement | undefined;
   const [count, setCount] = createSignal(0);
+
   onMount(() => {
     let timer: NodeJS.Timeout | undefined;
     function process() {
@@ -96,7 +91,7 @@ export function Knowlage({ name, image: icon, percent, index }: KnowlagePrps) {
       </div>
       <div class="flex-auto w-full">
         <div class="flex justify-between mb-1">
-          <span class="text-base font-medium text-blue-700 dark:text-white">{name}</span>
+          <span class="text-base font-medium text-blue-700 dark:text-white">{name_with}</span>
           <span class="counter text-sm font-medium text-blue-700 dark:text-white">
             {count()}%
           </span>

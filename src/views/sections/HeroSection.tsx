@@ -116,26 +116,26 @@ export default function (props: HtmlAttr) {
       ref={(hero) => {
         loadImage(assets.bg_hero).then(() => {
           hero.classList.remove("bg-blurr");
-          hero.setAttribute("style", `background-image: url(${assets.bg_hero});`);
+          hero.setAttribute("style", `background-image: urls(${assets.bg_hero});`);
         });
       }}
       {...props}
-      class={`bg-blurr bg-cover bg-left-top px-10 bg-fixed overflow-hidden max-w-fit`}
+      class={`bg-blurrs bg-cover bg-left-top px-10 bg-fixed overflow-hidden max-w-fit`}
     >
       <div class="w-full mx-auto text-center pt-28 pb-16">
-        <Animate.h1 class="mb-20 text-3xl font-extrabold   text-slate-300">
-          I'm <span class=" font-bold text-6xl">Saeed</span> Hossen
+        <Animate.h1 class="mb-20 text-3xl font-medium">
+          I'm <span class="font-bold text-4xl">Saeed</span> Hossen
         </Animate.h1>
 
         <Animate.h2 motion="slideInUp" class="mb-20 text-3xl">
           Full-stack developer with expertise in JavaScript, Laravel, ReactJS, AI, and TailwindCSS. Building modern web applications with a focus on APIs. <b>Open to new opportunities!</b>
         </Animate.h2>
 
-        <Animate.a href="/saeed-cv.pdf" download={'Saeed CV for web development job'} motion="slideInUp" type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-10 py-2 text-center mr-2 mb-2" >
+        <Animate.a href="/saeed-cv.pdf" download={'Saeed CV for web development job'} motion="slideInUp" type="button" class=" text-slate-300 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-10 py-2 text-center mr-2 mb-2" >
           <FiDownload style={{ display: 'inline' }} />  Download CV
         </Animate.a>
 
-        <div ref={slides} class="relative w-full mb-20 text-4xl font-extrabold  text-white h-10">
+        <div ref={slides} class="relative w-full mb-20 text-4xl font-sans h-10">
           <p class="absolute top-full left-0 right-0">
             Full-Stack web development
           </p>
@@ -143,16 +143,19 @@ export default function (props: HtmlAttr) {
             Laravel Application
           </p>
           <p class="absolute top-full left-0 right-0">
+            NodeJS & Express
+          </p>
+          <p class="absolute top-full left-0 right-0">
             Frontend Framework
           </p >
           <p class="absolute top-full left-0 right-0">
-            TailwindCSS | RectJS
+            TailwindCSS | ReactJS
           </p>
           <p class="absolute top-full left-0 right-0">
             Artificial intelligence
           </p>
           <p class="absolute top-full left-0 right-0" >
-            Datebase & Rest API
+            Datebase & REST API
           </p>
         </div>
 
