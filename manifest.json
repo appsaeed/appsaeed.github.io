@@ -1,0 +1,51 @@
+{
+  "index.css": {
+    "file": "index-dd9c836e.css",
+    "src": "index.css"
+  },
+  "index.html": {
+    "assets": [
+      "support-animate-762603b2.svg",
+      "robot-352cd501.png",
+      "send-454b3199.svg",
+      "shield-6d9e87e5.svg",
+      "star-b8bf87ea.svg",
+      "developer-activity-8545d1a3.svg",
+      "blurr-99397f12.webp"
+    ],
+    "css": [
+      "index-dd9c836e.css"
+    ],
+    "file": "index-42443ddb.js",
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "src/assets/blurr.webp": {
+    "file": "blurr-99397f12.webp",
+    "src": "src/assets/blurr.webp"
+  },
+  "src/assets/developer-activity.svg": {
+    "file": "developer-activity-8545d1a3.svg",
+    "src": "src/assets/developer-activity.svg"
+  },
+  "src/assets/images/robot.png": {
+    "file": "robot-352cd501.png",
+    "src": "src/assets/images/robot.png"
+  },
+  "src/assets/images/send.svg": {
+    "file": "send-454b3199.svg",
+    "src": "src/assets/images/send.svg"
+  },
+  "src/assets/images/shield.svg": {
+    "file": "shield-6d9e87e5.svg",
+    "src": "src/assets/images/shield.svg"
+  },
+  "src/assets/images/star.svg": {
+    "file": "star-b8bf87ea.svg",
+    "src": "src/assets/images/star.svg"
+  },
+  "src/assets/images/support-animate.svg": {
+    "file": "support-animate-762603b2.svg",
+    "src": "src/assets/images/support-animate.svg"
+  }
+}
