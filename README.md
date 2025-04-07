@@ -1,4 +1,4 @@
-![Saeed web application banner](https://raw.githubusercontent.com/appsaeed/assets/main/me/banner.jpg)
+<!-- ![Saeed web application banner](https://raw.githubusercontent.com/appsaeed/assets/main/me/banner.jpg) -->
 
 ## Hi <img src="https://raw.githubusercontent.com/appsaeed/assets/main/emoji/hello.gif" width="30" alt="hi" />, Nice to see you.
 
@@ -56,101 +56,6 @@ Experience working in freelance marketplaces (Fiverr Level 2) specializing in va
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-e95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-blue?style=for-the-badge&logo=windows&logoColor=white)
 
-<table>
-    <thead>
-        <tr style="border: none;">
-            <td style="min-width:160px"><b>Project name</b></td>
-            <td><b>Description</b></td>
-            <td><b>Tags</b></td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <a href="https://github.com/appsaeed/laravel-saas-app" target="_blank">Laravel SaaS Application</a>
-                <br/>
-                <br/>
-                <a href="https://saastask.onrender.com" target="_blank">demo link</a>
-            </td>
-            <td>Built a Laravel SaaS app with user/admin dashboards and a custom real-time chat that facilitates
-                seamless communication. I successfully tackled chat integration challenges through rigorous testing and
-                debugging, and implemented automated cron jobs to ensure smooth operation. The application also empowers
-                super admins with control over environment and settings.</td>
-            <td>Laravel | Blade | API</td>
-        </tr>
-        <tr>
-            <td>
-                <a href="https://github.com/appsaeed/task" target="_blank">Pretty Task</a>
-                <br/>
-                <br/>
-                <a href="https://appsaeed.github.io/task/" target="_blank">demo link</a>
-            </td>
-            <td>Implemented a modern, scalable task management application using the latest tech stack: ReactJS,
-                TypeScript, and TailwindCSS. Leveraged Firebase's serverless architecture for efficient backend
-                operations, minimizing maintenance and enabling real-time data synchronization. Implemented server-side
-                push notifications with Node.js to ensure users receive instant task updates</td>
-            <td>Javascript | NodeJS | TypeScript | TailwindCSS</td>
-        </tr>
-        <tr>
-            <td>
-                <a href="https://github.com/appsaeed/auxonic" target="_blank">Auxonic beta tools</a>
-                <br/>
-                <br/>
-                <a href="https://appsaeed.github.io/auxonic/" target="_blank">demo link</a>
-            </td>
-            <td>This is a web-based developer toolkit built with React.js and TypeScript for lightning-fast performance.
-                It offers essential tools like image-to-text conversion and IP lookup, all in one convenient platform.
-                Firebase Authentication keeps things secure and lets you personalize your experience</td>
-            <td>Firebase | Tailwindcss | Reactjs | Typescript</td>
-        </tr>
-        <tr>
-            <td>
-                <a href="https://github.com/appsaeed/asc" target="_blank">AI Content Creation</a>
-                <br/>
-                <br/>
-                <a href="https://appsaeed.github.io/asc" target="_blank">demo link</a>
-            </td>
-            <td>Revolutionize Content Creation with the Web-Based AI Tool - Powered by WordPress, ReactJS, and
-                TypeScript seamlessly integrated into the WordPress backend and brought to life with the dynamic UI
-                design on the frontend. This powerhouse tool empowers users to effortlessly generate email content,
-                craft engaging blogs, and create captivating articles, among many other possibilities</td>
-            <td>Wordpress | API | React.JS | Typescript</td>
-        </tr>
-        <tr>
-            <td>
-                <a href="https://github.com/appsaeed/nodejs-course-streaming" target="_blank">NodeJS courses
-                    streaming</a>
-                <br/>
-                <br/>
-                <a href="#" target="_blank">demo link</a>
-            </td>
-            <td>Master Node.js interactively! This platform offers YouTube/Udemy-like features for students & teachers:
-                Watch lectures, build content & playlists, discuss concepts, track progress, leverage comments & likes.
-                Replay abilities empower teachers. Go beyond videos: Implement full-stack with Custom Model Queries
-                (toughest challenge, but aced it with Laravel knowledge!)</td>
-            <td>NodeJS | ExpressJS | EJS | Database</td>
-        </tr>
-        <tr>
-            <td>
-                <a href="https://github.com/appsaeed/utilies?tab=readme-ov-file#other-packages" target="_blank">NPM
-                    Packages</a>
-                <br/>
-                <br/>
-                <a href="https://www.npmjs.com/package/utilies#other-packages" target="_blank">demo link</a>
-            </td>
-            <td>
-                Published npm packages: (Javascript utility package) for JS utilities functions and methods to integrate
-                and enhance developer experiences in the development of an application faster.
-                Open-Source Contributor: exploring and contributing to open source javascript, react, PHP, and laravel
-                projects.
-                Vite.js Plugins: Developed (vite-svg, vite-sitemap) for SVG integration & sitemap generation. (Focuses
-                on Vite and key functionalities)
-            </td>
-            <td>Javascript package | NPM Packages | Vite Plugins</td>
-        </tr>
-    </tbody>
-
-</table>
 
 ## Where to Find Me
 
