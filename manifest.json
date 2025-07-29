@@ -1,0 +1,31 @@
+{
+  "index.css": {
+    "file": "index-dd9c836e.css",
+    "src": "index.css"
+  },
+  "index.html": {
+    "assets": [
+      "support-animate-762603b2.svg",
+      "developer-activity-8545d1a3.svg",
+      "blurr-99397f12.webp"
+    ],
+    "css": [
+      "index-dd9c836e.css"
+    ],
+    "file": "index-3825f884.js",
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "src/assets/blurr.webp": {
+    "file": "blurr-99397f12.webp",
+    "src": "src/assets/blurr.webp"
+  },
+  "src/assets/developer-activity.svg": {
+    "file": "developer-activity-8545d1a3.svg",
+    "src": "src/assets/developer-activity.svg"
+  },
+  "src/assets/images/support-animate.svg": {
+    "file": "support-animate-762603b2.svg",
+    "src": "src/assets/images/support-animate.svg"
+  }
+}
